@@ -38,7 +38,7 @@ function Login(props) {
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email address:</label>
           <input
-            placeholder="youremail@test.com"
+            placeholder="youremail@mail.com"
             name="email"
             type="email"
             id="email"
