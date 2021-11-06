@@ -1,4 +1,4 @@
 const User = require("./User");
-const Category = require("./Category");
-
-module.exports = { User, Category };
+const Episode = require("./Episode");
+const Podcast = require("./Podcast");
+module.exports = { User, Episode, Podcast };
