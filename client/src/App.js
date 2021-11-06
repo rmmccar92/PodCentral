@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   ApolloClient,
@@ -7,12 +7,13 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
 import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Nav from "./components/Nav";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -34,21 +35,29 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const theme = createTheme({
+    palette: {
+      type: "dark",
+    }
+  });
+
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <div>
-          {/* <StoreProvider> */}
-          <Nav />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-            <Route component={NoMatch} />
-          </Switch>
-          {/* </StoreProvider> */}
-        </div>
-      </Router>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Router>
+          <div>
+            {/* <StoreProvider> */}
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route component={NoMatch} />
+            </Switch>
+            {/* </StoreProvider> */}
+          </div>
+        </Router>
+      </ThemeProvider>
     </ApolloProvider>
   );
 }
