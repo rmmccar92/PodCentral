@@ -31,4 +31,4 @@ const podcastSchema = new Schema({
 
 const Podcast = mongoose.model("Podcast", podcastSchema);
 
-module.exports = { Podcast, podcastSchema };
+module.exports = Podcast;

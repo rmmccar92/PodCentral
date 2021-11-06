@@ -28,8 +28,8 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  likedPodcasts: [podcastSchema],
-  createdPodcast: Podcast,
+  // likedPodcasts: [podcastSchema],
+  // createdPodcast: Podcast,
 });
 
 // set up pre-save middleware to create password
