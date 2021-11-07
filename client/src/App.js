@@ -9,11 +9,15 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
+import GlobalAppBar from './components/GlobalAppBar'
 
 import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Profile from "./pages/Profile"
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -35,30 +39,40 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
   const theme = createTheme({
-    palette: {
-      type: "dark",
-    }
+    typography: {
+      fontFamily: [
+        'Oswald',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif'
+      ].join(','),
+    },
   });
 
   return (
-    <ApolloProvider client={client}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <ApolloProvider client={client}>
         <Router>
           <div>
             {/* <StoreProvider> */}
+            <GlobalAppBar />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path="/profile" component={Profile} />
               <Route component={NoMatch} />
             </Switch>
             {/* </StoreProvider> */}
           </div>
         </Router>
-      </ThemeProvider>
-    </ApolloProvider>
+      </ApolloProvider>
+    </ThemeProvider>
   );
 }
 
