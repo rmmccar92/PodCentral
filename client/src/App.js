@@ -9,8 +9,6 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import useMediaQuery from '@mui/material/useMediaQuery';
-
 import GlobalAppBar from './components/GlobalAppBar'
 
 import Home from "./pages/Home";
@@ -39,7 +37,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   const theme = createTheme({
     typography: {

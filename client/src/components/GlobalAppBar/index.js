@@ -8,12 +8,30 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
 
 const GlobalAppBar = () => {
 
+  const darkBar = createTheme({
+    palette: {
+      secondary: {
+        main: "#000000",
+        contrastText: "#FFFFFF"
+      }
+    },
+    typography: {
+      fontFamily: [
+        'Oswald',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif'
+      ].join(','),
+    },
+  });
 
   const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -60,57 +78,62 @@ const GlobalAppBar = () => {
   if (Auth.loggedIn) {
     return (
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              sx={{ mr: 2 }}
-            >
-            </IconButton>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-            >
-              PodcastCentral
-            </Typography>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search..."
-                inputProps={{ 'aria-label': 'search' }}
-              />
-            </Search>
-            <Button component={Link} color="inherit" onClick={() => Auth.logout()}>Logout</Button>
-          </Toolbar>
-        </AppBar>
+        <ThemeProvider theme={darkBar}>
+          <AppBar position="static" color={"secondary"}>
+            <Toolbar>
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="open drawer"
+                sx={{ mr: 2 }}
+              >
+              </IconButton>
+              <Typography
+                variant="h6"
+                noWrap
+                component={Link}
+                to="/profile"
+                sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+              >
+                PodcastCentral
+              </Typography>
+              <Search>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Search..."
+                  inputProps={{ 'aria-label': 'search' }}
+                />
+              </Search>
+              <Button component={Link} color="inherit" onClick={() => Auth.logout()}>Logout</Button>
+            </Toolbar>
+          </AppBar>
+        </ThemeProvider>
       </Box>
     );
   } else {
     return (
       <Box >
-        <AppBar position="static">
-          <Toolbar >
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              PodCentral
-            </Typography>
-            <Button component={Link} color="inherit" to="/login">Login</Button>
-          </Toolbar>
-        </AppBar>
+        <ThemeProvider theme={darkBar}>
+          <AppBar position="static" color={"secondary"}>
+            <Toolbar >
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+              >
+              </IconButton>
+              <Typography component={Link} to="/" variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                PodCentral
+              </Typography>
+              <Button component={Link} color="inherit" to="/login">Login</Button>
+            </Toolbar>
+          </AppBar>
+        </ThemeProvider>
       </Box >
     );
   }
