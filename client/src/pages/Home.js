@@ -1,76 +1,51 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Grid from '@mui/material/Grid';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
+import Grow from '@mui/material/Grow';
 
-import criminal from '../assets/podcast-image-criminal.png';
-import darkHouse from '../assets/podcast-image-dark-house.jpeg';
-import fatMascara from '../assets/podcast-image-fat-mascara.jpg';
+import podcastLogo from '../assets/podcast-logo.png';
 
 const styles = {
-  images: {
-    height: '300px',
+  podcastLogo: {
     display: 'block',
     marginLeft: 'auto',
-    marginRight: 'auto'
+    marginRight: 'auto',
+    width: '300px'
   }
 }
 
 const Home = () => {
-  const theme = createTheme({
-    palette: {
-      type: "dark",
-    }
-  });
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box >
-        <AppBar position="static">
-          <Toolbar >
 
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              PodCentral
-            </Typography>
-            <Button component={Link} color="inherit" to="/login">Login</Button>
-          </Toolbar>
-        </AppBar>
-      </Box >
-      <Box pt={3}>
-        <h2 align="center">Welcome to PodCentral, where creators can collaborate and showcase their podcasts.</h2>
-      </Box>
-      <Box pt={10}>
-        <h3 align="center">Featured Podcasts</h3>
-      </Box>
-      <Grid container spacing={2} pt={10}>
-        <Grid item xs={4}>
-          <img src={criminal} alt="cover art - criminal" style={styles.images} align="center" />
-        </Grid>
-        <Grid item xs={4}>
-          <img src={darkHouse} alt="cover art - dark house" style={styles.images} align="center" />
-        </Grid>
-        <Grid item xs={4}>
-          <img src={fatMascara} alt="cover art - fat mascara" style={styles.images} align="center" />
-        </Grid>
-      </Grid>
-    </ThemeProvider >
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <Grow style={{ transformOrigin: '0 0 0' }} {...{ timeout: 2000 }} in={true}>
+        <Typography
+          variant="h2"
+          component="div"
+          align="center"
+          pt={2}
+          sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
+        >
+          Interacting with podcast content has never been easier
+        </Typography>
+      </Grow>
+      <Grow style={{ transformOrigin: '0 0 0' }} {...{ timeout: 2000 }} in={true}>
+        <Typography
+          variant="h4"
+          component="div"
+          align="center"
+          pt={5}
+          sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
+        >
+          PodCentral is an easy way to manage your own podcast and discover podcasts that you’ll love
+        </Typography>
+      </Grow>
+      <Grow style={{ transformOrigin: '0 0 0' }} {...{ timeout: 2000 }} in={true}>
+        <Box pt={5}>
+          <img src={podcastLogo} alt="podcast microphone" style={styles.podcastLogo} />
+        </Box>
+      </Grow>
+    </Box>
   );
 };
 
