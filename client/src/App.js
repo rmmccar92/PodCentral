@@ -9,6 +9,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+
 import GlobalAppBar from './components/GlobalAppBar'
 
 import Home from "./pages/Home";
@@ -55,18 +56,16 @@ function App() {
       <CssBaseline />
       <ApolloProvider client={client}>
         <Router>
-          <div>
-            {/* <StoreProvider> */}
-            <GlobalAppBar />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/profile" component={Profile} />
-              <Route component={NoMatch} />
-            </Switch>
-            {/* </StoreProvider> */}
-          </div>
+          {/* <StoreProvider> */}
+          <GlobalAppBar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/profile" component={Profile} />
+            <Route component={NoMatch} />
+          </Switch>
+          {/* </StoreProvider> */}
         </Router>
       </ApolloProvider>
     </ThemeProvider>
