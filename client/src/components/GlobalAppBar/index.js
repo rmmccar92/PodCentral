@@ -115,39 +115,37 @@ const GlobalAppBar = () => {
       );
     } else {
       return (
-        <Button component={Link} color="inherit" to="/login">
-          Login
-        </Button>
+        <Box>
+          <ThemeProvider theme={darkBar}>
+            <AppBar position="static" color={"secondary"}>
+              <Toolbar>
+                <IconButton
+                  size="large"
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  sx={{ mr: 2 }}
+                ></IconButton>
+                <Typography
+                  component={Link}
+                  to="/"
+                  variant="h6"
+                  component="div"
+                  sx={{ flexGrow: 1 }}
+                >
+                  PodCentral
+                  <Button component={Link} color="inherit" to="/login">
+                    Login
+                  </Button>
+                </Typography>
+              </Toolbar>
+            </AppBar>
+          </ThemeProvider>
+        </Box>
       );
     }
   }
 
-  return (
-    <Box>
-      <ThemeProvider theme={darkBar}>
-        <AppBar position="static" color={"secondary"}>
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            ></IconButton>
-            <Typography
-              component={Link}
-              to="/"
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1 }}
-            >
-              PodCentral
-              {showNavigation()}
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      </ThemeProvider>
-    </Box>
-  );
+  return <>{showNavigation()}</>;
 };
 export default GlobalAppBar;
