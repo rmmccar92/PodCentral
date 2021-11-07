@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
+const Podcast = require("./Podcast");
+const podcastSchema = require("./Podcast");
+const Episode = require("./Episode");
 
 const userSchema = new Schema({
   firstName: {
@@ -18,12 +21,15 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
+    match: [/.+@.+\..+/, "Must use a valid email address"],
   },
   password: {
     type: String,
     required: true,
     minlength: 5,
   },
+  // likedPodcasts: [podcastSchema],
+  // createdPodcast: Podcast,
 });
 
 // set up pre-save middleware to create password
