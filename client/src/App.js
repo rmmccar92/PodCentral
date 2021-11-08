@@ -1,4 +1,5 @@
-import * as React from 'react';
+import * as React from "react";
+import { PodCentralProvider } from "./utils/GlobalState";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   ApolloClient,
@@ -7,16 +8,16 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
-import GlobalAppBar from './components/GlobalAppBar'
+import GlobalAppBar from "./components/GlobalAppBar";
 
 import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Profile from "./pages/Profile"
+import Profile from "./pages/Profile";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -38,16 +39,15 @@ const client = new ApolloClient({
 });
 
 function App() {
-
   const theme = createTheme({
     typography: {
       fontFamily: [
-        'Oswald',
-        'Roboto',
+        "Oswald",
+        "Roboto",
         '"Helvetica Neue"',
-        'Arial',
-        'sans-serif'
-      ].join(','),
+        "Arial",
+        "sans-serif",
+      ].join(","),
     },
   });
 
@@ -56,16 +56,16 @@ function App() {
       <CssBaseline />
       <ApolloProvider client={client}>
         <Router>
-          {/* <StoreProvider> */}
-          <GlobalAppBar />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/profile" component={Profile} />
-            <Route component={NoMatch} />
-          </Switch>
-          {/* </StoreProvider> */}
+          <PodCentralProvider>
+            <GlobalAppBar />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/profile" component={Profile} />
+              <Route component={NoMatch} />
+            </Switch>
+          </PodCentralProvider>
         </Router>
       </ApolloProvider>
     </ThemeProvider>
