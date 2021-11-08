@@ -2,35 +2,42 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
-const Podcast = require("./Podcast");
+const Podcast = require("./Podcast").schema;
 const podcastSchema = require("./Podcast");
 const Episode = require("./Episode");
 
-const userSchema = new Schema({
-  firstName: {
-    type: String,
-    required: true,
-    trim: true,
+const userSchema = new Schema(
+  {
+    firstName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      match: [/.+@.+\..+/, "Must use a valid email address"],
+    },
+    password: {
+      type: String,
+      required: true,
+      minlength: 5,
+    },
+    likedPodcasts: [Podcast],
+    createdPodcast: Podcast,
   },
-  lastName: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    match: [/.+@.+\..+/, "Must use a valid email address"],
-  },
-  password: {
-    type: String,
-    required: true,
-    minlength: 5,
-  },
-  // likedPodcasts: [podcastSchema],
-  // createdPodcast: Podcast,
-});
+  {
+    toJSON: {
+      virtuals: true,
+    },
+  }
+);
 
 // set up pre-save middleware to create password
 userSchema.pre("save", async function (next) {
