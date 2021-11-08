@@ -32,6 +32,7 @@ const Profile = () => {
             <Typography
               variant="h2"
               component={Link}
+              to="/publish"
               align="center"
               pt={5}
               sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
@@ -55,7 +56,7 @@ const Profile = () => {
           </Grow>
           <Grow style={{ transformOrigin: '0 0 0' }} {...{ timeout: 2000 }} in={true}>
             <Box pt={3}>
-              <img src={podcastLogo} alt="space ship - discover logo" style={styles.logo} />
+              <a href="/publish"><img src={podcastLogo} alt="space ship - discover logo" style={styles.logo} /></a>
             </Box>
           </Grow>
         </Grid>
@@ -64,6 +65,7 @@ const Profile = () => {
             <Typography
               variant="h2"
               component={Link}
+              to="/discover"
               align="center"
               pt={5}
               sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
@@ -87,7 +89,7 @@ const Profile = () => {
           </Grow>
           <Grow style={{ transformOrigin: '0 0 0' }} {...{ timeout: 2000 }} in={true}>
             <Box pt={3}>
-              <img src={spaceShipLogo} alt="space ship - discover logo" style={styles.spaceLogo} />
+              <a href="/discover"><img src={spaceShipLogo} alt="space ship - discover logo" style={styles.spaceLogo} /></a>
             </Box>
           </Grow>
         </Grid>

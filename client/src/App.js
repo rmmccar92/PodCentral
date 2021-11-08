@@ -18,6 +18,7 @@ import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
+import Publish from "./pages/Publish";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -56,16 +57,17 @@ function App() {
       <CssBaseline />
       <ApolloProvider client={client}>
         <Router>
-          <PodCentralProvider>
-            <GlobalAppBar />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/profile" component={Profile} />
-              <Route component={NoMatch} />
-            </Switch>
-          </PodCentralProvider>
+          {/* <StoreProvider> */}
+          <GlobalAppBar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/publish" component={Publish} />
+            <Route component={NoMatch} />
+          </Switch>
+          {/* </StoreProvider> */}
         </Router>
       </ApolloProvider>
     </ThemeProvider>
