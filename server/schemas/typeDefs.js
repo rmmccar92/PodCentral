@@ -24,7 +24,14 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    createdPodcasts: [Podcast]
+    createdPodcast: Podcast
+    likedPodcasts: [Podcast]
+    comments: [Comment]
+  }
+
+  type Category {
+    _id: ID
+    name: String
   }
 
   type Podcast {
@@ -35,6 +42,7 @@ const typeDefs = gql`
     episodes: [Episode]
     createdBy: User
     likes: Int
+    comments: [Comment]
   }
 
   type Episode {
@@ -47,6 +55,14 @@ const typeDefs = gql`
     duration: Int
     season: Int
     episode: Int
+    comments: [Comment]
+  }
+
+  type Comment {
+    _id: ID
+    text: String
+    createdBy: User
+    createdAt: String
   }
 
   type Auth {
@@ -60,6 +76,12 @@ const typeDefs = gql`
     image: String
   }
 
+  input likedPodcast {
+    title: String
+    description: String
+    image: String
+  }
+
   input addedEpisode {
     title: String
     description: String
@@ -67,8 +89,18 @@ const typeDefs = gql`
     season: Int
   }
 
+  input addedComment {
+    text: String
+    createdBy: ID
+    createdAt: String
+  }
+
   type Query {
-    user: User
+    user(email: String!): User
+    users: [User]
+    me: User
+    catagories: [Category]
+    comments(firstName: String, lastName: String): [Comment]
     podcasts: [Podcast]
     Episode(_id: ID): Podcast
   }
@@ -87,7 +119,11 @@ const typeDefs = gql`
       password: String
     ): User
     login(email: String!, password: String!): Auth
-    addPodcast(title: String!, description: String, image: String): Podcast
+    addPodcast(input: addedPodcast!): User
+    likePodcast(input: likedPodcast!): User
+    addEpisode(input: addedEpisode!): Podcast
+    addComment(input: addedComment!): User
+    removeComment(_id: ID): Comment
   }
 `;
 

@@ -1,4 +1,5 @@
-import * as React from 'react';
+import * as React from "react";
+import { PodCentralProvider } from "./utils/GlobalState";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   ApolloClient,
@@ -7,10 +8,10 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
-import GlobalAppBar from './components/GlobalAppBar'
+import GlobalAppBar from "./components/GlobalAppBar";
 
 import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
@@ -39,16 +40,15 @@ const client = new ApolloClient({
 });
 
 function App() {
-
   const theme = createTheme({
     typography: {
       fontFamily: [
-        'Oswald',
-        'Roboto',
+        "Oswald",
+        "Roboto",
         '"Helvetica Neue"',
-        'Arial',
-        'sans-serif'
-      ].join(','),
+        "Arial",
+        "sans-serif",
+      ].join(","),
     },
   });
 
