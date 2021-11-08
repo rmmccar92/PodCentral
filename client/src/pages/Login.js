@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import Input from '@mui/material/Input';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
@@ -30,14 +35,13 @@ function Login(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/signup">← Go to Signup</Link>
-
-      <h2>Login</h2>
+    <Box sx={{ flexGrow: 1 }} mx={8}>
+      <Typography variant="h6" component={Link} to="/signup">← Go to Signup</Typography>
+      <Typography variant="h4" sx={{ fontWeight: 'bold' }}>Login</Typography>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email address:</label>
-          <input
+          <Input
             placeholder="youremail@mail.com"
             name="email"
             type="email"
@@ -47,7 +51,7 @@ function Login(props) {
         </div>
         <div className="flex-row space-between my-2">
           <label htmlFor="pwd">Password:</label>
-          <input
+          <Input
             placeholder="******"
             name="password"
             type="password"
@@ -61,10 +65,10 @@ function Login(props) {
           </div>
         ) : null}
         <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+          <Button variant="contained" sx={{ backgroundColor: "black" }} type="submit">Submit</Button>
         </div>
       </form>
-    </div>
+    </Box>
   );
 }
 

@@ -130,14 +130,13 @@ const GlobalAppBar = () => {
                   component={Link}
                   to="/"
                   variant="h6"
-                  component="div"
                   sx={{ flexGrow: 1 }}
                 >
                   PodCentral
-                  <Button component={Link} color="inherit" to="/login">
-                    Login
-                  </Button>
                 </Typography>
+                <Button component={Link} color="inherit" to="/login">
+                  Login
+                </Button>
               </Toolbar>
             </AppBar>
           </ThemeProvider>

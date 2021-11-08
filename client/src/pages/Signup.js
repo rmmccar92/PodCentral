@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
+import Button from '@mui/material/Button';
+import Input from '@mui/material/Input';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 
@@ -31,14 +36,13 @@ function Signup(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/login">← Go to Login</Link>
-
-      <h2>Signup</h2>
+    <Box sx={{ flexGrow: 1 }} mx={8}>
+      <Typography variant="h6" component={Link} to="/login">← Go to Login</Typography>
+      <Typography variant="h4" sx={{ fontWeight: 'bold' }}>Signup</Typography>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
           <label htmlFor="firstName">First Name:</label>
-          <input
+          <Input
             placeholder="First"
             name="firstName"
             type="firstName"
@@ -48,7 +52,7 @@ function Signup(props) {
         </div>
         <div className="flex-row space-between my-2">
           <label htmlFor="lastName">Last Name:</label>
-          <input
+          <Input
             placeholder="Last"
             name="lastName"
             type="lastName"
@@ -58,7 +62,7 @@ function Signup(props) {
         </div>
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email:</label>
-          <input
+          <Input
             placeholder="youremail@test.com"
             name="email"
             type="email"
@@ -68,7 +72,7 @@ function Signup(props) {
         </div>
         <div className="flex-row space-between my-2">
           <label htmlFor="pwd">Password:</label>
-          <input
+          <Input
             placeholder="******"
             name="password"
             type="password"
@@ -77,10 +81,10 @@ function Signup(props) {
           />
         </div>
         <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+          <Button variant="contained" sx={{ backgroundColor: "black" }} type="submit">Submit</Button>
         </div>
       </form>
-    </div>
+    </Box>
   );
 }
 
