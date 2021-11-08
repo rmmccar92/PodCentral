@@ -31,3 +31,17 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_PODCAST = gql`
+  mutation addPodcast(
+    $title: String!
+    $description: String
+    $image: String
+  ) {
+    addPodcast(
+      title: $title
+      description: $description
+      image: $image
+    )
+  }
+`;
