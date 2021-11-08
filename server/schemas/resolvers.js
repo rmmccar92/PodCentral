@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, podcastSchema } = require("../models");
+const { User, Podcast } = require("../models");
 const { signToken } = require("../utils/auth");
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
@@ -20,6 +20,9 @@ const resolvers = {
         }
       }
       throw new AuthenticationError("You need to be logged in!");
+    },
+    podcasts: async () => {
+      return await Podcast.find({});
     },
   },
   Mutation: {

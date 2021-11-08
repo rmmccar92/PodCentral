@@ -3,8 +3,6 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 const Podcast = require("./Podcast").schema;
-const podcastSchema = require("./Podcast");
-const Episode = require("./Episode");
 
 const userSchema = new Schema(
   {
