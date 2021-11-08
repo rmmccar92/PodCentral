@@ -1,22 +1,4 @@
 const { gql } = require("apollo-server-express");
-// TODO: fix liked Podcast type
-
-// This goes in mutation
-// likePodcast(input: likedPodcast!): User
-
-// This goes in user
-// likedPodcasts: [Podcast]
-
-// This is the type
-// input likedPodcast {
-//   _id: ID
-//   title: String
-//   description: String
-//   image: String
-//   episodes: [Episode]
-//   createdBy: User
-//   likes: Int
-// }
 
 const typeDefs = gql`
   type User {
@@ -102,7 +84,8 @@ const typeDefs = gql`
     catagories: [Category]
     comments(firstName: String, lastName: String): [Comment]
     podcasts: [Podcast]
-    Episode(_id: ID): Podcast
+    episode(_id: ID): Episode
+    episodes(podcastId: ID): Podcast
   }
 
   type Mutation {
