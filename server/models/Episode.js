@@ -22,6 +22,10 @@ const episodeSchema = new Schema({
   episode: {
     type: Number,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Episode = mongoose.model("Episode", episodeSchema);

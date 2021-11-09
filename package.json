@@ -1,7 +1,7 @@
 {
-  "name": "mern-shopping",
+  "name": "pod_central",
   "version": "1.0.0",
-  "description": "",
+  "description": "A collaboration hub for podcast creators and consumers",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
@@ -21,6 +21,7 @@
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.0.5",
     "@mui/material": "^5.0.6",
-    "cloudinary-react": "^1.7.0"
+    "cloudinary-react": "^1.7.0",
+    "react-cloudinary-upload-widget": "^1.4.3"
   }
 }
