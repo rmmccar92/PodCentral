@@ -19,6 +19,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Publish from "./pages/Publish";
+import cloudinaryWidget from "./components/Cloudinary";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -66,6 +67,7 @@ function App() {
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/publish" component={Publish} />
               <Route component={NoMatch} />
+              <cloudinaryWidget />
             </Switch>
           </PodCentralProvider>
         </Router>
