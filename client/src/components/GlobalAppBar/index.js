@@ -9,8 +9,12 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import MenuItem from '@mui/material/MenuItem';
+import Badge from '@mui/material/Badge';
 // import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from "@mui/icons-material/Search";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+
+
 import Button from "@mui/material/Button";
 
 import podcastLogo from '../../assets/podcast-logo.png';
@@ -101,15 +105,17 @@ const GlobalAppBar = () => {
                 >
                   PodcastCentral
                 </Typography>
-                <Search>
-                  <SearchIconWrapper>
-                    <SearchIcon />
-                  </SearchIconWrapper>
-                  <StyledInputBase
-                    placeholder="Search..."
-                    inputProps={{ "aria-label": "search" }}
-                  />
-                </Search>
+                <MenuItem>
+                  <IconButton
+                    size="large"
+                    aria-label="show 17 new notifications"
+                    color="inherit"
+                  >
+                    <Badge badgeContent={17} color="error">
+                      <NotificationsIcon />
+                    </Badge>
+                  </IconButton>
+                </MenuItem>
                 <Button href="/" color="inherit" onClick={() => Auth.logout()}>
                   Logout
                 </Button>
