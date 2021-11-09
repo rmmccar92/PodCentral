@@ -21,8 +21,11 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    users: async () => {
+      return User.find().populate("comments");
+    },
     podcasts: async () => {
-      return await Podcast.find({});
+      return await Podcast.find({}).populate("episodes");
     },
   },
   Mutation: {

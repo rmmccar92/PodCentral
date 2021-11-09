@@ -57,17 +57,17 @@ function App() {
       <CssBaseline />
       <ApolloProvider client={client}>
         <Router>
-          {/* <StoreProvider> */}
-          <GlobalAppBar />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/publish" component={Publish} />
-            <Route component={NoMatch} />
-          </Switch>
-          {/* </StoreProvider> */}
+          <PodCentralProvider>
+            <GlobalAppBar />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/profile" component={Profile} />
+              <Route exact path="/publish" component={Publish} />
+              <Route component={NoMatch} />
+            </Switch>
+          </PodCentralProvider>
         </Router>
       </ApolloProvider>
     </ThemeProvider>
