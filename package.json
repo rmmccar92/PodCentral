@@ -21,6 +21,7 @@
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.0.5",
     "@mui/material": "^5.0.6",
-    "cloudinary-react": "^1.7.0"
+    "cloudinary-react": "^1.7.0",
+    "mongoose": "^6.0.12"
   }
 }
