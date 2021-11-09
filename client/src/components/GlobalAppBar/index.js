@@ -13,6 +13,15 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
 
+import podcastLogo from '../../assets/podcast-logo.png';
+
+const styles = {
+  podcastLogo: {
+    height: '25px',
+    aspectRatio: '1 / 1'
+  }
+}
+
 const GlobalAppBar = () => {
   const darkBar = createTheme({
     palette: {
@@ -80,13 +89,9 @@ const GlobalAppBar = () => {
           <ThemeProvider theme={darkBar}>
             <AppBar position="static" color={"secondary"}>
               <Toolbar>
-                <IconButton
-                  size="large"
-                  edge="start"
-                  color="inherit"
-                  aria-label="open drawer"
-                  sx={{ mr: 2 }}
-                ></IconButton>
+                <Box mt={1} mx={2}>
+                  <a href="/"><img src={podcastLogo} alt="podcast microphone" style={styles.podcastLogo} /></a>
+                </Box>
                 <Typography
                   variant="h6"
                   noWrap
