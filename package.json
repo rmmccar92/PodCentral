@@ -21,8 +21,6 @@
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.0.5",
     "@mui/material": "^5.0.6",
-    "axios": "^0.24.0",
-    "cloudinary-cli": "^1.1.2",
     "cloudinary-react": "^1.7.0",
     "react-cloudinary-upload-widget": "^1.4.3"
   }
