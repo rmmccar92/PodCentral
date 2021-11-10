@@ -32,10 +32,9 @@ export default function AllCategories({ categoryName }) {
         className="boxColor"
         sx={{
           width: 'auto',
-          // mt: '30px',
           pt: '100px',
           pl: '50px',
-          pr: '50px'
+          pr: '50px',
         }}
       >
         <Grid
@@ -43,79 +42,82 @@ export default function AllCategories({ categoryName }) {
           direction="row"
           justifyContent="space-between"
           alignItems="center"
-          sx={{ ml: "36px", mb: "20px"}}
+          sx={{ ml: '35px', mb: '20px' }}
         >
           <p className="categories">All Categories</p>
         </Grid>
 
         <Grid
           container
+          spacing={3}
           direction="row"
           justifyContent="space-evenly"
           alignItems="center"
-          sx={{ mb: '100px ' }}
+          sx={{ pb: '75px', pl: '50px', pr: '50px' }}
         >
-          <Grid item xs={1.5}>
+          <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={1.5}>
+          <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={1.5}>
+          <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={1.5}>
+          <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={1.5}>
+          <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
           </Grid>
         </Grid>
 
         <Grid
           container
+          spacing={3}
           direction="row"
           justifyContent="space-evenly"
           alignItems="center"
-          sx={{ mb: '100px ' }}
+          sx={{ pb: '75px', pl: '50px', pr: '50px' }}
         >
-          <Grid item xs={1.5}>
+          <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={1.5}>
+          <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={1.5}>
+          <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={1.5}>
+          <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={1.5}>
+          <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
           </Grid>
         </Grid>
 
         <Grid
           container
+          spacing={3}
           direction="row"
           justifyContent="space-evenly"
           alignItems="center"
-          sx={{ pb: "100px" }}
+          sx={{ pb: '100px', pl: '50px', pr: '50px' }}
         >
-          <Grid item xs={1.5}>
+          <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={1.5}>
+          <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={1.5}>
+          <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={1.5}>
+          <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={1.5}>
+          <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
           </Grid>
         </Grid>

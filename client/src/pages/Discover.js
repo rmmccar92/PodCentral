@@ -85,27 +85,28 @@ export default function MediaCard() {
 
           <Grid
             container
+            spacing={7}
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
-            sx={{ mb: '50px ' }}
+            sx={{ pb: '50px', pl: '50px', pr: '50px' }}
           >
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <CategoryCard />
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <CategoryCard />
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <CategoryCard />
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <CategoryCard />
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <CategoryCard />
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <CategoryCard />
             </Grid>
           </Grid>
@@ -113,27 +114,28 @@ export default function MediaCard() {
           <p className="categories">Popular</p>
           <Grid
             container
+            spacing={7}
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
-            sx={{ mb: '50px ' }}
+            sx={{ pb: '50px', pl: '50px', pr: '50px' }}
           >
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <Cards />
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <Cards />
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <Cards />
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <Cards />
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <Cards />
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <Cards />
             </Grid>
           </Grid>
@@ -141,27 +143,28 @@ export default function MediaCard() {
           <p className="categories">Family</p>
           <Grid
             container
+            spacing={7}
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
-            sx={{ pb: '50px' }}
+            sx={{ pb: '50px', pl: '50px', pr: '50px' }}
           >
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <Cards />
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <Cards />
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <Cards />
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <Cards />
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <Cards />
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={12} md={6} lg={2}>
               <Cards />
             </Grid>
           </Grid>
