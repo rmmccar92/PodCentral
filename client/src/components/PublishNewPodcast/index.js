@@ -12,6 +12,8 @@ import { GET_ME } from "../../utils/queries";
 import { ADD_PODCAST } from "../../utils/mutations";
 import PublishProfile from "../PublishProfile";
 
+import Auth from "../../utils/auth";
+
 const PublishNewPodcast = () => {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me;
@@ -24,6 +26,20 @@ const PublishNewPodcast = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    const newPodcast = { ...formState };
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      await addPodcast({
+        variables: { input: newPodcast },
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleChange = (event) => {
@@ -131,6 +147,7 @@ const PublishNewPodcast = () => {
                 variant="contained"
                 sx={{ backgroundColor: "black" }}
                 type="submit"
+                onClick={handleFormSubmit}
               >
                 Submit
               </Button>
