@@ -199,8 +199,81 @@ input:focus {
   text-align: center;
 }
 
+.podCard {
+  /* color: #17141d; */
+  transition: all .2s ease-in-out;
+}
+
+.podCard:hover {
+  transform: scale(1.1);
+}
+
+.cardColor {
+  background-color: #0000;
+}
+
 .error-text {
   color: var(--error);
+}
+
+.categories {
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 54px;
+  color: white;
+  letter-spacing: 3px;
+}
+
+/* .allCategories {
+  font-size: 20px;
+} */
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boxColor {
+  background-color: #17141d;
+}
+
+.wYl-font {
+  font-size: 64px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 50px;  
+}
+
+.wYl-font2 {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  margin-right: 50px;
+  font-size: 24px;
+}
+
+.navDown {
+  /* transition: transform 20s ease-out; */
+  
+  /* position: static; */
+  /* height: 300px; */
+  /* top: 35%; */
+  /* right: 10%; */
+  /* z-index: -1; */
+  transition: transform 250ms ease-in-out;
+  content: '';
+  border-bottom: solid 3px #019fb6;  
+  transform: scaleX(0px); 
+}
+
+.navDown:hover {
+  transform: translateY(50px); 
+  transition: height 20s;
+  position:relative;
+  height: 200px;
 }
 
 @media screen and (max-width: 768px) {

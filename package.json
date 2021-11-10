@@ -23,6 +23,7 @@
     "@mui/material": "^5.0.6",
     "axios": "^0.24.0",
     "cloudinary-react": "^1.7.0",
-    "react-cloudinary-upload-widget": "^1.4.3"
+    "react-cloudinary-upload-widget": "^1.4.3",
+    "mongoose": "^6.0.12"
   }
 }
