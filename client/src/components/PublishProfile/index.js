@@ -6,8 +6,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grow from "@mui/material/Grow";
 import Grid from "@mui/material/Grid";
-import Input from "@mui/material/Input";
-import Button from "@mui/material/Button";
 
 import DarkHouse from "../../assets/podcast-image-dark-house.jpeg";
 
@@ -31,21 +29,6 @@ const styles = {
 };
 
 const PublishProfile = () => {
-  // Cloudinary upload function using Axios api call
-  const [fileSelected, setFileSelected] = useState();
-  //   const uploadImage = () => {
-  //     const formData = new FormData();
-  //     formData.append("file", fileSelected);
-  //     formData.append("upload_preset", "us_upload");
-
-  //     Axios.post(
-  //       "https://api.cloudinary.com/v1_1/ryanmcc/raw/upload",
-  //       formData
-  //     ).then((response) => {
-  //       console.log(response);
-  //     });
-  //   };
-
   const successCallBack = () => {
     alert("Success!");
   };

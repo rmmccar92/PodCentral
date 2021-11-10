@@ -1,13 +1,10 @@
-import * as React from 'react';
+import * as React from "react";
 
 // import FileUploadIcon from '@mui/icons-material/FileUploadIcon';
 
-import PublishProfile from '../components/PublishProfile'
+import PublishNewPodcast from "../components/PublishNewPodcast";
 const Publish = () => {
-
-    return (
-        <PublishProfile />
-    );
+  return <PublishNewPodcast />;
 };
 
 export default Publish;

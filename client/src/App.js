@@ -67,7 +67,6 @@ function App() {
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/publish" component={Publish} />
               <Route component={NoMatch} />
-              <cloudinaryWidget />
             </Switch>
           </PodCentralProvider>
         </Router>
