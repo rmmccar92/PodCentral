@@ -43,7 +43,7 @@ const GlobalAppBar = () => {
         '"Helvetica Neue"',
         'Arial',
         'sans-serif',
-      ].join(','),   
+      ].join(','),
     },
   });
 
@@ -91,42 +91,62 @@ const GlobalAppBar = () => {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box>
           <ThemeProvider theme={darkBar}>
             <AppBar position="static" color={'secondary'}>
               <Toolbar>
-                <Box mt={1} mx={2}>
-                  <a href="/">
-                    <img
-                      src={podcastLogo}
-                      alt="podcast microphone"
-                      style={styles.podcastLogo}
-                    />
-                  </a>
-                </Box>
-                <Typography
-                  variant="h6"
-                  noWrap
-                  component={Link}
-                  to="/profile"
-                  sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                <Grid
+                  container
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
                 >
-                  PodcastCentral
-                </Typography>
-                <MenuItem>
+                  <Grid>
+                    <Typography
+                      // component={Link}
+                      // to="/"
+                      variant="h6"
+                    >
+                      <Button
+                        size="large"
+                        component={Link}
+                        color="inherit"
+                        to="/"
+                      >
+                        PodCentral
+                      </Button>
+                    </Typography>
+                  </Grid>
+
                   <IconButton
                     size="large"
-                    aria-label="show 17 new notifications"
-                    color="inherit"
+                    edge="start"
+                    aria-label="menu"
+                    sx={{ ml: 2, color: 'turquoise' }}
                   >
-                    <Badge badgeContent={17} color="error">
-                      <NotificationsIcon />
-                    </Badge>
+                    <PodcastsIcon />
                   </IconButton>
-                </MenuItem>
-                <Button href="/" color="inherit" onClick={() => Auth.logout()}>
-                  Logout
-                </Button>
+
+                  <Button
+                    href="/"
+                    color="inherit"
+                    size="large"
+                    onClick={() => Auth.logout()}
+                  >
+                    <MenuItem>
+                      <IconButton
+                        size="large"
+                        aria-label="show 17 new notifications"
+                        color="inherit"
+                      >
+                        <Badge badgeContent={17} color="error">
+                          <NotificationsIcon />
+                        </Badge>
+                      </IconButton>
+                    </MenuItem>
+                    Logout
+                  </Button>
+                </Grid>
               </Toolbar>
             </AppBar>
           </ThemeProvider>
