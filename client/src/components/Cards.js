@@ -5,9 +5,16 @@ import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import { Link } from 'react-router-dom';
 
-export default function CategoryCard({ categoryName, categoryRedirect }) {
+// props to allow data to be pulled from database dynamically
+export default function Cards({
+  cardTitle,
+  cardDescription,
+  cardImage,
+  podcastRedirect,
+}) {
   return (
     <>
+      {/* a tag to allow user to click on card and be redirected to that podcast */}
       <a className="" href="/">
         <Card
           className="podCard"
@@ -29,13 +36,22 @@ export default function CategoryCard({ categoryName, categoryRedirect }) {
           <CardContent>
             <Typography
               gutterBottom
-              variant="h5"
               component={Link}
               to="/"
-              color="white" 
-              sx={{ ml: '5px', fontWeight: '', fontSize: '16px' }}
+              color="white"
+              sx={{ ml: '5px', fontWeight: '', fontSize: '14px' }}
             >
-              Example Category
+              Podcast Title
+            </Typography>
+            <br />
+            <Typography
+              gutterBottom
+              component={Link}
+              to="/"
+              color="white"
+              sx={{ ml: '5px', fontWeight: '', fontSize: '12px' }}
+            >
+              Podcast Description
             </Typography>
           </CardContent>
         </Card>

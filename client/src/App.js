@@ -20,6 +20,7 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Publish from "./pages/Publish";
 import Discover from "./pages/Discover";
+import AllCategories from "./pages/AllCategories";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -67,6 +68,7 @@ function App() {
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/publish" component={Publish} />
               <Route exact path="/discover" component={Discover} />
+              <Route exact path="/allCategories" component={AllCategories} />
               <Route component={NoMatch} />
               <cloudinaryWidget />
             </Switch>

@@ -6,6 +6,8 @@ import Grid from '@mui/material/Grid';
 import CategoryCard from '../components/CategoryCard';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
+import { Link } from 'react-router-dom';
+import Cards from '../components/Cards';
 
 // import podcastLogo from '../assets/podcast-logo.png';
 
@@ -73,6 +75,8 @@ export default function MediaCard() {
               className="allCategories"
               variant="text"
               size="medium"
+              component={Link}
+              to="/allCategories"
               sx={{ mr: '50px', mb: '10px' }}
             >
               BROWSE ALL
@@ -115,22 +119,22 @@ export default function MediaCard() {
             sx={{ mb: '50px ' }}
           >
             <Grid item xs={1.5}>
-              <CategoryCard />
+              <Cards />
             </Grid>
             <Grid item xs={1.5}>
-              <CategoryCard />
+              <Cards />
             </Grid>
             <Grid item xs={1.5}>
-              <CategoryCard />
+              <Cards />
             </Grid>
             <Grid item xs={1.5}>
-              <CategoryCard />
+              <Cards />
             </Grid>
             <Grid item xs={1.5}>
-              <CategoryCard />
+              <Cards />
             </Grid>
             <Grid item xs={1.5}>
-              <CategoryCard />
+              <Cards />
             </Grid>
           </Grid>
 
@@ -143,22 +147,22 @@ export default function MediaCard() {
             sx={{ pb: '50px' }}
           >
             <Grid item xs={1.5}>
-              <CategoryCard />
+              <Cards />
             </Grid>
             <Grid item xs={1.5}>
-              <CategoryCard />
+              <Cards />
             </Grid>
             <Grid item xs={1.5}>
-              <CategoryCard />
+              <Cards />
             </Grid>
             <Grid item xs={1.5}>
-              <CategoryCard />
+              <Cards />
             </Grid>
             <Grid item xs={1.5}>
-              <CategoryCard />
+              <Cards />
             </Grid>
             <Grid item xs={1.5}>
-              <CategoryCard />
+              <Cards />
             </Grid>
           </Grid>
         </Box>
