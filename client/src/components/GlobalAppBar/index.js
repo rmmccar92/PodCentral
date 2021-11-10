@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import { styled, alpha } from "@mui/material/styles";
@@ -13,6 +13,9 @@ import MenuItem from "@mui/material/MenuItem";
 import Badge from "@mui/material/Badge";
 // import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import Grid from "@mui/material/Grid";
+import Icon from "@mui/material/Icon";
+import PodcastsIcon from "@mui/icons-material/Podcasts";
 
 import Button from "@mui/material/Button";
 
@@ -29,7 +32,7 @@ const GlobalAppBar = () => {
   const darkBar = createTheme({
     palette: {
       secondary: {
-        main: "#000000",
+        main: "#17141d",
         contrastText: "#FFFFFF",
       },
     },
@@ -135,24 +138,47 @@ const GlobalAppBar = () => {
           <ThemeProvider theme={darkBar}>
             <AppBar position="static" color={"secondary"}>
               <Toolbar>
-                <IconButton
-                  size="large"
-                  edge="start"
-                  color="inherit"
-                  aria-label="menu"
-                  sx={{ mr: 2 }}
-                ></IconButton>
-                <Typography
-                  component={Link}
-                  to="/"
-                  variant="h6"
-                  sx={{ flexGrow: 1 }}
+                <Grid
+                  container
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
                 >
-                  PodCentral
-                </Typography>
-                <Button component={Link} color="inherit" to="/login">
-                  Login
-                </Button>
+                  <Grid>
+                    <Typography
+                      // component={Link}
+                      // to="/"
+                      variant="h6"
+                    >
+                      <Button
+                        size="large"
+                        component={Link}
+                        color="inherit"
+                        to="/"
+                      >
+                        PodCentral
+                      </Button>
+                    </Typography>
+                  </Grid>
+
+                  <IconButton
+                    size="large"
+                    edge="start"
+                    aria-label="menu"
+                    sx={{ mr: 2, color: "turquoise" }}
+                  >
+                    <PodcastsIcon />
+                  </IconButton>
+
+                  <Button
+                    size="large"
+                    component={Link}
+                    color="inherit"
+                    to="/login"
+                  >
+                    Login
+                  </Button>
+                </Grid>
               </Toolbar>
             </AppBar>
           </ThemeProvider>
