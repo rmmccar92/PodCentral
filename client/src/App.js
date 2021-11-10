@@ -68,6 +68,7 @@ function App() {
               <Route exact path="/publish" component={Publish} />
               <Route exact path="/discover" component={Discover} />
               <Route component={NoMatch} />
+              <cloudinaryWidget />
             </Switch>
           </PodCentralProvider>
         </Router>
