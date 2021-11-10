@@ -8,7 +8,6 @@ import Grow from "@mui/material/Grow";
 import Grid from "@mui/material/Grid";
 import Input from "@mui/material/Input";
 import Button from "@mui/material/Button";
-import Axios from "axios";
 
 import DarkHouse from "../../assets/podcast-image-dark-house.jpeg";
 
