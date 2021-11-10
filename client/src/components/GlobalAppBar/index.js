@@ -32,8 +32,8 @@ const GlobalAppBar = () => {
   const darkBar = createTheme({
     palette: {
       secondary: {
-        main: '#FFFFFF',
-        contrastText: '#000000',
+        main: '#17141d',
+        contrastText: '#FFFFFF',
       },
     },
     typography: {
@@ -149,9 +149,6 @@ const GlobalAppBar = () => {
                       // component={Link}
                       // to="/"
                       variant="h6"
-                      color="black"
-
-                      // sx={{ flexGrow: 1, color: 'black' }}
                     >
                       <Button
                         size="large"
@@ -167,7 +164,6 @@ const GlobalAppBar = () => {
                   <IconButton
                     size="large"
                     edge="start"
-                    // color="inherit"
                     aria-label="menu"
                     sx={{ mr: 2, color: 'turquoise' }}
                   >

@@ -224,6 +224,10 @@ input:focus {
   letter-spacing: 3px;
 }
 
+/* .allCategories {
+  font-size: 20px;
+} */
+
 .center {
   display: flex;
   align-items: center;
