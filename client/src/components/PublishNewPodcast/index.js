@@ -25,6 +25,15 @@ const PublishNewPodcast = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log(formState);
+    const mutationResponse = await addPodcast({
+      variables: {
+        title: formState.title,
+        description: formState.description,
+        image: formState.image,
+      },
+    });
+    console.log(mutationResponse);
   };
 
   const handleChange = (event) => {
@@ -34,7 +43,7 @@ const PublishNewPodcast = () => {
       [name]: value,
     });
   };
-  if (!userData?.createdPodcast) {
+  if (!userData?.addedPodcast) {
     return (
       <Box sx={{ flexGrow: 1 }}>
         <Grow
@@ -94,7 +103,7 @@ const PublishNewPodcast = () => {
                 placeholder="Your Podcast"
                 name="title"
                 type="title"
-                id="tile"
+                id="title"
                 onChange={handleChange}
               />
             </div>
@@ -132,6 +141,7 @@ const PublishNewPodcast = () => {
                 variant="contained"
                 sx={{ backgroundColor: "black" }}
                 type="submit"
+                onClick={handleFormSubmit}
               >
                 Submit
               </Button>

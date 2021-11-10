@@ -199,7 +199,7 @@ const PublishProfile = () => {
                 >
                   <Typography
                     variant="h5"
-                    component={Link}
+                    // component={Link}
                     align="left"
                     pt={5}
                     mx={3}
@@ -235,7 +235,7 @@ const PublishProfile = () => {
                 >
                   <Typography
                     variant="h5"
-                    component={Link}
+                    // component={Link}
                     align="left"
                     pt={5}
                     mx={3}
@@ -271,7 +271,7 @@ const PublishProfile = () => {
                 >
                   <Typography
                     variant="h5"
-                    component={Link}
+                    // component={Link}
                     align="left"
                     pt={5}
                     mx={3}
@@ -307,7 +307,7 @@ const PublishProfile = () => {
                 >
                   <Typography
                     variant="h5"
-                    component={Link}
+                    // component={Link}
                     align="left"
                     direction="column"
                     justifyContent="center"

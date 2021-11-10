@@ -64,18 +64,27 @@ const resolvers = {
       return { token, user };
     },
 
-    addPodcast: async (parent, args, context) => {
-      if (context.user) {
-        try {
-          const podcast = new Podcast(args);
+    // addPodcast: async (parent, args, context) => {
+    //   if (context.user) {
+    //     try {
+    //       const podcast = Podcast.create(args);
 
-          await Podcast.create(context.user._id, args);
-          return podcast;
-        } catch (err) {
-          console.log(err);
-        }
+    //       // await Podcast.create(context.user._id, args);
+    //       return podcast;
+    //     } catch (err) {
+    //       console.log(err);
+    //     }
+    //   }
+    //   throw new AuthenticationError("Not logged in");
+    // },
+    addPodcast: async (parent, args) => {
+      try {
+        const newPodcast = await Podcast.create(args);
+        console.log(newPodcast);
+        return newPodcast;
+      } catch (err) {
+        console.log(err);
       }
-      throw new AuthenticationError("Not logged in");
     },
 
     likePodcast: async (parent, args, context) => {
