@@ -19,6 +19,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Publish from "./pages/Publish";
+import Discover from "./pages/Discover";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -65,6 +66,7 @@ function App() {
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/publish" component={Publish} />
+              <Route exact path="/discover" component={Discover} />
               <Route component={NoMatch} />
             </Switch>
           </PodCentralProvider>
