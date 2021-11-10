@@ -26,7 +26,9 @@ const userSchema = new Schema(
       minlength: 5,
     },
     likedPodcasts: [Podcast],
-    createdPodcast: Podcast,
+    createdPodcast: {
+      type: String,
+    },
   },
   {
     toJSON: {
