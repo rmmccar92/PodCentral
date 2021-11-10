@@ -1,6 +1,4 @@
-const mongoose = require("mongoose");
-
-const { Schema } = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const episodeSchema = new Schema({
   title: {
@@ -22,8 +20,12 @@ const episodeSchema = new Schema({
   episode: {
     type: Number,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-const Episode = mongoose.model("Episode", episodeSchema);
+const Episode = model("Episode", episodeSchema);
 
 module.exports = Episode;

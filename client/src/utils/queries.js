@@ -1,19 +1,18 @@
 import { gql } from "@apollo/client";
 
-export const QUERY_CATEGORIES = gql`
+export const GET_ME = gql`
   {
-    categories {
+    me {
       _id
-      name
-    }
-  }
-`;
-
-export const QUERY_USER = gql`
-  {
-    user {
       firstName
       lastName
+      email
+
+      createdPodcast {
+        title
+        description
+        image
+      }
     }
   }
 `;
