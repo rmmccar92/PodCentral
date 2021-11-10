@@ -5,7 +5,11 @@ import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import { Link } from 'react-router-dom';
 
-export default function CategoryCard({ categoryName, categoryRedirect }) {
+export default function CategoryCard({
+  categoryName,
+  categoryImage,
+  categoryRedirect,
+}) {
   return (
     <>
       <a className="" href="/">
@@ -32,7 +36,7 @@ export default function CategoryCard({ categoryName, categoryRedirect }) {
               variant="h5"
               component={Link}
               to="/"
-              color="white" 
+              color="white"
               sx={{ ml: '5px', fontWeight: '', fontSize: '16px' }}
             >
               Example Category

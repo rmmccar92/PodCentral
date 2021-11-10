@@ -9,7 +9,11 @@ import { ThemeProvider } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import Cards from '../components/Cards';
 
-export default function AllCategories({ categoryName }) {
+export default function AllCategories({
+  categoryName,
+  categoryImage,
+  categoryRedirect,
+}) {
   return (
     <>
       {/* <Box
