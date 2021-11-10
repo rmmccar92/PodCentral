@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import { styled, alpha } from "@mui/material/styles";
@@ -9,22 +9,21 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import MenuItem from '@mui/material/MenuItem';
-import Badge from '@mui/material/Badge';
+import MenuItem from "@mui/material/MenuItem";
+import Badge from "@mui/material/Badge";
 // import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from "@mui/icons-material/Notifications";
 
-
 import Button from "@mui/material/Button";
 
-import podcastLogo from '../../assets/podcast-logo.png';
+import podcastLogo from "../../assets/podcast-logo.png";
 
 const styles = {
   podcastLogo: {
-    height: '25px',
-    aspectRatio: '1 / 1'
-  }
-}
+    height: "25px",
+    aspectRatio: "1 / 1",
+  },
+};
 
 const GlobalAppBar = () => {
   const darkBar = createTheme({
@@ -94,7 +93,13 @@ const GlobalAppBar = () => {
             <AppBar position="static" color={"secondary"}>
               <Toolbar>
                 <Box mt={1} mx={2}>
-                  <a href="/"><img src={podcastLogo} alt="podcast microphone" style={styles.podcastLogo} /></a>
+                  <a href="/">
+                    <img
+                      src={podcastLogo}
+                      alt="podcast microphone"
+                      style={styles.podcastLogo}
+                    />
+                  </a>
                 </Box>
                 <Typography
                   variant="h6"
