@@ -10,6 +10,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 import CategoryCard from '../components/CategoryCard';
 import Paper from '@mui/material/Paper';
+// import Grow from '@mui/material/Grow';
 
 // import podcastLogo from '../assets/podcast-logo.png';
 
@@ -26,7 +27,9 @@ export default function MediaCard() {
   return (
     <>
       <Box
+      
         sx={{
+          flexGrow: 1,
           width: 'auto',
           fontSize: 64,
           fontWeight: 'bold',
