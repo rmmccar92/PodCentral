@@ -1,17 +1,10 @@
-<<<<<<< HEAD
-import React from "react";
-=======
-import * as React from 'react';
->>>>>>> main
+import * as React from "react";
 
 // import FileUploadIcon from '@mui/icons-material/FileUploadIcon';
 
-import PublishProfile from '../components/PublishProfile'
+import PublishProfile from "../components/PublishProfile";
 const Publish = () => {
-
-    return (
-        <PublishProfile />
-    );
+  return <PublishProfile />;
 };
 
 export default Publish;
