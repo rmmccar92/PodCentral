@@ -9,11 +9,18 @@ export const QUERY_CATEGORIES = gql`
   }
 `;
 
-export const QUERY_USER = gql`
+export const GET_ME = gql`
   {
-    user {
+    me {
+      _id
       firstName
       lastName
+      email
+      createdPodcast {
+        title
+        description
+        image
+      }
     }
   }
 `;
