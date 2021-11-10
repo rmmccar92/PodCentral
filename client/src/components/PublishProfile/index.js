@@ -163,8 +163,6 @@ const PublishProfile = () => {
                                     variant="h5"
                                     component={Link}
                                     align="left"
-                                    direction="column"
-                                    justifyContent="center"
                                     pt={5}
                                     mx={3}
                                     sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
