@@ -127,7 +127,12 @@ const GlobalAppBar = () => {
                     <PodcastsIcon />
                   </IconButton>
 
-                  <Button size="large" component={Link} color="inherit" to="/">
+                  <Button
+                    href="/"
+                    color="inherit"
+                    size="large"
+                    onClick={() => Auth.logout()}
+                  >
                     <MenuItem>
                       <IconButton
                         size="large"
@@ -185,8 +190,13 @@ const GlobalAppBar = () => {
                     <PodcastsIcon />
                   </IconButton>
 
-                  <Button size="large" component={Link} color="inherit" to="/">
-                    Logout
+                  <Button
+                    size="large"
+                    component={Link}
+                    color="inherit"
+                    to="/login"
+                  >
+                    Login
                   </Button>
                 </Grid>
               </Toolbar>
