@@ -7,6 +7,7 @@ import podcastLogo from '../assets/podcast-logo.png';
 
 const styles = {
   podcastLogo: {
+
     display: 'block',
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -36,8 +37,10 @@ export default function Home({}) {
           component="div"
           align="center"
           color="white"
+
           pt={20}
           sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
+
         >
           Interacting with podcast content has never been easier
         </Typography>
