@@ -278,6 +278,14 @@ input:focus {
   height: 200px;
 }
 
+.zIndex-1 {
+  z-index: 1;
+}
+
+.zIndex-0 {
+  z-index: 0;
+}
+
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;
