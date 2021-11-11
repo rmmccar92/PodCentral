@@ -11,18 +11,17 @@ const podcastSchema = new Schema({
   },
   description: {
     type: String,
+    required: true,
   },
   image: {
     type: String,
   },
-  // episodes: [
-  //   {
-  //     type: Episode.Types.ObjectId,
-  //   },
-  // ],
-  // createdBy: {
-  //   type: User.Types.ObjectId,
-  // },
+  episodes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Episode",
+    },
+  ],
 
   likes: {
     type: Number,
