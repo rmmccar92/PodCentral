@@ -1,5 +1,4 @@
-import * as React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Box from "@mui/material/Box";
@@ -153,7 +152,7 @@ const PublishProfile = () => {
                   // To use the file name as the public_id use 'use_filename={true}' parameter
                   eager={"w_400,h_300,c_pad|w_260,h_200,c_crop"} // add eager transformations -> deafult = null
                   use_filename={false} // tell Cloudinary to use the original name of the uploaded
-                  // file as its public ID -> default = true,
+                // file as its public ID -> default = true,
                 />
               </Typography>
             </Grow>
@@ -200,7 +199,7 @@ const PublishProfile = () => {
                 >
                   <Typography
                     variant="h5"
-                    component={Link}
+                    // component={Link}
                     align="left"
                     pt={5}
                     mx={3}
@@ -236,7 +235,7 @@ const PublishProfile = () => {
                 >
                   <Typography
                     variant="h5"
-                    component={Link}
+                    // component={Link}
                     align="left"
                     pt={5}
                     mx={3}
@@ -272,7 +271,7 @@ const PublishProfile = () => {
                 >
                   <Typography
                     variant="h5"
-                    component={Link}
+                    // component={Link}
                     align="left"
                     pt={5}
                     mx={3}
@@ -308,7 +307,7 @@ const PublishProfile = () => {
                 >
                   <Typography
                     variant="h5"
-                    component={Link}
+                    // component={Link}
                     align="left"
                     direction="column"
                     justifyContent="center"

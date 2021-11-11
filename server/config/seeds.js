@@ -4,7 +4,7 @@ const { User, Podcast, Episode } = require("../models");
 db.once("open", async () => {
   await Podcast.deleteMany();
 
-  const products = await Podcast.insertMany([
+  const podcasts = await Podcast.insertMany([
     {
       title: "Criminal",
       description:
@@ -33,10 +33,11 @@ db.once("open", async () => {
   await User.deleteMany();
 
   await User.create({
-    firstName: "Pamela",
+    firstName: "Pam",
     lastName: "Washington",
     email: "pamela@testmail.com",
     password: "password12345",
+    createdPodcast: "Fat Mascara",
   });
 
   await User.create({
