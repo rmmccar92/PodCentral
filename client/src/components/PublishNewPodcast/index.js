@@ -25,15 +25,15 @@ const PublishNewPodcast = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
-    const mutationResponse = await addPodcast({
-      variables: {
-        title: formState.title,
-        description: formState.description,
-        image: formState.image,
-      },
-    });
-    console.log(mutationResponse);
+    try {
+      const { data } = await addPodcast({
+        variables: {
+          input: { ...formState },
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleChange = (event) => {

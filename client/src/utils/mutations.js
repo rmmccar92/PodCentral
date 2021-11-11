@@ -33,11 +33,25 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_PODCAST = gql`
-  mutation addPodcast($title: String!, $description: String!, $image: String!) {
-    addPodcast(title: $title, description: $description, image: $image) {
+  mutation addPodcast($input: podcastInput!) {
+    addPodcast(input: $input) {
       title
       description
       image
+    }
+  }
+`;
+
+export const ADD_EPISODE = gql`
+  mutation addEpisode($input: episodeInput!) {
+    addEpisode(input: $input) {
+      title
+      description
+      audio
+      duration
+      season
+      episode
+      createdAt
     }
   }
 `;

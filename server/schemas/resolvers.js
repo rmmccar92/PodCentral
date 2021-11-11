@@ -79,7 +79,7 @@ const resolvers = {
     // },
     addPodcast: async (parent, args) => {
       try {
-        const newPodcast = await Podcast.create(args);
+        const newPodcast = await Podcast.create(args.input);
         console.log(newPodcast);
         return newPodcast;
       } catch (err) {
