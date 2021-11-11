@@ -89,11 +89,7 @@ export default function MediaCard() {
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
-<<<<<<< HEAD
-            sx={{ mb: "50px " }}
-=======
-            sx={{ pb: '50px', pl: '50px', pr: '50px' }}
->>>>>>> 51c3a69891842b2755821ed36e121ea858880304
+            sx={{ pb: "50px", pl: "50px", pr: "50px" }}
           >
             <Grid item xs={12} md={6} lg={2}>
               <CategoryCard />
@@ -122,11 +118,7 @@ export default function MediaCard() {
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
-<<<<<<< HEAD
-            sx={{ mb: "50px " }}
-=======
-            sx={{ pb: '50px', pl: '50px', pr: '50px' }}
->>>>>>> 51c3a69891842b2755821ed36e121ea858880304
+            sx={{ pb: "50px", pl: "50px", pr: "50px" }}
           >
             <Grid item xs={12} md={6} lg={2}>
               <Cards />
@@ -155,11 +147,7 @@ export default function MediaCard() {
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
-<<<<<<< HEAD
-            sx={{ pb: "50px" }}
-=======
-            sx={{ pb: '50px', pl: '50px', pr: '50px' }}
->>>>>>> 51c3a69891842b2755821ed36e121ea858880304
+            sx={{ pb: "50px", pl: "50px", pr: "50px" }}
           >
             <Grid item xs={12} md={6} lg={2}>
               <Cards />
