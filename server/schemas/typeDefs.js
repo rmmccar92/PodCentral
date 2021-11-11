@@ -18,8 +18,8 @@ const typeDefs = gql`
 
   type Podcast {
     _id: ID
-    title: String
-    description: String
+    title: String!
+    description: String!
     image: String
     episodes: [Episode]
     createdBy: User
@@ -53,9 +53,9 @@ const typeDefs = gql`
   }
 
   input addedPodcast {
-    title: String
-    description: String
-    image: String
+    title: String!
+    description: String!
+    image: String!
   }
 
   input likedPodcast {
@@ -102,7 +102,7 @@ const typeDefs = gql`
       password: String
     ): User
     login(email: String!, password: String!): Auth
-    addPodcast(input: addedPodcast!): User
+    addPodcast(title: String!, description: String!, image: String): Podcast
     likePodcast(input: likedPodcast!): User
     addEpisode(input: addedEpisode!): Podcast
     addComment(input: addedComment!): User

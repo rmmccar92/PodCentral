@@ -1,5 +1,4 @@
-import * as React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Box from "@mui/material/Box";
@@ -200,7 +199,7 @@ const PublishProfile = () => {
                 >
                   <Typography
                     variant="h5"
-                    component={Link}
+                    // component={Link}
                     align="left"
                     pt={5}
                     mx={3}
@@ -236,7 +235,7 @@ const PublishProfile = () => {
                 >
                   <Typography
                     variant="h5"
-                    component={Link}
+                    // component={Link}
                     align="left"
                     pt={5}
                     mx={3}
@@ -272,7 +271,7 @@ const PublishProfile = () => {
                 >
                   <Typography
                     variant="h5"
-                    component={Link}
+                    // component={Link}
                     align="left"
                     pt={5}
                     mx={3}
@@ -308,7 +307,7 @@ const PublishProfile = () => {
                 >
                   <Typography
                     variant="h5"
-                    component={Link}
+                    // component={Link}
                     align="left"
                     direction="column"
                     justifyContent="center"
