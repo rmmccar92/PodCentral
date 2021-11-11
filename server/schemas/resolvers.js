@@ -63,6 +63,54 @@ const resolvers = {
 
       return { token, user };
     },
+
+    addPodcast: async (parent, args, context) => {
+      if (context.user) {
+        try {
+          const podcast = new Podcast(args);
+
+          await Podcast.create(context.user._id, args);
+          return podcast;
+        } catch (err) {
+          console.log(err);
+        }
+      }
+      throw new AuthenticationError("Not logged in");
+    },
+
+    likePodcast: async (parent, args, context) => {
+      if (context.user) {
+        try {
+          const podcast = await Podcast.findByIdAndUpdate(
+            args.podcastId,
+            { $addToSet: { likes: context.user._id } },
+            { new: true }
+          );
+
+          return podcast;
+        } catch (err) {
+          console.log(err);
+        }
+      }
+      throw new AuthenticationError("Not logged in");
+    },
+
+    addComment: async (parent, args, context) => {
+      if (context.user) {
+        try {
+          const comment = await User.findByIdAndUpdate(
+            args.podcastId,
+            { $push: { comments: args.text } },
+            { new: true }
+          );
+
+          return comment;
+        } catch (err) {
+          console.log(err);
+        }
+      }
+      throw new AuthenticationError("Not logged in");
+    },
   },
 };
 
