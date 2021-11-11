@@ -10,20 +10,22 @@ const styles = {
     display: 'block',
     marginLeft: 'auto',
     marginRight: 'auto',
-    width: '300px'
+    width: '150px'
   }
 }
 
 const Home = () => {
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <>
+    <Box className="boxColor" sx={{ flexGrow: 1, height: '1000px' }}>
       <Grow style={{ transformOrigin: '0 0 0' }} {...{ timeout: 2000 }} in={true}>
         <Typography
           variant="h2"
           component="div"
           align="center"
-          pt={2}
+          color="white"
+          pt="100px"
           sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
         >
           Interacting with podcast content has never been easier
@@ -34,6 +36,7 @@ const Home = () => {
           variant="h4"
           component="div"
           align="center"
+          color="white"
           pt={5}
           sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
         >
@@ -46,6 +49,7 @@ const Home = () => {
         </Box>
       </Grow>
     </Box>
+    </>
   );
 };
 
