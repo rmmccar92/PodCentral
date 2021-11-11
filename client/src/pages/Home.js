@@ -7,27 +7,38 @@ import podcastLogo from "../assets/podcast-logo.png";
 
 const styles = {
   podcastLogo: {
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: "300px",
-  },
-};
+
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    width: '150px'
+  }
+}
 
 const Home = () => {
   return (
+
+    <>
+    <Box className="boxColor" sx={{ flexGrow: 1, height: '1000px' }}>
+      <Grow style={{ transformOrigin: '0 0 0' }} {...{ timeout: 2000 }} in={true}>
     <Box sx={{ flexGrow: 1 }}>
       <Grow
         style={{ transformOrigin: "0 0 0" }}
         {...{ timeout: 2000 }}
         in={true}
       >
+
         <Typography
           variant="h2"
           component="div"
           align="center"
+          color="white"
+          pt="100px"
+          sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
+
           pt={2}
           sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+
         >
           Interacting with podcast content has never been easier
         </Typography>
@@ -41,6 +52,7 @@ const Home = () => {
           variant="h4"
           component="div"
           align="center"
+          color="white"
           pt={5}
           sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
         >
@@ -62,6 +74,7 @@ const Home = () => {
         </Box>
       </Grow>
     </Box>
+    </>
   );
 };
 
