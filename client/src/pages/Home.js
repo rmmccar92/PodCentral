@@ -14,16 +14,16 @@ const styles = {
   },
 };
 
-const Home = () => {
+export default function Home({}) {
   return (
     <Box
+      className="boxColor"
       sx={{
         flexGrow: 1,
-        backgroundColor: '#17141d',
-        width: '500px',
         height: '1000px',
-        border: 2,
+        border: 1,
         borderColor: 'error.main',
+        width: '500px'
       }}
     >
       <Grow
@@ -74,6 +74,4 @@ const Home = () => {
       </Grow>
     </Box>
   );
-};
-
-export default Home;
+}
