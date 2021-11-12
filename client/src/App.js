@@ -52,7 +52,6 @@ function App() {
         "sans-serif",
       ].join(","),
     },
-
   });
 
   return (

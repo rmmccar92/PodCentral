@@ -12,7 +12,7 @@ const resolvers = {
             _id: context.user._id,
           })
             .select("-__v-password")
-            .populate("podcasts");
+            .populate("addedPodcast");
 
           return userData;
         } catch (err) {
