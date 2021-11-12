@@ -81,7 +81,7 @@ export default function Home({}) {
       pt={10}
       sx={{
         flexGrow: 1,
-        height: '1000px',
+        height: '1500px',
       }}
     >
       <Box
@@ -102,20 +102,22 @@ export default function Home({}) {
           in={true}
         >
           <Typography
-            variant="h2"
+            variant="h4"
             component="div"
             align="center"
             color="white"
-            pt={5}
+            pt={2}
             sx={{
               flexGrow: 1,
               display: { xs: 'block', sm: 'block' },
+              fontSize: '70px',
               fontWeight: 'bold',
-              fontSize: '40px',
-              letterSpacing: 1,
+              letterSpacing: 3,
+              lineHeight: 1.5,
             }}
           >
-            Designed for Podcasts with You in Mind
+            PODCENTRAL
+            <p className="pStyling1">Designed for Podcasts with You in Mind</p>
           </Typography>
         </Grow>
 
@@ -124,7 +126,7 @@ export default function Home({}) {
           {...{ timeout: 2000 }}
           in={true}
         >
-          <Box pt={5} pb={5}>
+          <Box pt={5}>
             <img
               src={podcastLogo}
               alt="podcast microphone"
@@ -132,66 +134,92 @@ export default function Home({}) {
             />
           </Box>
         </Grow>
-        <Box mr="650px" ml="50px" sx={{ position: 'relative', top: '170px' }}>
+        <Box p={5} ml={5} mr={5}>
           <Grow
             style={{ transformOrigin: '0 0 0' }}
             {...{ timeout: 2000 }}
             in={true}
           >
             <Typography
-              variant="h4"
+              variant="h2"
               component="div"
-              // align="center"
+              align="center"
               color="white"
-              // pb={5}
-              pl={5}
-              // mt={1}
+              // pt={5}
               sx={{
                 flexGrow: 1,
                 display: { xs: 'block', sm: 'block' },
-                fontSize: '24px',
+                fontWeight: 'bold',
+                fontSize: '40px',
                 letterSpacing: 1,
-                lineHeight: 1.5,
               }}
             >
-              Whether you want to manage your own podcasts, discover new
-              podcasts to enjoy or listen to your favorite podcast, it has never
-              been easier with PodCentral.
+              <p className="pStyling">
+                Whether you want to manage your own podcasts, discover new
+                podcasts to enjoy or listen to your favorite podcast, it has
+                never been easier with PodCentral.
+              </p>
             </Typography>
           </Grow>
         </Box>
-        <Box
-          // className="zIndex-1"
-          // display="flex"
-          // flexDirection="column"
-          ml="52%"
-          pr={10}
-          sx={{ width: '50%', position: 'relative', bottom: '60px' }}
-        >
-          <Card
-            style={{
-              backgroundColor: '#17141d',
-              boxShadow: '-1rem 0 3rem #000',
-            }}
-            sx={{
-              border: 1,
-              borderColor: 'black',
-              borderRadius: '5px',
-              height: '300px',
-              // mt: '-20px',
-            }}
-          >
-            <CardMedia
-              sx={{ pl: '20px', pr: '20px', pt: '20px' }}
-              component="img"
-              height="150"
-              image="https://safti.com/wp-content/uploads/2020/07/Podcast-Video-Thumbnail.jpg"
-              alt="pink podcast image with microphone"
-            />
-          </Card>
-        </Box>
       </Box>
       <Box
+        className="boxCenter"
+        ml={20}
+        mr={100}
+        pb={15}
+        mt={10}
+        sx={{ height: '307px', width: '490px' }}
+      >
+        <Box
+          sx={{
+            backgroundColor: '#17141d',
+            boxShadow: '-1rem 0 3rem #000',
+            border: 1,
+            borderColor: 'black',
+            borderRadius: '5px',
+            width: '200%',
+          }}
+        >
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU" />
+        </Box>
+        <Box ml={1} mr={1}>
+          <Typography color="white" fontSize="18px">
+            <p className="publish">PUBLISH</p>
+            Upload your own podcast in just a few easy steps. We take care of
+            the hard parts so you can focus on making your best podcast.
+          </Typography>
+        </Box>
+      </Box>
+
+      <Box
+        className="boxCenter2"
+        ml={109}
+        pb={15}
+        mt={10}
+        sx={{ height: '308px', width: '486px' }}
+      >
+        <Box ml={7}>
+          <Typography color="white" fontSize="16px">
+            <p className="discover">DISCOVER</p>
+            Browse through our extensive library of podcasts to find something
+            you love. We have a podcast for everyone.
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: '#17141d',
+            boxShadow: '-1rem 0 3rem #000',
+            border: 1,
+            borderColor: 'black',
+            borderRadius: '5px',
+            width: '200%',
+          }}
+        >
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU" />
+        </Box>
+      </Box>
+      {/* <Box
         ml={20}
         mr={20}
         mt="50px"
@@ -250,7 +278,7 @@ export default function Home({}) {
             </ImageListItem>
           ))}
         </ImageList>
-      </Box>
+      </Box> */}
     </Box>
   );
 }

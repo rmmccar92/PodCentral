@@ -310,6 +310,62 @@ input:focus {
   background: linear-gradient(90deg, #201c29, #201c29 1px, #17141d 0, #17141d);
 }
 
+.pStyling {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 2px;
+  line-height: 30px;
+  font-weight: normal;
+  margin-left: 200px;
+  margin-right: 200px;
+  /* padding-top: 25px; */
+}
+
+.pStyling1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  /* line-height: 30px; */
+  padding-top: 5px;
+}
+
+.boxCenter {
+  display: flex;
+  /* flex-direction: row; */
+  position: relative;
+}
+
+.boxCenter2 {
+  display: flex;
+  position: relative;
+  /* left: 47%; */
+  top: -388px;
+}
+
+.publish {
+  color: turquoise;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.discover {
+  color: turquoise;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  display: flex;
+  justify-content: end;
+}
+
+
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;

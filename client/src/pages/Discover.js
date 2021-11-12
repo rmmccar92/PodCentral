@@ -1,57 +1,45 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import CategoryCard from "../components/CategoryCard";
-import { createTheme } from "@mui/material/styles";
-import { ThemeProvider } from "@emotion/react";
-import { Link } from "react-router-dom";
-import Cards from "../components/Cards";
-
-// import podcastLogo from '../assets/podcast-logo.png';
-
-// const styles = {
-//   podcastLogo: {
-//     display: 'block',
-//     marginLeft: 'auto',
-//     marginRight: 'auto',
-//     width: '300px',
-//   },
-// };
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import CategoryCard from '../components/CategoryCard';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@emotion/react';
+import { Link } from 'react-router-dom';
+import Cards from '../components/Cards';
+// import TemporaryDrawer from '../components/TemporaryDrawer';
 
 const theme = createTheme({
   status: {
-    danger: "#e53e3e",
+    danger: '#e53e3e',
   },
   palette: {
     primary: {
-      main: "#ffffff",
-      darker: "#053e85",
+      main: '#ffffff',
+      darker: '#053e85',
     },
     neutral: {
-      main: "#64748B",
-      contrastText: "#fff",
+      main: '#64748B',
+      contrastText: '#fff',
     },
   },
 });
 
-
-
 export default function MediaCard() {
   return (
     <>
+      {/* <TemporaryDrawer /> */}
       <ThemeProvider theme={theme}>
-        
         <Box
           sx={{
             flexGrow: 1,
-            width: "auto",
+            width: 'auto',
             fontSize: 64,
-            fontWeight: "bold",
-            ml: "50px",
-            mt: "50px",
-            mb: "50px",
+            fontWeight: 'bold',
+            ml: '50px',
+            mt: '50px',
+            mb: '50px',
             letterSpacing: 8,
           }}
         >
@@ -62,9 +50,9 @@ export default function MediaCard() {
         <Box
           className="boxColor"
           sx={{
-            width: "auto",
-            mt: "30px",
-            pt: "20px",
+            width: 'auto',
+            mt: '30px',
+            pt: '20px',
           }}
         >
           <Grid
@@ -80,7 +68,7 @@ export default function MediaCard() {
               size="medium"
               component={Link}
               to="/allCategories"
-              sx={{ mr: "50px", mb: "10px" }}
+              sx={{ mr: '50px', mb: '10px' }}
             >
               BROWSE ALL
             </Button>
@@ -92,7 +80,7 @@ export default function MediaCard() {
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
-            sx={{ pb: "50px", pl: "50px", pr: "50px" }}
+            sx={{ pb: '50px', pl: '50px', pr: '50px' }}
           >
             <Grid item xs={12} md={6} lg={2}>
               <CategoryCard />
@@ -121,7 +109,7 @@ export default function MediaCard() {
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
-            sx={{ pb: "50px", pl: "50px", pr: "50px" }}
+            sx={{ pb: '50px', pl: '50px', pr: '50px' }}
           >
             <Grid item xs={12} md={6} lg={2}>
               <Cards />
@@ -150,7 +138,7 @@ export default function MediaCard() {
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
-            sx={{ pb: "50px", pl: "50px", pr: "50px" }}
+            sx={{ pb: '50px', pl: '50px', pr: '50px' }}
           >
             <Grid item xs={12} md={6} lg={2}>
               <Cards />
