@@ -6,7 +6,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    createdPodcast: Podcast
+    addedPodcast: Podcast
     likedPodcasts: [Podcast]
     comments: [Comment]
   }
@@ -88,6 +88,7 @@ const typeDefs = gql`
     podcasts: [Podcast]
     episode(_id: ID): Episode
     episodes(podcastId: ID): Podcast
+    addedPodcast: Podcast
   }
 
   type Mutation {
