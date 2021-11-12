@@ -12,7 +12,7 @@ const resolvers = {
             _id: context.user._id,
           })
             .select("-__v-password")
-            .populate("podcasts");
+            .populate("addedPodcast");
 
           return userData;
         } catch (err) {
@@ -22,11 +22,17 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     users: async () => {
-      return User.find().populate("comments");
+      return User.find().populate("addedPodcast").populate({
+        path: "addedPodcast",
+        populate: "episodes",
+      });
     },
     podcasts: async () => {
       return await Podcast.find({}).populate("episodes");
     },
+    // addedPodcast: async () => {
+    //   return await Podcast.find
+    // }
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -64,27 +70,22 @@ const resolvers = {
       return { token, user };
     },
 
-    // addPodcast: async (parent, args, context) => {
-    //   if (context.user) {
-    //     try {
-    //       const podcast = Podcast.create(args);
+    addPodcast: async (parent, args, context) => {
+      if (context.user)
+        try {
+          const newPodcast = await Podcast.create(args.input);
+          console.log(newPodcast);
+          // return newPodcast;
 
-    //       // await Podcast.create(context.user._id, args);
-    //       return podcast;
-    //     } catch (err) {
-    //       console.log(err);
-    //     }
-    //   }
-    //   throw new AuthenticationError("Not logged in");
-    // },
-    addPodcast: async (parent, args) => {
-      try {
-        const newPodcast = await Podcast.create(args);
-        console.log(newPodcast);
-        return newPodcast;
-      } catch (err) {
-        console.log(err);
-      }
+          const updateUserPodcast = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { addedPodcast: newPodcast._id },
+            { new: true, runValidators: true }
+          );
+          console.log(updateUserPodcast);
+        } catch (err) {
+          console.log(err);
+        }
     },
 
     likePodcast: async (parent, args, context) => {

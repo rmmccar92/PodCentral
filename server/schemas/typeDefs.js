@@ -6,7 +6,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    createdPodcast: Podcast
+    addedPodcast: Podcast
     likedPodcasts: [Podcast]
     comments: [Comment]
   }
@@ -52,10 +52,10 @@ const typeDefs = gql`
     user: User
   }
 
-  input addedPodcast {
+  input podcastInput {
     title: String!
     description: String!
-    image: String!
+    image: String
   }
 
   input likedPodcast {
@@ -64,14 +64,16 @@ const typeDefs = gql`
     image: String
   }
 
-  input addedEpisode {
-    title: String
-    description: String
+  input episodeInput {
+    title: String!
+    description: String!
     audio: String
+    duration: Int
+    episode: Int
     season: Int
   }
 
-  input addedComment {
+  input commentInput {
     text: String
     createdBy: ID
     createdAt: String
@@ -86,6 +88,7 @@ const typeDefs = gql`
     podcasts: [Podcast]
     episode(_id: ID): Episode
     episodes(podcastId: ID): Podcast
+    addedPodcast: Podcast
   }
 
   type Mutation {
@@ -100,12 +103,13 @@ const typeDefs = gql`
       lastName: String
       email: String
       password: String
+      addedPodcast: String
     ): User
     login(email: String!, password: String!): Auth
-    addPodcast(title: String!, description: String!, image: String): Podcast
+    addPodcast(input: podcastInput): Podcast
     likePodcast(input: likedPodcast!): User
-    addEpisode(input: addedEpisode!): Podcast
-    addComment(input: addedComment!): User
+    addEpisode(input: episodeInput!): Episode
+    addComment(input: commentInput!): User
     removeComment(_id: ID): Comment
   }
 `;

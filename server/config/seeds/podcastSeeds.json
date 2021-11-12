@@ -1,0 +1,23 @@
+[
+    {
+      "title": "Criminal",
+      "description":
+        "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+      "image": "podcast-image-criminal.png",
+      "likes": 3
+    },
+    {
+      "title": "Dark House",
+      "description":
+        "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+      "image": "podcast-image-dark-house.jpeg",
+      "likes": 37
+    },
+    {
+      "title": "Fat Mascara",
+      "description":
+        "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+      "image": "podcast-image-fat-mascara.jpg",
+      "likes": 0
+    }
+  ]
