@@ -3,12 +3,16 @@ import { Widget } from "react-cloudinary-upload-widget";
 import Axios from "axios";
 
 const CloudinaryWidget = () => {
-  const successCallBack = () => {
-    alert("Success!");
+  const successCallBack = (response) => {
+    console.log(response);
+    localStorage.setItem("podcastImage", response.info.secure_url);
+    // const podcastImage = localStorage.getItem("podcastImage");
+    // console.log(podcastImage);
   };
 
-  const failureCallBack = () => {
-    alert("Failure!");
+  const failureCallBack = (response) => {
+    console.log(response);
+    return;
   };
   return (
     <Widget
@@ -22,11 +26,10 @@ const CloudinaryWidget = () => {
       //   }} // add source keys
       // and ID's as an object. More information on their use can be found at
       // https://cloudinary.com/documentation/upload_widget#the_sources_parameter
-      resourceType={"auto"} // optionally set with 'auto', 'image', 'video' or 'raw' -> default = 'auto'
+      resourceType={"auto"}
       cloudName={"ryanmcc"}
-      // Located on https://cloudinary.com/console/
-      uploadPreset={"us_upload"} // check that an upload preset exists and check mode is signed or unisgned
-      buttonText={"Upload"} // default 'Upload Files'
+      uploadPreset={"us_upload"}
+      buttonText={"Upload"}
       style={{
         color: "white",
         border: "none",
@@ -39,7 +42,7 @@ const CloudinaryWidget = () => {
       cropping={false} // set ability to crop images -> default = true
       onSuccess={successCallBack} // add success callback -> returns result
       onFailure={failureCallBack} // add failure callback -> returns 'response.error' + 'response.result'
-      logging={false} // logs will be provided for success and failure messages,
+      logging={true} // logs will be provided for success and failure messages,
       // set to false for production -> default = true
       customPublicId={"sample"} // set a specific custom public_id.
       // To use the file name as the public_id use 'use_filename={true}' parameter

@@ -27,11 +27,13 @@ const PublishNewPodcast = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    const podcastImage = localStorage.getItem("podcastImage");
+    console.log(podcastImage);
     // if()
     try {
       const { data } = await addPodcast({
         variables: {
-          input: { ...formState },
+          input: { ...formState, image: podcastImage },
         },
       });
     } catch (err) {
@@ -129,6 +131,14 @@ const PublishNewPodcast = () => {
             </div>
             <div className="flex-row flex-end">
               <CloudinaryWidget />
+              <Button
+                variant="contained"
+                sx={{ backgroundColor: "black" }}
+                type="submit"
+                onClick={handleFormSubmit}
+              >
+                Submit
+              </Button>
             </div>
           </Box>
         </Grow>
