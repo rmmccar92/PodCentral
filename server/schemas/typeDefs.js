@@ -103,6 +103,7 @@ const typeDefs = gql`
       lastName: String
       email: String
       password: String
+      addedPodcast: String
     ): User
     login(email: String!, password: String!): Auth
     addPodcast(input: podcastInput): Podcast

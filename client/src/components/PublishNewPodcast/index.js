@@ -25,6 +25,7 @@ const PublishNewPodcast = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    // if()
     try {
       const { data } = await addPodcast({
         variables: {
