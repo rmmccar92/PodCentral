@@ -10,6 +10,7 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import ListSubheader from '@mui/material/ListSubheader';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
+import { Link } from 'react-router-dom';
 
 import podcastLogo from '../assets/podcast-logo.png';
 
@@ -24,7 +25,7 @@ const styles = {
 
 const itemData = [
   {
-    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+    img: 'https://thumbs.dreamstime.com/b/young-man-recording-podcast-smiling-to-camera-close-up-young-men-recording-podcast-smiling-to-camera-close-up-104865306.jpg',
     title: 'Breakfast',
     author: '@bkristastucchio',
     rows: 2,
@@ -32,7 +33,7 @@ const itemData = [
     featured: true,
   },
   {
-    img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
+    img: 'https://st4.depositphotos.com/13193658/27296/i/600/depositphotos_272967952-stock-photo-cropped-shot-radio-host-speaking.jpg',
     title: 'Burger',
     author: '@rollelflex_graphy726',
   },
@@ -71,29 +72,6 @@ const itemData = [
     title: 'Fern',
     author: '@katie_wasserman',
   },
-  {
-    img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
-    title: 'Mushrooms',
-    author: '@silverdalex',
-    rows: 2,
-    cols: 2,
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
-    title: 'Tomato basil',
-    author: '@shelleypauls',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
-    title: 'Sea star',
-    author: '@peterlaster',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
-    title: 'Bike',
-    author: '@southside_customs',
-    cols: 2,
-  },
 ];
 
 export default function Home({}) {
@@ -103,7 +81,7 @@ export default function Home({}) {
       pt={10}
       sx={{
         flexGrow: 1,
-        height: '1800px',
+        height: '1000px',
       }}
     >
       <Box
@@ -224,10 +202,12 @@ export default function Home({}) {
           boxShadow: '-1rem 0 3rem #000',
         }}
         sx={{
-          border: 1, borderRadius: '5px'
+          border: 1,
+          borderRadius: '5px',
         }}
       >
         <ImageList
+          className="scrollBar"
           style={{
             backgroundColor: '#17141d',
             boxShadow: '-1rem 0 3rem #000',
@@ -239,19 +219,21 @@ export default function Home({}) {
             left: '8%',
             top: '5%',
             border: 1,
-            borderRadius: '5px'
+            borderRadius: '5px',
           }}
         >
           <ImageListItem key="Subheader" cols={2}>
             <ListSubheader component="div">December</ListSubheader>
           </ImageListItem>
           {itemData.map((item) => (
-            <ImageListItem key={item.img}>
+            <ImageListItem component={Link} to="/discover" key={item.img}>
               <img
+                className="podCardTwo"
                 src={`${item.img}?w=248&fit=crop&auto=format`}
                 srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
+                sx={{ border: 1, borderRadius: '5px' }}
               />
               <ImageListItemBar
                 title={item.title}

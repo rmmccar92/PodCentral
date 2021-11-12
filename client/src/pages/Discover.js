@@ -36,10 +36,13 @@ const theme = createTheme({
   },
 });
 
+
+
 export default function MediaCard() {
   return (
     <>
       <ThemeProvider theme={theme}>
+        
         <Box
           sx={{
             flexGrow: 1,
