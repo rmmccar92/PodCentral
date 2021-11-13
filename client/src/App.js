@@ -20,6 +20,12 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Publish from "./pages/Publish";
 import Discover from "./pages/Discover";
+import Business from "./pages/Business";
+import Comedy from "./pages/Comedy";
+import Health from "./pages/Health";
+import NewsAndPolitics from "./pages/NewsAndPolitics";
+import PopCulture from "./pages/PopCulture";
+import TrueCrime from "./pages/TrueCrime";
 import AllCategories from "./pages/AllCategories";
 
 const httpLink = createHttpLink({
@@ -68,6 +74,12 @@ function App() {
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/publish" component={Publish} />
               <Route exact path="/discover" component={Discover} />
+              <Route exact path="/business" component={Business} />
+              <Route exact path="/comedy" component={Comedy} />
+              <Route exact path="/health" component={Health} />
+              <Route exact path="/newsAndPolitics" component={NewsAndPolitics} />
+              <Route exact path="/popCulture" component={PopCulture} />
+              <Route exact path="/trueCrime" component={TrueCrime} />
               <Route exact path="/allCategories" component={AllCategories} />
               <Route component={NoMatch} />
               <cloudinaryWidget />

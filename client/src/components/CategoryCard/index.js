@@ -5,14 +5,7 @@ import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import { Link } from 'react-router-dom';
 
-const CategoryCard = () => {
-  // categoryName,
-  // categoryImage,
-  // categoryRedirect,
-
-
-
-
+export default function CategoryCard(props) {
 
   return (
     <div>
@@ -30,24 +23,22 @@ const CategoryCard = () => {
           sx={{ pl: '20px', pr: '20px', pt: '20px' }}
           component="img"
           height="150"
-          image="https://safti.com/wp-content/uploads/2020/07/Podcast-Video-Thumbnail.jpg"
-          alt="pink podcast image with microphone"
+          image={props.image}
+          alt="category image"
         />
         <CardContent>
           <Typography
             gutterBottom
-            variant="h5"
             component={Link}
-            to="/"
+            to={props.redirect}
+            variant="h5"
             color="white"
             sx={{ ml: '5px', fontWeight: '', fontSize: '16px' }}
           >
-            Example Category
+            {props.category}
           </Typography>
         </CardContent>
       </Card>
     </div>
   );
 }
-
-export default CategoryCard;

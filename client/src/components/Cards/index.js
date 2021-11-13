@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 
 
 export default function Cards(props) {
+
   return (
     <div>
       <a href={props.link}>
@@ -24,7 +25,7 @@ export default function Cards(props) {
             component="img"
             height="150"
             image={props.image}
-            alt="pink podcast image with microphone"
+            alt="cover art"
           />
           <CardContent>
             <Typography
