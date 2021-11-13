@@ -50,7 +50,7 @@ const Discover = () => {
       })
   }, [])
 
-  const categoryArr = [
+  const categoriesArr = [
     {
       image: "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_660,h_363/https://discoverpods.com/wp-content/uploads/2020/01/business-podcasts-1-660x363.jpg",
       redirect: "/business",
@@ -88,7 +88,7 @@ const Discover = () => {
       key: 6,
     }
   ]
-
+  console.log(categoriesArr)
   const popularArr = []
   const populateArr = () => {
     for (let i = 0; i < 6; i++) {
@@ -161,16 +161,16 @@ const Discover = () => {
           </Grid>
           <Grid
             container
-            spacing={7}
+            spacing={2}
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
             sx={{ pb: "50px", pl: "50px", pr: "50px" }}
           >
-            {categoryArr.map((podcast) => {
+            {categoriesArr.map((categories) => {
               return (
-                <Grid item xs={12} md={6} lg={2} key={podcast.key}>
-                  <Cards image={podcast.image} redirect={podcast.redirect} category={podcast.category} />
+                <Grid item xs={12} md={6} lg={2} key={categories.key}>
+                  <CategoryCard image={categories.image} redirect={categories.redirect} category={categories.category} />
                 </Grid>
               )
             })}
