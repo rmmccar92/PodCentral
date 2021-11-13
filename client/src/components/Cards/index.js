@@ -3,16 +3,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
-import { Link } from 'react-router-dom';
 
-export default function CategoryCard({
-  categoryName,
-  categoryImage,
-  categoryRedirect,
-}) {
+
+export default function Cards(props) {
+
   return (
-    <>
-      <a className="" href="/">
+    <div>
+      <a href={props.link}>
         <Card
           className="podCard"
           style={{ backgroundColor: '#17141d', boxShadow: '-1rem 0 3rem #000' }}
@@ -27,23 +24,30 @@ export default function CategoryCard({
             sx={{ pl: '20px', pr: '20px', pt: '20px' }}
             component="img"
             height="150"
-            image="https://safti.com/wp-content/uploads/2020/07/Podcast-Video-Thumbnail.jpg"
-            alt="pink podcast image with microphone"
+            image={props.image}
+            alt="cover art"
           />
           <CardContent>
             <Typography
               gutterBottom
-              variant="h5"
-              component={Link}
-              to="/"
               color="white"
-              sx={{ ml: '5px', fontWeight: '', fontSize: '16px' }}
+              sx={{ ml: '5px', fontWeight: '', fontSize: '14px' }}
             >
-              Example Category
+              {props.title}
+            </Typography>
+            <br />
+            <Typography
+              noWrap
+              gutterBottom
+              color="white"
+              sx={{ ml: '5px', fontWeight: '', fontSize: '12px' }}
+            >
+              {props.description}
             </Typography>
           </CardContent>
         </Card>
       </a>
-    </>
+    </div>
   );
 }
+
