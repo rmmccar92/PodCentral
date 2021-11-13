@@ -1,13 +1,16 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import CategoryCard from "../components/CategoryCard";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
 import { Link } from "react-router-dom";
 import Cards from "../components/Cards";
+import { Client } from 'podcast-api'
+import { useState, useEffect } from "react";
+
+require('dotenv').config();
 
 // import podcastLogo from '../assets/podcast-logo.png';
 
@@ -36,9 +39,36 @@ const theme = createTheme({
   },
 });
 
+
 export default function MediaCard() {
+  const [podcastJSON, setPodcastData] = useState('');
+  const client = Client({ apiKey: process.env.API_KEY });
+
+  client.fetchBestPodcasts({
+    page: 0,
+    region: 'us',
+    sort: 'listen_score',
+    safe_mode: 0,
+  })
+    .then((response) => {
+      // Get response json data here
+      setPodcastData(response.data)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  const podcastData = JSON.parse(podcastJSON);
+
+  console.log(podcastData.podcasts[0].title);
+
+  const cardPopulate = () => {
+    for (let i = 0; i < 5; i++) {
+      return <Cards title={podcastData.podcasts[i].title} image={podcastData.podcasts[i].image} redirect={podcastData.podcasts[i].redirect} description={podcastData.podcasts[i].description} />
+    }
+  }
   return (
-    <>
+    <div>
       <ThemeProvider theme={theme}>
         <Box
           sx={{
@@ -83,33 +113,9 @@ export default function MediaCard() {
             </Button>
           </Grid>
 
-          <Grid
-            container
-            spacing={7}
-            direction="row"
-            justifyContent="space-evenly"
-            alignItems="center"
-            sx={{ pb: "50px", pl: "50px", pr: "50px" }}
-          >
-            <Grid item xs={12} md={6} lg={2}>
-              <CategoryCard />
-            </Grid>
-            <Grid item xs={12} md={6} lg={2}>
-              <CategoryCard />
-            </Grid>
-            <Grid item xs={12} md={6} lg={2}>
-              <CategoryCard />
-            </Grid>
-            <Grid item xs={12} md={6} lg={2}>
-              <CategoryCard />
-            </Grid>
-            <Grid item xs={12} md={6} lg={2}>
-              <CategoryCard />
-            </Grid>
-            <Grid item xs={12} md={6} lg={2}>
-              <CategoryCard />
-            </Grid>
-          </Grid>
+          <div>
+            {cardPopulate}
+          </div>
 
           <p className="categories">Popular</p>
           <Grid
@@ -170,6 +176,6 @@ export default function MediaCard() {
           </Grid>
         </Box>
       </ThemeProvider>
-    </>
+    </div>
   );
 }

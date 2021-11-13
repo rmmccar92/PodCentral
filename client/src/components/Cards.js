@@ -1,23 +1,26 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
-import { Link } from 'react-router-dom';
+import Grid from '@mui/material/Grid';
 
-// props to allow data to be pulled from database dynamically
-export default function Cards({
-  cardTitle,
-  cardDescription,
-  cardImage,
-  podcastRedirect,
-}) {
+
+const Cards = (props) => {
   return (
-    <>
-      {/* a tag to allow user to click on card and be redirected to that podcast */}
-      <a className="" href="/">
+    <Grid
+      container
+      spacing={7}
+      direction="row"
+      justifyContent="space-evenly"
+      alignItems="center"
+      sx={{ pb: "50px", pl: "50px", pr: "50px" }}
+    >
+      <Grid item xs={12} md={6} lg={2}>
         <Card
           className="podCard"
+          component={Link}
           style={{ backgroundColor: '#17141d', boxShadow: '-1rem 0 3rem #000' }}
           sx={{
             border: 1,
@@ -30,32 +33,34 @@ export default function Cards({
             sx={{ pl: '20px', pr: '20px', pt: '20px' }}
             component="img"
             height="150"
-            image="https://safti.com/wp-content/uploads/2020/07/Podcast-Video-Thumbnail.jpg"
+            image={props.image}
             alt="pink podcast image with microphone"
           />
           <CardContent>
             <Typography
               gutterBottom
               component={Link}
-              to="/"
+              to={props.redirect}
               color="white"
               sx={{ ml: '5px', fontWeight: '', fontSize: '14px' }}
             >
-              Podcast Title
+              {props.title}
             </Typography>
             <br />
             <Typography
               gutterBottom
               component={Link}
-              to="/"
+              to={props.redirect}
               color="white"
               sx={{ ml: '5px', fontWeight: '', fontSize: '12px' }}
             >
-              Podcast Description
+              {props.description}
             </Typography>
           </CardContent>
         </Card>
-      </a>
-    </>
+      </Grid>
+    </Grid>
   );
 }
+
+export default Cards

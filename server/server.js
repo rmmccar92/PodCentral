@@ -6,6 +6,8 @@ const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
 const db = require('./config/connection');
 
+const proxy = require('http-proxy-middleware');
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
@@ -13,6 +15,14 @@ const server = new ApolloServer({
   resolvers,
   context: authMiddleware
 });
+
+module.exports = function (app) {
+  app.use(proxy('/api', {
+    target: 'https://listen-api-test.listennotes.com/',
+    logLevel: 'debug',
+    changeOrigin: true
+  }));
+};
 
 server.applyMiddleware({ app });
 
