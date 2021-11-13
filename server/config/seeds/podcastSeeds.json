@@ -3,21 +3,21 @@
       "title": "Criminal",
       "description":
         "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-      "image": "podcast-image-criminal.png",
+      "image": "https://res.cloudinary.com/ryanmcc/image/upload/v1636815879/podcast-image-criminal_bs873e.png",
       "likes": 3
     },
     {
       "title": "Dark House",
       "description":
         "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-      "image": "podcast-image-dark-house.jpeg",
+      "image": "https://res.cloudinary.com/ryanmcc/image/upload/v1636815879/podcast-image-dark-house_nujtb6.jpg",
       "likes": 37
     },
     {
       "title": "Fat Mascara",
       "description":
         "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-      "image": "podcast-image-fat-mascara.jpg",
+      "image": "https://res.cloudinary.com/ryanmcc/image/upload/v1636815879/podcast-image-fat-mascara_vpcuoj.jpg",
       "likes": 0
     }
   ]
