@@ -34,22 +34,30 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
-app.get("/api/podcasts", (req, res) => {
-  client.fetchBestPodcasts({
-    // genre_id: 67,
-    page: 0,
-    region: 'us',
-    sort: 'listen_score',
-    safe_mode: 0,
-  })
-    .then((response) => {
-      // Get response json data here
-      res.json(response.data.podcasts);
-    })
-    .catch((error) => {
-      console.log(error);
-    });;
-});
+const sendGetRequest = async () => {
+  try {
+    app.get("/api/popularPodcasts", (req, res) => {
+      client.fetchBestPodcasts({
+        // genre_id: 67,
+        page: 0,
+        region: 'us',
+        sort: 'listen_score',
+        safe_mode: 0,
+      })
+        .then((response) => {
+          // Get response json data here
+          res.json(response.data.podcasts);
+        })
+        .catch((error) => {
+          console.log(error);
+        });;
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+sendGetRequest();
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));

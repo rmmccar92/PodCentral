@@ -1,23 +1,14 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
-import Grid from '@mui/material/Grid';
 
 
-const Cards = (props) => {
+export default function Cards(props) {
   return (
-    <Grid
-      container
-      spacing={7}
-      direction="row"
-      justifyContent="space-evenly"
-      alignItems="center"
-      sx={{ pb: "50px", pl: "50px", pr: "50px" }}
-    >
-      <Grid item xs={12} md={6} lg={2}>
+    <div>
+      <a href={props.link}>
         <Card
           className="podCard"
           style={{ backgroundColor: '#17141d', boxShadow: '-1rem 0 3rem #000' }}
@@ -38,8 +29,6 @@ const Cards = (props) => {
           <CardContent>
             <Typography
               gutterBottom
-              component={Link}
-              to={props.redirect}
               color="white"
               sx={{ ml: '5px', fontWeight: '', fontSize: '14px' }}
             >
@@ -47,9 +36,8 @@ const Cards = (props) => {
             </Typography>
             <br />
             <Typography
+              noWrap
               gutterBottom
-              component={Link}
-              to='https://www.google.com'
               color="white"
               sx={{ ml: '5px', fontWeight: '', fontSize: '12px' }}
             >
@@ -57,9 +45,8 @@ const Cards = (props) => {
             </Typography>
           </CardContent>
         </Card>
-      </Grid>
-    </Grid>
+      </a>
+    </div>
   );
 }
 
-export default Cards

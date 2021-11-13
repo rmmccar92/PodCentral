@@ -2,12 +2,12 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
-import CategoryCard from "../components/CategoryCard";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
 import { Link } from "react-router-dom";
-import Cards from "../components/Cards";
 import { useState, useEffect } from "react";
+import Cards from '../components/Cards'
+import CategoryCard from "../components/CategoryCard";
 
 
 // import podcastLogo from '../assets/podcast-logo.png';
@@ -38,11 +38,10 @@ const theme = createTheme({
 });
 
 
-export default function MediaCard() {
-
+const Discover = () => {
   const [podcastData, setPodcastData] = useState('');
   useEffect(() => {
-    fetch('/api/podcasts')
+    fetch('/api/popularPodcasts')
       .then(res => res.json())
       .then(data => {
         setPodcastData(data)
@@ -52,19 +51,32 @@ export default function MediaCard() {
   }, [])
 
 
+
+  const podcastsArr = []
+  const populateArr = () => {
+    for (let i = 0; i < 6; i++) {
+      podcastsArr.push(podcastData[i]);
+    }
+  }
+
+  populateArr();
+
+  let loading = true;
+  if (podcastsArr[0] !== undefined) {
+    loading = false;
+  }
+
+  if (loading) {
+    return <h2>LOADING</h2>
+  }
+
   // console.log('all data', podcastData)
   // console.log('all podcast data', podcastData)
   // const testTitle = async () => {
   //   await console.log('individual podcast title', podcastData[0].title);
   // }
   // testTitle()
-  const podcastsArr = []
-  const populateArr = async () => {
-    for (let i = 0; i < 6; i++) {
-      await podcastsArr.push(podcastData[i])
-    }
-  }
-  populateArr();
+
   console.log(podcastsArr);
   return (
     <div>
@@ -142,17 +154,19 @@ export default function MediaCard() {
           <p className="categories">Popular</p>
           <Grid
             container
-            spacing={7}
+            spacing={2}
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
             sx={{ pb: "50px", pl: "50px", pr: "50px" }}
           >
-            <Grid item xs={12} md={6} lg={2}>
-              {podcastsArr.map((podcast) => (
-                <Cards title={podcast.title} image={podcast.image} redirect={podcast.extra.spotify_url} description={podcast.description} />
-              ))}
-            </Grid>
+            {podcastsArr.map((podcast) => {
+              return (
+                <Grid item xs={12} md={6} lg={2} key={podcast.id}>
+                  <Cards title={podcast.title} image={podcast.image} link={podcast.listennotes_url} description={podcast.description} />
+                </Grid>
+              )
+            })}
           </Grid>
 
           <p className="categories">Family</p>
@@ -185,6 +199,8 @@ export default function MediaCard() {
           </Grid>
         </Box>
       </ThemeProvider>
-    </div>
+    </div >
   );
 }
+
+export default Discover;
