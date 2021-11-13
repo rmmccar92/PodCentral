@@ -27,11 +27,12 @@ const PublishNewPodcast = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // if()
+    const podcastImage = localStorage.getItem("podcastImage");
+    console.log(podcastImage);
     try {
       const { data } = await addPodcast({
         variables: {
-          input: { ...formState },
+          input: { ...formState, image: podcastImage },
         },
       });
     } catch (err) {
@@ -48,7 +49,6 @@ const PublishNewPodcast = () => {
   };
   if (!userData?.addedPodcast) {
     return (
-      // <WidgetLoader>
       <Box sx={{ flexGrow: 1 }}>
         <Grow
           style={{ transformOrigin: "0 0 0" }}
@@ -129,6 +129,14 @@ const PublishNewPodcast = () => {
             </div>
             <div className="flex-row flex-end">
               <CloudinaryWidget />
+              <Button
+                variant="contained"
+                sx={{ backgroundColor: "black" }}
+                type="submit"
+                onClick={handleFormSubmit}
+              >
+                Submit
+              </Button>
             </div>
           </Box>
         </Grow>
