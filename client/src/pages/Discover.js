@@ -41,7 +41,7 @@ const theme = createTheme({
 
 
 export default function MediaCard() {
-  const [podcastJSON, setPodcastData] = useState('');
+  const [podcastData, setPodcastData] = useState('');
   const client = Client({ apiKey: process.env.API_KEY });
 
   client.fetchBestPodcasts({
@@ -52,21 +52,20 @@ export default function MediaCard() {
   })
     .then((response) => {
       // Get response json data here
-      setPodcastData(response.data)
+      setPodcastData('all data', response.data)
     })
     .catch((error) => {
       console.log(error);
     });
 
-  const podcastData = JSON.parse(podcastJSON);
+  console.log('podcast', podcastData.podcast);
 
-  console.log(podcastData.podcasts[0].title);
 
-  const cardPopulate = () => {
-    for (let i = 0; i < 5; i++) {
-      return <Cards title={podcastData.podcasts[i].title} image={podcastData.podcasts[i].image} redirect={podcastData.podcasts[i].redirect} description={podcastData.podcasts[i].description} />
-    }
-  }
+  // const cardPopulate = () => {
+  //   for (let i = 0; i < 5; i++) {
+  //     return <Cards title={podcastData.podcasts[i].title} image={podcastData.podcasts[i].image} redirect={podcastData.podcasts[i].redirect} description={podcastData.podcasts[i].description} />
+  //   }
+  // }
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -113,9 +112,9 @@ export default function MediaCard() {
             </Button>
           </Grid>
 
-          <div>
+          {/* <div>
             {cardPopulate}
-          </div>
+          </div> */}
 
           <p className="categories">Popular</p>
           <Grid

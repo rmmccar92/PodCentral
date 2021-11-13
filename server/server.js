@@ -16,14 +16,6 @@ const server = new ApolloServer({
   context: authMiddleware
 });
 
-module.exports = function (app) {
-  app.use(proxy('/api', {
-    target: 'https://listen-api-test.listennotes.com/',
-    logLevel: 'debug',
-    changeOrigin: true
-  }));
-};
-
 server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: false }));
