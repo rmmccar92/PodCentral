@@ -8,6 +8,8 @@ const db = require("./config/connection");
 
 const proxy = require('http-proxy-middleware');
 
+const { Client } = require('podcast-api');
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
@@ -15,6 +17,9 @@ const server = new ApolloServer({
   resolvers,
   context: authMiddleware,
 });
+
+
+const client = Client({ apiKey: process.env.API_KEY });
 
 server.applyMiddleware({ app });
 
@@ -28,6 +33,23 @@ app.use(express.static(path.join(__dirname, "../client/public")));
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
+
+app.get("/api/podcasts", (req, res) => {
+  client.fetchBestPodcasts({
+    // genre_id: 67,
+    page: 0,
+    region: 'us',
+    sort: 'listen_score',
+    safe_mode: 0,
+  })
+    .then((response) => {
+      // Get response json data here
+      res.json(response.data.podcasts);
+    })
+    .catch((error) => {
+      console.log(error);
+    });;
+});
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));

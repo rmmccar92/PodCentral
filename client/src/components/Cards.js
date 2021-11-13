@@ -20,7 +20,6 @@ const Cards = (props) => {
       <Grid item xs={12} md={6} lg={2}>
         <Card
           className="podCard"
-          component={Link}
           style={{ backgroundColor: '#17141d', boxShadow: '-1rem 0 3rem #000' }}
           sx={{
             border: 1,
@@ -50,7 +49,7 @@ const Cards = (props) => {
             <Typography
               gutterBottom
               component={Link}
-              to={props.redirect}
+              to='https://www.google.com'
               color="white"
               sx={{ ml: '5px', fontWeight: '', fontSize: '12px' }}
             >

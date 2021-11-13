@@ -7,10 +7,8 @@ import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
 import { Link } from "react-router-dom";
 import Cards from "../components/Cards";
-import { Client } from 'podcast-api'
 import { useState, useEffect } from "react";
 
-require('dotenv').config();
 
 // import podcastLogo from '../assets/podcast-logo.png';
 
@@ -41,31 +39,33 @@ const theme = createTheme({
 
 
 export default function MediaCard() {
+
   const [podcastData, setPodcastData] = useState('');
-  const client = Client({ apiKey: process.env.API_KEY });
-
-  client.fetchBestPodcasts({
-    page: 0,
-    region: 'us',
-    sort: 'listen_score',
-    safe_mode: 0,
-  })
-    .then((response) => {
-      // Get response json data here
-      setPodcastData('all data', response.data)
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
-  console.log('podcast', podcastData.podcast);
+  useEffect(() => {
+    fetch('/api/podcasts')
+      .then(res => res.json())
+      .then(data => {
+        setPodcastData(data)
+        console.log('all podcast data from data attribute', data)
+        console.log('title from data attribute', data[0].title);
+      })
+  }, [])
 
 
-  // const cardPopulate = () => {
-  //   for (let i = 0; i < 5; i++) {
-  //     return <Cards title={podcastData.podcasts[i].title} image={podcastData.podcasts[i].image} redirect={podcastData.podcasts[i].redirect} description={podcastData.podcasts[i].description} />
-  //   }
+  // console.log('all data', podcastData)
+  // console.log('all podcast data', podcastData)
+  // const testTitle = async () => {
+  //   await console.log('individual podcast title', podcastData[0].title);
   // }
+  // testTitle()
+  const podcastsArr = []
+  const populateArr = async () => {
+    for (let i = 0; i < 6; i++) {
+      await podcastsArr.push(podcastData[i])
+    }
+  }
+  populateArr();
+  console.log(podcastsArr);
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -111,10 +111,33 @@ export default function MediaCard() {
               BROWSE ALL
             </Button>
           </Grid>
-
-          {/* <div>
-            {cardPopulate}
-          </div> */}
+          <Grid
+            container
+            spacing={7}
+            direction="row"
+            justifyContent="space-evenly"
+            alignItems="center"
+            sx={{ pb: "50px", pl: "50px", pr: "50px" }}
+          >
+            <Grid item xs={12} md={6} lg={2}>
+              <CategoryCard />
+            </Grid>
+            <Grid item xs={12} md={6} lg={2}>
+              <CategoryCard />
+            </Grid>
+            <Grid item xs={12} md={6} lg={2}>
+              <CategoryCard />
+            </Grid>
+            <Grid item xs={12} md={6} lg={2}>
+              <CategoryCard />
+            </Grid>
+            <Grid item xs={12} md={6} lg={2}>
+              <CategoryCard />
+            </Grid>
+            <Grid item xs={12} md={6} lg={2}>
+              <CategoryCard />
+            </Grid>
+          </Grid>
 
           <p className="categories">Popular</p>
           <Grid
@@ -126,22 +149,9 @@ export default function MediaCard() {
             sx={{ pb: "50px", pl: "50px", pr: "50px" }}
           >
             <Grid item xs={12} md={6} lg={2}>
-              <Cards />
-            </Grid>
-            <Grid item xs={12} md={6} lg={2}>
-              <Cards />
-            </Grid>
-            <Grid item xs={12} md={6} lg={2}>
-              <Cards />
-            </Grid>
-            <Grid item xs={12} md={6} lg={2}>
-              <Cards />
-            </Grid>
-            <Grid item xs={12} md={6} lg={2}>
-              <Cards />
-            </Grid>
-            <Grid item xs={12} md={6} lg={2}>
-              <Cards />
+              {podcastsArr.map((podcast) => (
+                <Cards title={podcast.title} image={podcast.image} redirect={podcast.extra.spotify_url} description={podcast.description} />
+              ))}
             </Grid>
           </Grid>
 

@@ -18,8 +18,6 @@ const CategoryCard = () => {
     <div>
       <Card
         className="podCard"
-        component={Link}
-        to="/"
         style={{ backgroundColor: '#17141d', boxShadow: '-1rem 0 3rem #000' }}
         sx={{
           border: 1,
