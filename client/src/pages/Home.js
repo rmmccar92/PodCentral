@@ -174,6 +174,8 @@ export default function Home({}) {
         <Grid item xs={12} md={8} lg={12}>
           <Box
             className="boxCenter grow"
+            component={Link}
+            to="/publish"
             ml={20}
             mr={100}
             mt={10}
@@ -192,6 +194,8 @@ export default function Home({}) {
         <Grid item xs={12} md={12} lg={12}>
           <Box
             className="boxCenter2 grow"
+            component={Link}
+            to="/discover"
             ml={100}
             mr={20}
             mt={10}
