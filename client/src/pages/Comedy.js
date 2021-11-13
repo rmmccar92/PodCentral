@@ -1,71 +1,95 @@
-import * as React from 'react';
-import { Link } from 'react-router-dom';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Grow from '@mui/material/Grow';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@emotion/react";
+import { useState, useEffect } from "react";
+import Cards from '../components/Cards'
 
-import podcastLogo from '../assets/podcast-logo-2.png'
-import spaceShipLogo from '../assets/space-ship-logo.png'
 
-const styles = {
-    logo: {
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        width: '125px'
+const theme = createTheme({
+    status: {
+        danger: "#e53e3e",
     },
-    spaceLogo: {
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        width: '190px'
-    }
-}
+    palette: {
+        primary: {
+            main: "#ffffff",
+            darker: "#053e85",
+        },
+        neutral: {
+            main: "#64748B",
+            contrastText: "#fff",
+        },
+    },
+});
+
+
 const Comedy = () => {
+    const [comedyPodcastData, setPodcastData] = useState('');
+    useEffect(() => {
+        fetch('/api/comedy')
+            .then(res => res.json())
+            .then(data => {
+                setPodcastData(data)
+            })
+    }, [])
+
+    let loading = true;
+    if (comedyPodcastData[0] !== undefined) {
+        loading = false;
+    }
+
+    if (loading) {
+        return <h2>LOADING</h2>
+    }
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={5}>
-                <Grid item xs={12} md={6}>
-                    <Grow style={{ transformOrigin: '0 0 0' }} {...{ timeout: 2000 }} in={true}>
-                        <Typography
-                            variant="h2"
-                            component={Link}
-                            to="/publish"
-                            align="center"
-                            pt={5}
-                            sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
-                            color="black"
-                        >
-                            Comedy
-                        </Typography>
-                    </Grow>
-                    <Grow style={{ transformOrigin: '0 0 0' }} {...{ timeout: 2000 }} in={true}>
-                        <Typography
-                            variant="h5"
-                            component="div"
-                            align="center"
-                            pt={5}
-                            mx={3}
-                            sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
-                            color="black"
-                        >
-                            Upload your own podcast in just a few easy steps. We take care of the hard parts so you can focus on making your best podcast.
-                        </Typography>
-                    </Grow>
-                    <Grow style={{ transformOrigin: '0 0 0' }} {...{ timeout: 2000 }} in={true}>
-                        <Box pt={3}>
-                            <a href="/publish"><img src={podcastLogo} alt="space ship - discover logo" style={styles.logo} /></a>
-                        </Box>
-                    </Grow>
-                </Grid>
-            </Grid >
-        </Box >
+        <div>
+            <ThemeProvider theme={theme}>
+                <Box
+                    sx={{
+                        flexGrow: 1,
+                        width: "auto",
+                        fontSize: 64,
+                        fontWeight: "bold",
+                        ml: "50px",
+                        mt: "50px",
+                        mb: "50px",
+                        letterSpacing: 8,
+                    }}
+                >
+                    <p className="wYl-font">COMEDY</p>
+                    <p className="wYl-font2">PODCASTS</p>
+                </Box>
+
+                <Box
+                    className="boxColor"
+                    sx={{
+                        width: "auto",
+                        mt: "30px",
+                        pt: "20px",
+                    }}
+                >
+                    <Grid
+                        container
+                        spacing={2}
+                        direction="row"
+                        justifyContent="space-evenly"
+                        alignItems="center"
+                        sx={{ pb: "50px", pl: "50px", pr: "50px" }}
+                    >
+                        {comedyPodcastData.map((podcast) => {
+                            return (
+                                <Grid item xs={12} md={6} lg={2} key={podcast.id}>
+                                    <Cards title={podcast.title} image={podcast.image} link={podcast.listennotes_url} description={podcast.description} />
+                                </Grid>
+                            )
+                        })}
+                    </Grid>
+                </Box>
+            </ThemeProvider>
+        </div >
     );
-};
+}
 
 export default Comedy;
-
-
-

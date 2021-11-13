@@ -38,8 +38,6 @@ const sendGetRequest = async () => {
   try {
     app.get("/api/popularPodcasts", (req, res) => {
       client.fetchBestPodcasts({
-        // genre_id: 67,
-        page: 0,
         region: 'us',
         sort: 'listen_score',
         safe_mode: 0,
@@ -55,7 +53,127 @@ const sendGetRequest = async () => {
   } catch (err) {
     console.error(err);
   }
-};
+
+  try {
+    app.get("/api/business", (req, res) => {
+      client.fetchBestPodcasts({
+        genre_id: 93,
+        region: 'us',
+        sort: 'listen_score',
+        safe_mode: 0,
+      })
+        .then((response) => {
+          // Get response json data here
+          res.json(response.data.podcasts);
+        })
+        .catch((error) => {
+          console.log(error);
+        });;
+    });
+  } catch (err) {
+    console.error(err);
+  }
+
+  try {
+    app.get("/api/comedy", (req, res) => {
+      client.fetchBestPodcasts({
+        genre_id: 133,
+        region: 'us',
+        sort: 'listen_score',
+        safe_mode: 0,
+      })
+        .then((response) => {
+          // Get response json data here
+          res.json(response.data.podcasts);
+        })
+        .catch((error) => {
+          console.log(error);
+        });;
+    });
+  } catch (err) {
+    console.error(err);
+  };
+
+  try {
+    app.get("/api/health", (req, res) => {
+      client.fetchBestPodcasts({
+        genre_id: 88,
+        region: 'us',
+        sort: 'listen_score',
+        safe_mode: 0,
+      })
+        .then((response) => {
+          // Get response json data here
+          res.json(response.data.podcasts);
+        })
+        .catch((error) => {
+          console.log(error);
+        });;
+    });
+  } catch (err) {
+    console.error(err);
+  };
+
+  try {
+    app.get("/api/news", (req, res) => {
+      client.fetchBestPodcasts({
+        genre_id: 99,
+        region: 'us',
+        sort: 'listen_score',
+        safe_mode: 0,
+      })
+        .then((response) => {
+          // Get response json data here
+          res.json(response.data.podcasts);
+        })
+        .catch((error) => {
+          console.log(error);
+        });;
+    });
+  } catch (err) {
+    console.error(err);
+  };
+
+  try {
+    app.get("/api/popCulture", (req, res) => {
+      client.fetchBestPodcasts({
+        genre_id: 244,
+        region: 'us',
+        sort: 'listen_score',
+        safe_mode: 0,
+      })
+        .then((response) => {
+          // Get response json data here
+          res.json(response.data.podcasts);
+        })
+        .catch((error) => {
+          console.log(error);
+        });;
+    });
+  } catch (err) {
+    console.error(err);
+  };
+
+  try {
+    app.get("/api/trueCrime", (req, res) => {
+      client.fetchBestPodcasts({
+        genre_id: 135,
+        region: 'us',
+        sort: 'listen_score',
+        safe_mode: 0,
+      })
+        .then((response) => {
+          // Get response json data here
+          res.json(response.data.podcasts);
+        })
+        .catch((error) => {
+          console.log(error);
+        });;
+    });
+  } catch (err) {
+    console.error(err);
+  };
+}
 
 sendGetRequest();
 

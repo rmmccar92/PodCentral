@@ -9,18 +9,6 @@ import { useState, useEffect } from "react";
 import Cards from '../components/Cards'
 import CategoryCard from "../components/CategoryCard";
 
-
-// import podcastLogo from '../assets/podcast-logo.png';
-
-// const styles = {
-//   podcastLogo: {
-//     display: 'block',
-//     marginLeft: 'auto',
-//     marginRight: 'auto',
-//     width: '300px',
-//   },
-// };
-
 const theme = createTheme({
   status: {
     danger: "#e53e3e",
