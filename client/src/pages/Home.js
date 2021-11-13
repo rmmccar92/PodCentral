@@ -2,8 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grow from '@mui/material/Grow';
-import Card from '@mui/material/Card';
-import { CardMedia } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
@@ -76,209 +75,193 @@ const itemData = [
 
 export default function Home({}) {
   return (
-    <Box
-      className="boxColor"
-      pt={10}
-      sx={{
-        flexGrow: 1,
-        height: '1500px',
-      }}
-    >
+    <Grid container>
       <Box
         className="boxColor"
-        ml={20}
-        mr={20}
+        pt={10}
         sx={{
-          backgroundColor: '#17141d',
-          boxShadow: '-1rem 0 3rem #000',
-          border: 1,
-          borderColor: 'black',
-          borderRadius: '5px',
+          flexGrow: 1,
+          height: '2000px',
         }}
       >
-        <Grow
-          style={{ transformOrigin: '0 0 0' }}
-          {...{ timeout: 2000 }}
-          in={true}
-        >
-          <Typography
-            variant="h4"
-            component="div"
-            align="center"
-            color="white"
-            pt={2}
+        <Grid item xs={10} md={10} lg={12}>
+          <Box
+            className="boxColor"
+            ml={20}
+            mr={20}
             sx={{
-              flexGrow: 1,
-              display: { xs: 'block', sm: 'block' },
-              fontSize: '70px',
-              fontWeight: 'bold',
-              letterSpacing: 3,
-              lineHeight: 1.5,
+              backgroundColor: '#17141d',
+              boxShadow: '-1rem 0 3rem #000',
+              border: 1,
+              borderColor: 'black',
+              borderRadius: '5px',
             }}
           >
-            PODCENTRAL
-            <p className="pStyling1">Designed for Podcasts with You in Mind</p>
-          </Typography>
-        </Grow>
-
-        <Grow
-          style={{ transformOrigin: '0 0 0' }}
-          {...{ timeout: 2000 }}
-          in={true}
-        >
-          <Box pt={5}>
-            <img
-              src={podcastLogo}
-              alt="podcast microphone"
-              style={styles.podcastLogo}
-            />
-          </Box>
-        </Grow>
-        <Box p={5} ml={5} mr={5}>
-          <Grow
-            style={{ transformOrigin: '0 0 0' }}
-            {...{ timeout: 2000 }}
-            in={true}
-          >
-            <Typography
-              variant="h2"
-              component="div"
-              align="center"
-              color="white"
-              // pt={5}
-              sx={{
-                flexGrow: 1,
-                display: { xs: 'block', sm: 'block' },
-                fontWeight: 'bold',
-                fontSize: '40px',
-                letterSpacing: 1,
-              }}
+            <Grow
+              style={{ transformOrigin: '0 0 0' }}
+              {...{ timeout: 2000 }}
+              in={true}
             >
-              <p className="pStyling">
-                Whether you want to manage your own podcasts, discover new
-                podcasts to enjoy or listen to your favorite podcast, it has
-                never been easier with PodCentral.
-              </p>
-            </Typography>
-          </Grow>
-        </Box>
-      </Box>
-      <Box
-        className="boxCenter"
-        ml={20}
-        mr={100}
-        pb={15}
-        mt={10}
-        sx={{ height: '307px', width: '490px' }}
-      >
-        <Box
-          sx={{
-            backgroundColor: '#17141d',
-            boxShadow: '-1rem 0 3rem #000',
-            border: 1,
-            borderColor: 'black',
-            borderRadius: '5px',
-            width: '200%',
-          }}
-        >
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU" />
-        </Box>
-        <Box ml={1} mr={1}>
-          <Typography color="white" fontSize="18px">
-            <p className="publish">PUBLISH</p>
-            Upload your own podcast in just a few easy steps. We take care of
-            the hard parts so you can focus on making your best podcast.
-          </Typography>
-        </Box>
-      </Box>
+              <Grid item xs={12} md={12} lg={12}>
+                <Typography
+                  variant="h4"
+                  component="div"
+                  align="center"
+                  color="white"
+                  pt={2}
+                  sx={{
+                    flexGrow: 1,
+                    display: { xs: 'block', sm: 'block' },
+                    fontSize: '70px',
+                    fontWeight: 'bold',
+                    letterSpacing: 3,
+                    lineHeight: 1.5,
+                  }}
+                >
+                  PODCENTRAL
+                  <p className="pStyling1">
+                    Designed for Podcasts with You in Mind
+                  </p>
+                </Typography>
+              </Grid>
+            </Grow>
 
-      <Box
-        className="boxCenter2"
-        ml={109}
-        pb={15}
-        mt={10}
-        sx={{ height: '308px', width: '486px' }}
-      >
-        <Box ml={7}>
-          <Typography color="white" fontSize="16px">
-            <p className="discover">DISCOVER</p>
-            Browse through our extensive library of podcasts to find something
-            you love. We have a podcast for everyone.
-          </Typography>
-        </Box>
+            <Grow
+              style={{ transformOrigin: '0 0 0' }}
+              {...{ timeout: 2000 }}
+              in={true}
+            >
+              <Box pt={5}>
+                <img
+                  src={podcastLogo}
+                  alt="podcast microphone"
+                  style={styles.podcastLogo}
+                />
+              </Box>
+            </Grow>
+            <Grid item xs={12} md={12} lg={12}>
+              <Box p={5} ml={5} mr={5}>
+                <Grow
+                  style={{ transformOrigin: '0 0 0' }}
+                  {...{ timeout: 2000 }}
+                  in={true}
+                >
+                  <Typography
+                    variant="h2"
+                    component="div"
+                    align="center"
+                    color="white"
+                    // pt={5}
+                    sx={{
+                      flexGrow: 1,
+                      display: { xs: 'block', sm: 'block' },
+                      fontWeight: 'bold',
+                      fontSize: '40px',
+                      letterSpacing: 1,
+                    }}
+                  >
+                    <p className="pStyling">
+                      Whether you want to manage your own podcasts, discover new
+                      podcasts or listen to your favorite podcast, it has never
+                      been easier with PodCentral.
+                    </p>
+                  </Typography>
+                </Grow>
+              </Box>
+            </Grid>
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={8} lg={12}>
+          <Box
+            className="boxCenter grow"
+            ml={20}
+            mr={100}
+            mt={10}
+            // sx={{ border: 1 }}
+          >
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU" />
+            <Box ml={1} mr={1}>
+              <Typography color="white" fontSize="18px">
+                <p className="publish">PUBLISH</p>
+                Upload your own podcast in just a few easy steps. We take care
+                of the hard parts so you can focus on making your best podcast.
+              </Typography>
+            </Box>
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={12} lg={12}>
+          <Box
+            className="boxCenter2 grow"
+            ml={100}
+            mr={20}
+            mt={10}
+            // sx={{ border: 1 }}
+          >
+            <Box ml={1} mr={1}>
+              <Typography color="white" fontSize="18px">
+                <p className="discover">DISCOVER</p>
+                Browse through our extensive library of podcasts to find
+                something you love. We have a podcast for everyone.
+              </Typography>
+            </Box>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU" />
+          </Box>
+        </Grid>
         <Box
-          sx={{
-            backgroundColor: '#17141d',
-            boxShadow: '-1rem 0 3rem #000',
-            border: 1,
-            borderColor: 'black',
-            borderRadius: '5px',
-            width: '200%',
-          }}
-        >
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU" />
-        </Box>
-      </Box>
-      {/* <Box
-        ml={20}
-        mr={20}
-        mt="50px"
-        pb="50px"
-        pt="50px"
-        style={{
-          backgroundColor: '#17141d',
-          boxShadow: '-1rem 0 3rem #000',
-        }}
-        sx={{
-          border: 1,
-          borderRadius: '5px',
-        }}
-      >
-        <ImageList
-          className="scrollBar"
+          ml={20}
+          mr={20}
+          mt={10}
+          p={1}
           style={{
             backgroundColor: '#17141d',
             boxShadow: '-1rem 0 3rem #000',
           }}
           sx={{
-            width: '1000px',
-            height: '500px',
-            position: 'relative',
-            left: '8%',
-            top: '5%',
             border: 1,
             borderRadius: '5px',
           }}
         >
-          <ImageListItem key="Subheader" cols={2}>
-            <ListSubheader component="div">December</ListSubheader>
-          </ImageListItem>
-          {itemData.map((item) => (
-            <ImageListItem component={Link} to="/discover" key={item.img}>
-              <img
-                className="podCardTwo"
-                src={`${item.img}?w=248&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                alt={item.title}
-                loading="lazy"
-                sx={{ border: 1, borderRadius: '5px' }}
-              />
-              <ImageListItemBar
-                title={item.title}
-                subtitle={item.author}
-                actionIcon={
-                  <IconButton
-                    sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                    aria-label={`info about ${item.title}`}
-                  >
-                    <InfoIcon />
-                  </IconButton>
-                }
-              />
-            </ImageListItem>
-          ))}
-        </ImageList>
-      </Box> */}
-    </Box>
+          <ImageList
+            className="scrollBar"
+            style={{
+              backgroundColor: '#17141d',
+              boxShadow: '-1rem 0 3rem #000',
+            }}
+            sx={{
+              width: '600px',
+              height: '400px',
+              border: 1,
+              borderRadius: '5px',
+            }}
+          >
+            {itemData.map((item) => (
+              <ImageListItem component={Link} to="/discover" key={item.img}>
+                <img
+                  className="podCardTwo"
+                  src={`${item.img}?w=248&fit=crop&auto=format`}
+                  srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                  alt={item.title}
+                  loading="lazy"
+                  sx={{ border: 1, borderRadius: '5px' }}
+                />
+                <ImageListItemBar
+                  title={item.title}
+                  subtitle={item.author}
+                  actionIcon={
+                    <IconButton
+                      sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                      aria-label={`info about ${item.title}`}
+                    >
+                      <InfoIcon />
+                    </IconButton>
+                  }
+                />
+              </ImageListItem>
+            ))}
+          </ImageList>
+        </Box>
+      </Box>
+    </Grid>
   );
 }

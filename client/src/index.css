@@ -315,7 +315,7 @@ input:focus {
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 20px;
+  font-size: 21px;
   letter-spacing: 2px;
   line-height: 30px;
   font-weight: normal;
@@ -339,14 +339,15 @@ input:focus {
 .boxCenter {
   display: flex;
   /* flex-direction: row; */
-  position: relative;
+  /* position: relative; */
 }
 
 .boxCenter2 {
   display: flex;
-  position: relative;
+  position: absolute;
   /* left: 47%; */
-  top: -388px;
+  top: 728px;
+  text-align: end;
 }
 
 .publish {
@@ -363,6 +364,14 @@ input:focus {
   letter-spacing: 3px;
   display: flex;
   justify-content: end;
+}
+
+.grow {
+  transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.2);
 }
 
 
