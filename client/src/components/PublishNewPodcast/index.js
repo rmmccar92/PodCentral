@@ -12,10 +12,12 @@ import Input from "@mui/material/Input";
 import { GET_ME } from "../../utils/queries";
 import { ADD_PODCAST } from "../../utils/mutations";
 import PublishProfile from "../PublishProfile";
-
+import CloudinaryWidget from "../Cloudinary";
+import Auth from "../../utils/auth";
 const PublishNewPodcast = () => {
   const { loading, data } = useQuery(GET_ME);
-  const userData = data?.me;
+  const userData = data?.me || [];
+  // console.log(userData);
   const [formState, setFormState] = useState({
     title: "",
     description: "",
@@ -25,15 +27,16 @@ const PublishNewPodcast = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
-    const mutationResponse = await addPodcast({
-      variables: {
-        title: formState.title,
-        description: formState.description,
-        image: formState.image,
-      },
-    });
-    console.log(mutationResponse);
+    // if()
+    try {
+      const { data } = await addPodcast({
+        variables: {
+          input: { ...formState },
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleChange = (event) => {
@@ -45,6 +48,7 @@ const PublishNewPodcast = () => {
   };
   if (!userData?.addedPodcast) {
     return (
+      // <WidgetLoader>
       <Box sx={{ flexGrow: 1 }}>
         <Grow
           style={{ transformOrigin: "0 0 0" }}
@@ -122,29 +126,9 @@ const PublishNewPodcast = () => {
             </div>
             <div className="flex-row space-between my-2">
               <label htmlFor="image">Upload Image: </label>
-              <Input
-                accept="image/*"
-                id="contained-button-file"
-                multiple
-                type="file"
-              />
-              <Button
-                variant="contained"
-                sx={{ backgroundColor: "black" }}
-                component="span"
-              >
-                Upload
-              </Button>
             </div>
             <div className="flex-row flex-end">
-              <Button
-                variant="contained"
-                sx={{ backgroundColor: "black" }}
-                type="submit"
-                onClick={handleFormSubmit}
-              >
-                Submit
-              </Button>
+              <CloudinaryWidget />
             </div>
           </Box>
         </Grow>

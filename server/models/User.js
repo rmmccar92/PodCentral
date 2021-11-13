@@ -27,8 +27,16 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-    likedPodcasts: [Podcast.schema],
-    addedPodcast: [Podcast.schema],
+    likedPodcasts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Podcast",
+      },
+    ],
+    addedPodcast: {
+      type: Schema.Types.ObjectId,
+      ref: "Podcast",
+    },
   },
   {
     toJSON: {
