@@ -6,8 +6,6 @@ const CloudinaryWidget = () => {
   const successCallBack = (response) => {
     console.log(response);
     localStorage.setItem("podcastImage", response.info.secure_url);
-    // const podcastImage = localStorage.getItem("podcastImage");
-    // console.log(podcastImage);
   };
 
   const failureCallBack = (response) => {

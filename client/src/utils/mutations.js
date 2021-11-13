@@ -52,7 +52,6 @@ export const ADD_EPISODE = gql`
       duration
       season
       episode
-      createdAt
     }
   }
 `;

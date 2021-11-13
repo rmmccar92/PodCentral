@@ -29,7 +29,6 @@ const PublishNewPodcast = () => {
     event.preventDefault();
     const podcastImage = localStorage.getItem("podcastImage");
     console.log(podcastImage);
-    // if()
     try {
       const { data } = await addPodcast({
         variables: {
@@ -50,7 +49,6 @@ const PublishNewPodcast = () => {
   };
   if (!userData?.addedPodcast) {
     return (
-      // <WidgetLoader>
       <Box sx={{ flexGrow: 1 }}>
         <Grow
           style={{ transformOrigin: "0 0 0" }}

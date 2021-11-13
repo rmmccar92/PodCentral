@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Podcast } = require("../models");
+const { User, Podcast, Episode } = require("../models");
 const { signToken } = require("../utils/auth");
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
@@ -12,7 +12,11 @@ const resolvers = {
             _id: context.user._id,
           })
             .select("-__v-password")
-            .populate("addedPodcast");
+            .populate("addedPodcast")
+            .populate({
+              path: "addedPodcast",
+              populate: "episodes",
+            });
 
           return userData;
         } catch (err) {
@@ -71,7 +75,7 @@ const resolvers = {
     },
 
     addPodcast: async (parent, args, context) => {
-      if (context.user)
+      if (context.user) {
         try {
           const newPodcast = await Podcast.create(args.input);
           console.log(newPodcast);
@@ -82,10 +86,30 @@ const resolvers = {
             { addedPodcast: newPodcast._id },
             { new: true, runValidators: true }
           );
-          console.log(updateUserPodcast);
+          // console.log(updateUserPodcast);
         } catch (err) {
           console.log(err);
         }
+      }
+    },
+    addEpisode: async (parent, args, context) => {
+      if (context.user) {
+        try {
+          // console.log(args.input);
+          // console.log(context.user);
+          const newEpisode = await Episode.create(args.input);
+          // console.log(newEpisode);
+          const user = await User.findOne({ _id: context.user._id });
+          const updatePodcast = await Podcast.findOneAndUpdate(
+            { _id: user.addedPodcast },
+            { $push: { episodes: newEpisode._id } },
+            { new: true, runValidators: true }
+          );
+          console.log(updatePodcast);
+        } catch (err) {
+          console.log(err);
+        }
+      }
     },
 
     likePodcast: async (parent, args, context) => {

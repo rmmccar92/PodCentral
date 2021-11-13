@@ -6,7 +6,8 @@ import Typography from "@mui/material/Typography";
 import Grow from "@mui/material/Grow";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
-import Axios from "axios";
+import TextField from "@mui/material/TextField";
+import Input from "@mui/material/Input";
 
 import DarkHouse from "../../assets/podcast-image-dark-house.jpeg";
 
@@ -43,11 +44,10 @@ const PublishProfile = () => {
   };
 
   const { loading, data } = useQuery(GET_ME);
-  const userData = data?.me;
+  const userData = data?.me || [];
   const [formState, setFormState] = useState({
     title: "",
     description: "",
-    audio: "",
     season: "",
     episode: "",
   });
@@ -55,12 +55,22 @@ const PublishProfile = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    // Works for now but should be changed to be dynamic
+    const podcastImage = localStorage.getItem("podcastImage");
+    console.log(podcastImage);
     try {
       const { data } = await addEpisode({
         variables: {
-          input: { ...formState },
+          input: {
+            title: formState.title,
+            description: formState.description,
+            episode: parseInt(formState.episode),
+            season: parseInt(formState.season),
+            audio: podcastImage,
+          },
         },
       });
+      console.log(data);
     } catch (err) {
       console.log(err);
     }
@@ -75,7 +85,6 @@ const PublishProfile = () => {
   };
   return (
     <>
-      {/* <WidgetLoader /> */}
       <Box sx={{ flexGrow: 1 }}>
         <Grow
           style={{ transformOrigin: "0 0 0" }}
@@ -99,7 +108,6 @@ const PublishProfile = () => {
               {...{ timeout: 2000 }}
               in={true}
             >
-              {/* NEED FORM FIELDS FOR EPISODE INFO */}
               <Typography
                 variant="h4"
                 component="div"
@@ -137,6 +145,61 @@ const PublishProfile = () => {
                 sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
                 color="black"
               >
+                <Box sx={{ flexGrow: 1 }} justify="center">
+                  <div className="flex-row space-between my-2">
+                    <label htmlFor="title">Title: </label>
+                    <Input
+                      placeholder="Your Podcast"
+                      name="title"
+                      type="title"
+                      id="title"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="flex-row space-between my-2">
+                    <label htmlFor="description">Description: </label>
+                    <TextField
+                      multiline
+                      rows={5}
+                      variant="standard"
+                      placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum orci eu elit aliquam maximus."
+                      name="description"
+                      type="description"
+                      id="description"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="flex-row space-between my-2">
+                    <label htmlFor="title">Season: </label>
+                    <Input
+                      placeholder="1"
+                      name="season"
+                      type="season"
+                      id="season"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="flex-row space-between my-2">
+                    <label htmlFor="title">Episode: </label>
+                    <Input
+                      placeholder="1"
+                      name="episode"
+                      type="episode"
+                      id="episode"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="flex-row flex-end">
+                    <Button
+                      variant="contained"
+                      sx={{ backgroundColor: "black" }}
+                      type="submit"
+                      onClick={handleFormSubmit}
+                    >
+                      Submit
+                    </Button>
+                  </div>
+                </Box>
                 Upload New Episode
                 <CloudinaryWidget />
               </Typography>
