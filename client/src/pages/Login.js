@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import Input from '@mui/material/Input';
-import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
 
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
@@ -35,40 +35,51 @@ function Login(props) {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }} mx={8}>
-      <Typography variant="h6" component={Link} to="/signup">← Go to Signup</Typography>
-      <Typography variant="h4" sx={{ fontWeight: 'bold' }}>Login</Typography>
+    <div>
+      <Typography variant="h6" component={Link} to="/signup" mx={4}>← Go to Signup</Typography>
+      <Typography variant="h4" sx={{ fontWeight: 'bold' }} mx={25}>Login</Typography>
+
       <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email address:</label>
-          <Input
-            placeholder="youremail@mail.com"
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <Input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
-            onChange={handleChange}
-          />
-        </div>
-        {error ? (
-          <div>
-            <p className="error-text">The provided credentials are incorrect</p>
-          </div>
-        ) : null}
-        <div className="flex-row flex-end">
-          <Button variant="contained" sx={{ backgroundColor: "black" }} type="submit">Submit</Button>
-        </div>
+        <Grid
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          pt={2}
+        >
+          <Grid item>
+            <TextField
+              placeholder="youremail@mail.com"
+              label="Email"
+              name="email"
+              type="email"
+              id="email"
+              onChange={handleChange}
+            />
+          </Grid>
+          <Grid item pt={2}>
+            <TextField
+              placeholder="******"
+              label="Password"
+              name="password"
+              type="password"
+              id="pwd"
+              onChange={handleChange}
+            />
+          </Grid>
+          {error ? (
+            <div>
+              <p className="error-text">The provided credentials are incorrect</p>
+            </div>
+          ) : null}
+          <Grid item pt={2}>
+            <Button variant="contained" sx={{ backgroundColor: "black" }} type="submit">Submit</Button>
+          </Grid>
+        </Grid>
+
       </form>
-    </Box>
+    </div >
   );
 }
 

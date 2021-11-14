@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Podcast } = require("../models");
+const { User, Podcast, Episode } = require("../models");
 const { signToken } = require("../utils/auth");
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
@@ -12,7 +12,11 @@ const resolvers = {
             _id: context.user._id,
           })
             .select("-__v-password")
-            .populate("podcasts");
+            .populate("addedPodcast")
+            .populate({
+              path: "addedPodcast",
+              populate: "episodes",
+            });
 
           return userData;
         } catch (err) {
@@ -22,11 +26,17 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     users: async () => {
-      return User.find().populate("comments");
+      return User.find().populate("addedPodcast").populate({
+        path: "addedPodcast",
+        populate: "episodes",
+      });
     },
     podcasts: async () => {
       return await Podcast.find({}).populate("episodes");
     },
+    // addedPodcast: async () => {
+    //   return await Podcast.find
+    // }
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -64,26 +74,41 @@ const resolvers = {
       return { token, user };
     },
 
-    // addPodcast: async (parent, args, context) => {
-    //   if (context.user) {
-    //     try {
-    //       const podcast = Podcast.create(args);
+    addPodcast: async (parent, args, context) => {
+      if (context.user) {
+        try {
+          const newPodcast = await Podcast.create(args.input);
+          console.log(newPodcast);
+          // return newPodcast;
 
-    //       // await Podcast.create(context.user._id, args);
-    //       return podcast;
-    //     } catch (err) {
-    //       console.log(err);
-    //     }
-    //   }
-    //   throw new AuthenticationError("Not logged in");
-    // },
-    addPodcast: async (parent, args) => {
-      try {
-        const newPodcast = await Podcast.create(args);
-        console.log(newPodcast);
-        return newPodcast;
-      } catch (err) {
-        console.log(err);
+          const updateUserPodcast = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { addedPodcast: newPodcast._id },
+            { new: true, runValidators: true }
+          );
+          // console.log(updateUserPodcast);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    },
+    addEpisode: async (parent, args, context) => {
+      if (context.user) {
+        try {
+          // console.log(args.input);
+          // console.log(context.user);
+          const newEpisode = await Episode.create(args.input);
+          // console.log(newEpisode);
+          const user = await User.findOne({ _id: context.user._id });
+          const updatePodcast = await Podcast.findOneAndUpdate(
+            { _id: user.addedPodcast },
+            { $push: { episodes: newEpisode._id } },
+            { new: true, runValidators: true }
+          );
+          console.log(updatePodcast);
+        } catch (err) {
+          console.log(err);
+        }
       }
     },
 

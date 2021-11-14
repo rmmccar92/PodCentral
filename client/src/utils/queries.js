@@ -16,7 +16,7 @@ export const GET_ME = gql`
       firstName
       lastName
       email
-      createdPodcast {
+      addedPodcast {
         title
         description
         image

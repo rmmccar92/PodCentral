@@ -1,24 +1,27 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useMutation } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grow from "@mui/material/Grow";
 import Grid from "@mui/material/Grid";
-import Input from "@mui/material/Input";
 import Button from "@mui/material/Button";
-import Axios from "axios";
+import TextField from "@mui/material/TextField";
+import Input from "@mui/material/Input";
 
 import DarkHouse from "../../assets/podcast-image-dark-house.jpeg";
 
-import { WidgetLoader, Widget } from "react-cloudinary-upload-widget";
+// import { WidgetLoader } from "react-cloudinary-upload-widget";
+import CloudinaryWidget from "../Cloudinary";
+import { GET_ME } from "../../utils/queries";
+import { ADD_EPISODE } from "../../utils/mutations";
 
 const styles = {
   coverArt: {
     display: "block",
     marginLeft: "auto",
     marginRight: "auto",
-    width: "250px",
+    height: "250px",
     marginTop: "10px",
   },
   coverArtFav: {
@@ -31,49 +34,65 @@ const styles = {
 };
 
 const PublishProfile = () => {
-  // Cloudinary upload function using Axios api call
-  const [fileSelected, setFileSelected] = useState();
-  //   const uploadImage = () => {
-  //     const formData = new FormData();
-  //     formData.append("file", fileSelected);
-  //     formData.append("upload_preset", "us_upload");
+  const { loading, data } = useQuery(GET_ME);
+  const userData = data?.me || [];
+  const [formState, setFormState] = useState({
+    title: "",
+    description: "",
+    season: "",
+    episode: "",
+  });
+  const [addEpisode] = useMutation(ADD_EPISODE);
 
-  //     Axios.post(
-  //       "https://api.cloudinary.com/v1_1/ryanmcc/raw/upload",
-  //       formData
-  //     ).then((response) => {
-  //       console.log(response);
-  //     });
-  //   };
-
-  const successCallBack = () => {
-    alert("Success!");
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    // Works for now but should be changed to be dynamic
+    const podcastImage = localStorage.getItem("podcastImage");
+    console.log(podcastImage);
+    try {
+      const { data } = await addEpisode({
+        variables: {
+          input: {
+            title: formState.title,
+            description: formState.description,
+            episode: parseInt(formState.episode),
+            season: parseInt(formState.season),
+            audio: podcastImage,
+          },
+        },
+      });
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  const failureCallBack = () => {
-    alert("Failure!");
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
-
   return (
-    <>
-      <WidgetLoader />
-      <Box sx={{ flexGrow: 1 }}>
-        <Grow
-          style={{ transformOrigin: "0 0 0" }}
-          {...{ timeout: 2000 }}
-          in={true}
+    <div>
+      <Grow
+        style={{ transformOrigin: "0 0 0" }}
+        {...{ timeout: 2000 }}
+        in={true}
+      >
+        <Typography
+          variant="h2"
+          component="div"
+          align="center"
+          pt={2}
+          sx={{ flexGrow: 1, display: { xs: "block", sm: "block", fontWeight: "400" } }}
         >
-          <Typography
-            variant="h2"
-            component="div"
-            align="center"
-            pt={2}
-            sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-          >
-            Welcome Back!
-          </Typography>
-        </Grow>
-        <Grid container spacing={5}>
+          Welcome Back {userData.firstName}!
+        </Typography>
+      </Grow>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid conatainer spacing={5}>
           <Grid xs={12} md={6}>
             <Grow
               style={{ transformOrigin: "0 0 0" }}
@@ -89,7 +108,7 @@ const PublishProfile = () => {
                 sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
                 color="black"
               >
-                Your Podcast
+                Your Podcast: {userData.addedPodcast.title}
               </Typography>
             </Grow>
             <Grow
@@ -98,7 +117,7 @@ const PublishProfile = () => {
               in={true}
             >
               <img
-                src={DarkHouse}
+                src={userData.addedPodcast.image}
                 alt="podcast cover art - dark house"
                 style={styles.coverArt}
               />
@@ -109,8 +128,8 @@ const PublishProfile = () => {
               in={true}
             >
               <Typography
-                variant="h5"
-                //   component={Link}
+                variant="h6"
+                component="div"
                 align="center"
                 pt={5}
                 mx={3}
@@ -118,46 +137,133 @@ const PublishProfile = () => {
                 color="black"
               >
                 Upload New Episode
-                <Widget
-                  sources={["local"]} // set the sources available for uploading -> by default
-                  // all sources are available. More information on their use can be found at
-                  // https://cloudinary.com/documentation/upload_widget#the_sources_parameter
-                  //   For now we'll just stick with local uploads
-                  //   sourceKeys={{
-                  //     dropboxAppKey: "1dsf42dl1i2",
-                  //     instagramClientId: "d7aadf962m",
-                  //   }} // add source keys
-                  // and ID's as an object. More information on their use can be found at
-                  // https://cloudinary.com/documentation/upload_widget#the_sources_parameter
-                  resourceType={"auto"} // optionally set with 'auto', 'image', 'video' or 'raw' -> default = 'auto'
-                  cloudName={"ryanmcc"}
-                  // Located on https://cloudinary.com/console/
-                  uploadPreset={"us_upload"} // check that an upload preset exists and check mode is signed or unisgned
-                  buttonText={"Upload"} // default 'Upload Files'
-                  style={{
-                    color: "white",
-                    border: "none",
-                    width: "120px",
-                    backgroundColor: "green",
-                    borderRadius: "4px",
-                    height: "25px",
-                  }} // inline styling only or style id='cloudinary_upload_button'
-                  folder={"my_folder"} // set cloudinary folder name to send file
-                  cropping={false} // set ability to crop images -> default = true
-                  onSuccess={successCallBack} // add success callback -> returns result
-                  onFailure={failureCallBack} // add failure callback -> returns 'response.error' + 'response.result'
-                  logging={false} // logs will be provided for success and failure messages,
-                  // set to false for production -> default = true
-                  customPublicId={"sample"} // set a specific custom public_id.
-                  // To use the file name as the public_id use 'use_filename={true}' parameter
-                  eager={"w_400,h_300,c_pad|w_260,h_200,c_crop"} // add eager transformations -> deafult = null
-                  use_filename={false} // tell Cloudinary to use the original name of the uploaded
-                // file as its public ID -> default = true,
-                />
               </Typography>
             </Grow>
+            <Grid
+              container
+              spacing={0}
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+              pt={2}
+            >
+              <Grid item pt={2}>
+                <Grow
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...{ timeout: 2000 }}
+                  in={true}
+                >
+                  <TextField
+                    placeholder="Title"
+                    label="Episode Title"
+                    name="title"
+                    type="title"
+                    id="title"
+                    onChange={handleChange}
+                  />
+                </Grow>
+              </Grid>
+              <Grid item pt={2}>
+                <Grow
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...{ timeout: 2000 }}
+                  in={true}
+                >
+                  <TextField
+                    multiline
+                    rows={5}
+                    placeholder="Description"
+                    label="Episode Description"
+                    name="description"
+                    type="description"
+                    id="description"
+                    onChange={handleChange}
+                  />
+                </Grow>
+              </Grid>
+              <Grid item pt={2}>
+                <Grow
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...{ timeout: 2000 }}
+                  in={true}
+                >
+                  <TextField
+                    placeholder="Season"
+                    label="Season Number"
+                    name="season"
+                    type="season"
+                    id="season"
+                    onChange={handleChange}
+                  />
+                </Grow>
+              </Grid>
+              <Grid item pt={2}>
+                <Grow
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...{ timeout: 2000 }}
+                  in={true}
+                >
+                  <TextField
+                    placeholder="Episode"
+                    label="Episode Number"
+                    name="episode"
+                    type="episode"
+                    id="episode"
+                    onChange={handleChange}
+                  />
+                </Grow>
+              </Grid>
+              <Grid item pt={2}>
+                <Grow
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...{ timeout: 2000 }}
+                  in={true}
+                >
+                  <Typography
+                    variant="p"
+                    component="div"
+                    pt={2}
+                    sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+                    align="center"
+                  >
+                    Upload New Episode
+                  </Typography>
+                </Grow>
+              </Grid>
+              <Grid item pt={2}>
+                <Grow
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...{ timeout: 2000 }}
+                  in={true}
+                >
+                  <div>
+                    <CloudinaryWidget />
+                  </div>
+                </Grow>
+              </Grid>
+              <Grid item pt={2}>
+                <Grow
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...{ timeout: 2000 }}
+                  in={true}
+                >
+                  <Button
+                    variant="contained"
+                    sx={{ backgroundColor: "black" }}
+                    type="submit"
+                    onClick={handleFormSubmit}
+                  >
+                    Submit
+                  </Button>
+                </Grow>
+              </Grid>
+            </Grid>
           </Grid>
-          <Grid xs={12} md={6}>
+        </Grid>
+      </Box>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={5}>
+          <Grid container xs={12} md={6}>
             <Grow
               style={{ transformOrigin: "0 0 0" }}
               {...{ timeout: 2000 }}
@@ -174,7 +280,51 @@ const PublishProfile = () => {
               >
                 Your Favorites
               </Typography>
+              {/* We should map over these */}
             </Grow>
+            <Grid
+              container
+              spacing={0}
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+              pt={2}
+            >
+              <Grid md={4}>
+                <Box pt={2}>
+                  <Grow
+                    style={{ transformOrigin: "0 0 0" }}
+                    {...{ timeout: 2000 }}
+                    in={true}
+                  >
+                    <img
+                      // src={userData.likedPodcasts[0].image}
+                      alt="podcast cover art"
+                      style={styles.coverArtFav}
+                    />
+                  </Grow>
+                </Box>
+              </Grid>
+              <Grid md={8}>
+                <Grow
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...{ timeout: 2000 }}
+                  in={true}
+                >
+                  <Typography
+                    variant="h5"
+                    // component={Link}
+                    align="left"
+                    pt={5}
+                    mx={3}
+                    sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+                    color="black"
+                  >
+                    Podcast 1
+                  </Typography>
+                </Grow>
+              </Grid>
+            </Grid>
             <Grid container spacing={2}>
               <Grid md={4}>
                 <Box pt={2}>
@@ -184,7 +334,43 @@ const PublishProfile = () => {
                     in={true}
                   >
                     <img
-                      src={DarkHouse}
+                      // src={userData.likedPodcasts[1].image}
+                      alt="podcast cover art - dark house"
+                      style={styles.coverArtFav}
+                    />
+                  </Grow>
+                </Box>
+              </Grid>
+              <Grid md={8}>
+                <Grow
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...{ timeout: 2000 }}
+                  in={true}
+                >
+                  <Typography
+                    variant="h5"
+                    component="div"
+                    align="left"
+                    pt={5}
+                    mx={3}
+                    sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+                    color="black"
+                  >
+                    Podcast 1
+                  </Typography>
+                </Grow>
+              </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+              <Grid md={4}>
+                <Box pt={2}>
+                  <Grow
+                    style={{ transformOrigin: "0 0 0" }}
+                    {...{ timeout: 2000 }}
+                    in={true}
+                  >
+                    <img
+                      // src={userData.likedPodcasts[2].image}
                       alt="podcast cover art - dark house"
                       style={styles.coverArtFav}
                     />
@@ -220,79 +406,7 @@ const PublishProfile = () => {
                     in={true}
                   >
                     <img
-                      src={DarkHouse}
-                      alt="podcast cover art - dark house"
-                      style={styles.coverArtFav}
-                    />
-                  </Grow>
-                </Box>
-              </Grid>
-              <Grid md={8}>
-                <Grow
-                  style={{ transformOrigin: "0 0 0" }}
-                  {...{ timeout: 2000 }}
-                  in={true}
-                >
-                  <Typography
-                    variant="h5"
-                    // component={Link}
-                    align="left"
-                    pt={5}
-                    mx={3}
-                    sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-                    color="black"
-                  >
-                    Podcast 1
-                  </Typography>
-                </Grow>
-              </Grid>
-            </Grid>
-            <Grid container spacing={2}>
-              <Grid md={4}>
-                <Box pt={2}>
-                  <Grow
-                    style={{ transformOrigin: "0 0 0" }}
-                    {...{ timeout: 2000 }}
-                    in={true}
-                  >
-                    <img
-                      src={DarkHouse}
-                      alt="podcast cover art - dark house"
-                      style={styles.coverArtFav}
-                    />
-                  </Grow>
-                </Box>
-              </Grid>
-              <Grid md={8}>
-                <Grow
-                  style={{ transformOrigin: "0 0 0" }}
-                  {...{ timeout: 2000 }}
-                  in={true}
-                >
-                  <Typography
-                    variant="h5"
-                    // component={Link}
-                    align="left"
-                    pt={5}
-                    mx={3}
-                    sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-                    color="black"
-                  >
-                    Podcast 1
-                  </Typography>
-                </Grow>
-              </Grid>
-            </Grid>
-            <Grid container spacing={2}>
-              <Grid md={4}>
-                <Box pt={2}>
-                  <Grow
-                    style={{ transformOrigin: "0 0 0" }}
-                    {...{ timeout: 2000 }}
-                    in={true}
-                  >
-                    <img
-                      src={DarkHouse}
+                      // src={userData.likedPodcasts[3].image}
                       alt="podcast cover art - dark house"
                       style={styles.coverArtFav}
                     />
@@ -324,7 +438,7 @@ const PublishProfile = () => {
           </Grid>
         </Grid>
       </Box>
-    </>
+    </div >
   );
 };
 

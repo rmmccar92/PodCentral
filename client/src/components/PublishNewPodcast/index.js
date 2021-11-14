@@ -2,20 +2,21 @@ import * as React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
-import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Grow from "@mui/material/Grow";
-import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Input from "@mui/material/Input";
 // import FileUploadIcon from '@mui/icons-material/FileUploadIcon';
 import { GET_ME } from "../../utils/queries";
 import { ADD_PODCAST } from "../../utils/mutations";
 import PublishProfile from "../PublishProfile";
-
+import CloudinaryWidget from "../Cloudinary";
+import Auth from "../../utils/auth";
 const PublishNewPodcast = () => {
   const { loading, data } = useQuery(GET_ME);
-  const userData = data?.me;
+  const userData = data?.me || [];
+  // console.log(userData);
   const [formState, setFormState] = useState({
     title: "",
     description: "",
@@ -25,15 +26,17 @@ const PublishNewPodcast = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
-    const mutationResponse = await addPodcast({
-      variables: {
-        title: formState.title,
-        description: formState.description,
-        image: formState.image,
-      },
-    });
-    console.log(mutationResponse);
+    const podcastImage = localStorage.getItem("podcastImage");
+    console.log(podcastImage);
+    try {
+      const { data } = await addPodcast({
+        variables: {
+          input: { ...formState, image: podcastImage },
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleChange = (event) => {
@@ -45,7 +48,7 @@ const PublishNewPodcast = () => {
   };
   if (!userData?.addedPodcast) {
     return (
-      <Box sx={{ flexGrow: 1 }}>
+      <div>
         <Grow
           style={{ transformOrigin: "0 0 0" }}
           {...{ timeout: 2000 }}
@@ -91,52 +94,84 @@ const PublishNewPodcast = () => {
             let's start a podcast profile!
           </Typography>
         </Grow>
-        <Grow
-          style={{ transformOrigin: "0 0 0" }}
-          {...{ timeout: 11000 }}
-          in={true}
+        <Grid
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          pt={5}
         >
-          <Box sx={{ flexGrow: 1 }} justify="center">
-            <div className="flex-row space-between my-2">
-              <label htmlFor="title">Title: </label>
-              <Input
+          <Grid item>
+            <Grow
+              style={{ transformOrigin: "0 0 0" }}
+              {...{ timeout: 11000 }}
+              in={true}
+            >
+              <TextField
                 placeholder="Your Podcast"
+                label="Title"
                 name="title"
                 type="title"
                 id="title"
+                variant="filled"
                 onChange={handleChange}
               />
-            </div>
-            <div className="flex-row space-between my-2">
-              <label htmlFor="description">Description: </label>
+            </Grow>
+          </Grid>
+          <Grid item pt={1}>
+            <Grow
+              style={{ transformOrigin: "0 0 0" }}
+              {...{ timeout: 11000 }}
+              in={true}
+            >
               <TextField
                 multiline
                 rows={5}
-                variant="standard"
-                placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum orci eu elit aliquam maximus."
+                variant="filled"
+                label="Description"
+                placeholder="Descriptiom"
                 name="description"
                 type="description"
                 id="description"
                 onChange={handleChange}
               />
-            </div>
-            <div className="flex-row space-between my-2">
-              <label htmlFor="image">Upload Image: </label>
-              <Input
-                accept="image/*"
-                id="contained-button-file"
-                multiple
-                type="file"
-              />
-              <Button
-                variant="contained"
-                sx={{ backgroundColor: "black" }}
-                component="span"
+            </Grow>
+          </Grid>
+          <Grid item>
+            <Grow
+              style={{ transformOrigin: "0 0 0" }}
+              {...{ timeout: 11000 }}
+              in={true}
+            >
+              <Typography
+                variant="p"
+                component="div"
+                pt={2}
+                sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+                align="center"
               >
-                Upload
-              </Button>
-            </div>
-            <div className="flex-row flex-end">
+                Upload Image
+              </Typography>
+            </Grow>
+          </Grid>
+          <Grid item>
+            <Grow
+              style={{ transformOrigin: "0 0 0" }}
+              {...{ timeout: 11000 }}
+              in={true}
+            >
+              <div>
+                <CloudinaryWidget />
+              </div>
+            </Grow>
+          </Grid>
+          <Grid item pt={1}>
+            <Grow
+              style={{ transformOrigin: "0 0 0" }}
+              {...{ timeout: 11000 }}
+              in={true}
+            >
               <Button
                 variant="contained"
                 sx={{ backgroundColor: "black" }}
@@ -145,10 +180,10 @@ const PublishNewPodcast = () => {
               >
                 Submit
               </Button>
-            </div>
-          </Box>
-        </Grow>
-      </Box>
+            </Grow >
+          </Grid>
+        </Grid>
+      </div >
     );
   }
 
