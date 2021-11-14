@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
 import { Link } from "react-router-dom";
@@ -92,7 +93,20 @@ const Discover = () => {
   }
 
   if (loading) {
-    return <h2>LOADING</h2>
+    return (
+      <Box flexGrow={1} sx={{ bgcolor: '#f0eeeb', height: '100vh' }} >
+        <Typography
+          variant="h2"
+          component="div"
+          align="center"
+          pt={20}
+          sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
+
+        >
+          LOADING...
+        </Typography>
+      </Box>
+    )
   }
 
   // console.log('all data', podcastData)
@@ -103,116 +117,114 @@ const Discover = () => {
   // testTitle()
 
   return (
-    <div>
-      <ThemeProvider theme={theme}>
-        <Box
-          sx={{
-            flexGrow: 1,
-            width: "auto",
-            fontSize: 64,
-            fontWeight: "bold",
-            ml: "50px",
-            mt: "50px",
-            mb: "50px",
-            letterSpacing: 8,
-          }}
+    <ThemeProvider theme={theme} sx={{ bgcolor: '#f0eeeb', height: '100vh' }}>
+      <Box
+        sx={{
+          flexGrow: 1,
+          width: "auto",
+          fontSize: 64,
+          fontWeight: "bold",
+          ml: "50px",
+          mt: "50px",
+          mb: "50px",
+          letterSpacing: 8,
+        }}
+      >
+        <p className="wYl-font">DISCOVER</p>
+        <p className="wYl-font2">PODCASTS</p>
+      </Box>
+
+      <Box
+        className="boxColor"
+        sx={{
+          width: "auto",
+          mt: "30px",
+          pt: "20px",
+        }}
+      >
+        <Grid
+          container
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
         >
-          <p className="wYl-font">DISCOVER</p>
-          <p className="wYl-font2">PODCASTS</p>
-        </Box>
-
-        <Box
-          className="boxColor"
-          sx={{
-            width: "auto",
-            mt: "30px",
-            pt: "20px",
-          }}
+          <p className="categories">Categories</p>
+          <Button
+            className="allCategories"
+            variant="text"
+            size="medium"
+            component={Link}
+            to="/allCategories"
+            sx={{ mr: "50px", mb: "10px" }}
+          >
+            BROWSE ALL
+          </Button>
+        </Grid>
+        <Grid
+          container
+          spacing={2}
+          direction="row"
+          justifyContent="space-evenly"
+          alignItems="center"
+          sx={{ pb: "50px", pl: "50px", pr: "50px" }}
         >
-          <Grid
-            container
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <p className="categories">Categories</p>
-            <Button
-              className="allCategories"
-              variant="text"
-              size="medium"
-              component={Link}
-              to="/allCategories"
-              sx={{ mr: "50px", mb: "10px" }}
-            >
-              BROWSE ALL
-            </Button>
-          </Grid>
-          <Grid
-            container
-            spacing={2}
-            direction="row"
-            justifyContent="space-evenly"
-            alignItems="center"
-            sx={{ pb: "50px", pl: "50px", pr: "50px" }}
-          >
-            {categoriesArr.map((categories) => {
-              return (
-                <Grid item xs={12} md={6} lg={2} key={categories.key}>
-                  <CategoryCard image={categories.image} redirect={categories.redirect} category={categories.category} />
-                </Grid>
-              )
-            })}
-          </Grid>
+          {categoriesArr.map((categories) => {
+            return (
+              <Grid item xs={12} md={6} lg={2} key={categories.key}>
+                <CategoryCard image={categories.image} redirect={categories.redirect} category={categories.category} />
+              </Grid>
+            )
+          })}
+        </Grid>
 
-          <p className="categories">Popular</p>
-          <Grid
-            container
-            spacing={2}
-            direction="row"
-            justifyContent="space-evenly"
-            alignItems="center"
-            sx={{ pb: "50px", pl: "50px", pr: "50px" }}
-          >
-            {popularArr.map((podcast) => {
-              return (
-                <Grid item xs={12} md={6} lg={2} key={podcast.id}>
-                  <Cards title={podcast.title} image={podcast.image} link={podcast.listennotes_url} description={podcast.description} />
-                </Grid>
-              )
-            })}
-          </Grid>
+        <p className="categories">Popular</p>
+        <Grid
+          container
+          spacing={2}
+          direction="row"
+          justifyContent="space-evenly"
+          alignItems="center"
+          sx={{ pb: "50px", pl: "50px", pr: "50px" }}
+        >
+          {popularArr.map((podcast) => {
+            return (
+              <Grid item xs={12} md={6} lg={2} key={podcast.id}>
+                <Cards title={podcast.title} image={podcast.image} link={podcast.listennotes_url} description={podcast.description} />
+              </Grid>
+            )
+          })}
+        </Grid>
 
-          <p className="categories">Family</p>
-          <Grid
-            container
-            spacing={7}
-            direction="row"
-            justifyContent="space-evenly"
-            alignItems="center"
-            sx={{ pb: "50px", pl: "50px", pr: "50px" }}
-          >
-            <Grid item xs={12} md={6} lg={2}>
-              <Cards />
-            </Grid>
-            <Grid item xs={12} md={6} lg={2}>
-              <Cards />
-            </Grid>
-            <Grid item xs={12} md={6} lg={2}>
-              <Cards />
-            </Grid>
-            <Grid item xs={12} md={6} lg={2}>
-              <Cards />
-            </Grid>
-            <Grid item xs={12} md={6} lg={2}>
-              <Cards />
-            </Grid>
-            <Grid item xs={12} md={6} lg={2}>
-              <Cards />
-            </Grid>
+        <p className="categories">Family</p>
+        <Grid
+          container
+          spacing={7}
+          direction="row"
+          justifyContent="space-evenly"
+          alignItems="center"
+          sx={{ pb: "50px", pl: "50px", pr: "50px" }}
+        >
+          <Grid item xs={12} md={6} lg={2}>
+            <Cards />
           </Grid>
-        </Box>
-      </ThemeProvider>
-    </div >
+          <Grid item xs={12} md={6} lg={2}>
+            <Cards />
+          </Grid>
+          <Grid item xs={12} md={6} lg={2}>
+            <Cards />
+          </Grid>
+          <Grid item xs={12} md={6} lg={2}>
+            <Cards />
+          </Grid>
+          <Grid item xs={12} md={6} lg={2}>
+            <Cards />
+          </Grid>
+          <Grid item xs={12} md={6} lg={2}>
+            <Cards />
+          </Grid>
+        </Grid>
+      </Box>
+    </ThemeProvider>
   );
 }
 

@@ -1,13 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import CategoryCard from '../components/CategoryCard';
-import { createTheme } from '@mui/material/styles';
-import { ThemeProvider } from '@emotion/react';
-import { Link } from 'react-router-dom';
-import Cards from '../components/Cards';
 
 export default function AllCategories({
   categoryName,
@@ -15,7 +9,7 @@ export default function AllCategories({
   categoryRedirect,
 }) {
   return (
-    <>
+    <Box flexGrow={1} sx={{ bgcolor: '#f0eeeb', height: '100vh' }} >
       {/* <Box
         sx={{
           flexGrow: 1,
@@ -126,6 +120,6 @@ export default function AllCategories({
           </Grid>
         </Grid>
       </Box>
-    </>
+    </Box>
   );
 }

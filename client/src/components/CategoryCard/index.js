@@ -19,7 +19,7 @@ export default function CategoryCard(props) {
       });
   };
   return (
-    <div>
+    <a href={props.redirect}>
       <Card
         className="podCard"
         style={{ backgroundColor: "#17141d", boxShadow: "-1rem 0 3rem #000" }}
@@ -49,6 +49,6 @@ export default function CategoryCard(props) {
           </Typography>
         </CardContent>
       </Card>
-    </div>
+    </a>
   );
 }

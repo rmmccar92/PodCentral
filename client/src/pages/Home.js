@@ -18,7 +18,7 @@ const styles = {
 
 export default function Home() {
   return (
-    <div>
+    <Box flexGrow={1} sx={{ bgcolor: '#f0eeeb', height: '100vh' }} >
       <Grow
         style={{ transformOrigin: '0 0 0' }}
         {...{ timeout: 2000 }}
@@ -65,23 +65,7 @@ export default function Home() {
             style={styles.podcastLogo}
           /></a>
         </Box>
-        {/* <Grow
-          style={{ transformOrigin: '0 0 0' }}
-          {...{ timeout: 4000 }}
-          in={true}
-        >
-        <Typography
-          variant="h4"
-          component={Link}
-          to="/profile"
-          align="center"
-          pt={5}
-          sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
-        >
-          GET STARTED
-        </Typography>
-        </Grow> */}
       </Grow>
-    </div >
+    </Box >
   );
 }

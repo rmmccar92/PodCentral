@@ -81,7 +81,7 @@ const GlobalAppBar = () => {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <Box>
+        <div>
           <ThemeProvider theme={darkBar}>
             <AppBar position="static" color={"secondary"}>
               <Toolbar>
@@ -142,11 +142,11 @@ const GlobalAppBar = () => {
               </Toolbar>
             </AppBar>
           </ThemeProvider>
-        </Box>
+        </div>
       );
     } else {
       return (
-        <Box>
+        <div>
           <ThemeProvider theme={darkBar}>
             <AppBar position="static" color={"secondary"}>
               <Toolbar>
@@ -196,7 +196,7 @@ const GlobalAppBar = () => {
               </Toolbar>
             </AppBar>
           </ThemeProvider>
-        </Box>
+        </div>
       );
     }
   }
