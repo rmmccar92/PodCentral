@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import { PodCentralProvider } from "./utils/GlobalState";
 import {
@@ -6,18 +7,20 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
+
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
+
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Auth from "./utils/auth";
 
-import GlobalAppBar from "./components/GlobalAppBar";
+import GlobalAppBar from './components/GlobalAppBar';
 
 import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
@@ -34,16 +37,17 @@ import PopCulture from "./pages/PopCulture";
 import TrueCrime from "./pages/TrueCrime";
 import AllCategories from "./pages/AllCategories";
 
+
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem("id_token");
+  const token = localStorage.getItem('id_token');
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : "",
+      authorization: token ? `Bearer ${token}` : '',
     },
   };
 });
@@ -57,12 +61,12 @@ function App() {
   const theme = createTheme({
     typography: {
       fontFamily: [
-        "Oswald",
-        "Roboto",
+        'Oswald',
+        'Roboto',
         '"Helvetica Neue"',
-        "Arial",
-        "sans-serif",
-      ].join(","),
+        'Arial',
+        'sans-serif',
+      ].join(','),
     },
   });
 

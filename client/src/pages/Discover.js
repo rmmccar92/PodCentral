@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -12,16 +13,16 @@ import CategoryCard from "../components/CategoryCard";
 
 const theme = createTheme({
   status: {
-    danger: "#e53e3e",
+    danger: '#e53e3e',
   },
   palette: {
     primary: {
-      main: "#ffffff",
-      darker: "#053e85",
+      main: '#ffffff',
+      darker: '#053e85',
     },
     neutral: {
-      main: "#64748B",
-      contrastText: "#fff",
+      main: '#64748B',
+      contrastText: '#fff',
     },
   },
 });

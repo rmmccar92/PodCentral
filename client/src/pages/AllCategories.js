@@ -53,19 +53,19 @@ export default function AllCategories({
           alignItems="center"
           sx={{ pb: '75px', pl: '50px', pr: '50px' }}
         >
-          <Grid item xs={12} md={6} lg={2}>
+          <Grid item xs={12} md={8} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={12} md={6} lg={2}>
+          <Grid item xs={12} md={8} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={12} md={6} lg={2}>
+          <Grid item xs={12} md={8} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={12} md={6} lg={2}>
+          <Grid item xs={12} md={8} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={12} md={6} lg={2}>
+          <Grid item xs={12} md={8} lg={2}>
             <CategoryCard />
           </Grid>
         </Grid>
