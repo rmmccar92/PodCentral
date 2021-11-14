@@ -49,7 +49,7 @@ function Signup(props) {
           justifyContent="center"
           pt={2}
         >
-          <Grid input>
+          <Grid item>
             <TextField
               placeholder="First"
               label="First Name"
@@ -59,7 +59,7 @@ function Signup(props) {
               onChange={handleChange}
             />
           </Grid>
-          <Grid input pt={2}>
+          <Grid item pt={2}>
             <TextField
               placeholder="Last"
               label="Last Name"
@@ -69,7 +69,7 @@ function Signup(props) {
               onChange={handleChange}
             />
           </Grid>
-          <Grid input pt={2}>
+          <Grid item pt={2}>
             <TextField
               placeholder="youremail@mail.com"
               label="Email"
@@ -79,7 +79,7 @@ function Signup(props) {
               onChange={handleChange}
             />
           </Grid>
-          <Grid input pt={2}>
+          <Grid item pt={2}>
             <TextField
               placeholder="******"
               label="Password"
@@ -89,7 +89,7 @@ function Signup(props) {
               onChange={handleChange}
             />
           </Grid>
-          <Grid input pt={2}>
+          <Grid item pt={2}>
             <Button variant="contained" sx={{ backgroundColor: "black" }} type="submit">Submit</Button>
           </Grid>
         </Grid>
