@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
@@ -35,7 +36,7 @@ function Login(props) {
   };
 
   return (
-    <div>
+    <Box flexGrow={1} sx={{ bgcolor: '#f0eeeb', height: '100vh' }} >
       <Typography variant="h6" component={Link} to="/signup" mx={4}>← Go to Signup</Typography>
       <Typography variant="h4" sx={{ fontWeight: 'bold' }} mx={25}>Login</Typography>
 
@@ -79,7 +80,7 @@ function Login(props) {
         </Grid>
 
       </form>
-    </div >
+    </Box >
   );
 }
 

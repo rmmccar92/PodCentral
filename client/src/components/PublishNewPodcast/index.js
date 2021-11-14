@@ -114,7 +114,6 @@ const PublishNewPodcast = () => {
                 name="title"
                 type="title"
                 id="title"
-                variant="filled"
                 onChange={handleChange}
               />
             </Grow>
@@ -128,7 +127,6 @@ const PublishNewPodcast = () => {
               <TextField
                 multiline
                 rows={5}
-                variant="filled"
                 label="Description"
                 placeholder="Descriptiom"
                 name="description"

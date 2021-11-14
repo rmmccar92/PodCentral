@@ -14,6 +14,10 @@ const styles = {
     marginRight: 'auto',
     width: '150px',
   },
+  lowerImage: {
+    display: 'block',
+    width: '150px',
+  },
 };
 
 
@@ -68,7 +72,7 @@ const itemData = [
   },
 ];
 
-export default function Home({}) {
+export default function Home({ }) {
   return (
     <Grid container>
       <Box
@@ -191,25 +195,25 @@ export default function Home({}) {
           mb={10}
           ml={20}
           mr={20}
-          // sx={{
-          //   backgroundColor: '#17141d',
-          //   boxShadow: '-1rem 0 3rem #000',
-          //   border: 1,
-          //   borderColor: 'black',
-          //   borderRadius: '0px',
-          // }}
+        // sx={{
+        //   backgroundColor: '#17141d',
+        //   boxShadow: '-1rem 0 3rem #000',
+        //   border: 1,
+        //   borderColor: 'black',
+        //   borderRadius: '0px',
+        // }}
         >
           <Grid item xs={12} md={8} lg={12}>
             <Box
               className="boxCenter"
               sx={{ width: '100%', height: '100%' }}
-              // ml={20}
-              // mr={100}
-              // mt={10}
-              // mb={10}
+            // ml={20}
+            // mr={100}
+            // mt={10}
+            // mb={10}
             >
               <Box className="flex">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU" />
+                <img src="http://blog.saude.mg.gov.br/wp-content/uploads/2018/02/banner_podcast_ciencia_2018.jpg" alt="headphones and mic" style={styles.lowerImage} />
 
                 <Box
                   className="grow"
@@ -255,7 +259,7 @@ export default function Home({}) {
                   </Typography>
                 </Box>
 
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU" />
+                <img src="http://blog.saude.mg.gov.br/wp-content/uploads/2018/02/banner_podcast_ciencia_2018.jpg" alt="headphones and mic" style={styles.lowerImage} />
               </Box>
             </Box>
           </Grid>
@@ -277,6 +281,5 @@ export default function Home({}) {
         ></Box>
       </Box>
     </Grid>
-
   );
 }

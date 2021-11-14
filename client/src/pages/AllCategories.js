@@ -9,7 +9,7 @@ export default function AllCategories({
   categoryRedirect,
 }) {
   return (
-    <>
+    <Box flexGrow={1} sx={{ bgcolor: '#f0eeeb', height: '100vh' }} >
       {/* <Box
         sx={{
           flexGrow: 1,
@@ -120,6 +120,6 @@ export default function AllCategories({
           </Grid>
         </Grid>
       </Box>
-    </>
+    </Box>
   );
 }
