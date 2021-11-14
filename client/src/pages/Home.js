@@ -4,13 +4,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
-import ListSubheader from '@mui/material/ListSubheader';
-import IconButton from '@mui/material/IconButton';
-import InfoIcon from '@mui/icons-material/Info';
-import { Link } from 'react-router-dom';
 
 import podcastLogo from '../assets/podcast-logo.png';
 
@@ -94,7 +87,7 @@ export default function Home({}) {
               flexGrow: 1,
               width: 'auto',
               fontSize: 69,
-              fontWeight: 'bold',
+              // fontWeight: 'bold',
               // fontColor: '#17141d',
               // ml: '50px',
               // mt: '50px',
@@ -232,7 +225,7 @@ export default function Home({}) {
                     // borderRadius: '5px',
                   }}
                 >
-                  <Typography color="white" fontSize="18px" fontWeight="bold">
+                  <Typography color="white" fontSize="18px" fontWeight="normal">
                     <p className="publish">PUBLISH</p>
                     Upload your own podcast in just a few easy steps. We take
                     care of the hard parts so you can focus on making your best
@@ -255,7 +248,7 @@ export default function Home({}) {
                     // borderRadius: '5px',
                   }}
                 >
-                  <Typography color="white" fontSize="18px" fontWeight="bold">
+                  <Typography color="white" fontSize="18px" fontWeight="normal">
                     <p className="discover">DISCOVER</p>
                     Browse through our extensive library of podcasts to find
                     something you love. We have a podcast for everyone.
