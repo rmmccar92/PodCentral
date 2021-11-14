@@ -89,7 +89,7 @@ const PublishProfile = () => {
             pt={2}
             sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
           >
-            Welcome Back!
+            Welcome Back {userData.firstName}!
           </Typography>
         </Grow>
         <Grid container spacing={5}>
@@ -108,7 +108,7 @@ const PublishProfile = () => {
                 sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
                 color="black"
               >
-                Your Podcast
+                Your Podcast: {userData.addedPodcast.title}
               </Typography>
             </Grow>
             <Grow
@@ -117,7 +117,7 @@ const PublishProfile = () => {
               in={true}
             >
               <img
-                src={DarkHouse}
+                src={userData.addedPodcast.image}
                 alt="podcast cover art - dark house"
                 style={styles.coverArt}
               />
@@ -213,6 +213,7 @@ const PublishProfile = () => {
               >
                 Your Favorites
               </Typography>
+              {/* We should map over these */}
             </Grow>
             <Grid container spacing={2}>
               <Grid md={4}>
@@ -223,7 +224,43 @@ const PublishProfile = () => {
                     in={true}
                   >
                     <img
-                      src={DarkHouse}
+                      // src={userData.likedPodcasts[0].image}
+                      alt="podcast cover art"
+                      style={styles.coverArtFav}
+                    />
+                  </Grow>
+                </Box>
+              </Grid>
+              <Grid md={8}>
+                <Grow
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...{ timeout: 2000 }}
+                  in={true}
+                >
+                  <Typography
+                    variant="h5"
+                    // component={Link}
+                    align="left"
+                    pt={5}
+                    mx={3}
+                    sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+                    color="black"
+                  >
+                    Podcast 1
+                  </Typography>
+                </Grow>
+              </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+              <Grid md={4}>
+                <Box pt={2}>
+                  <Grow
+                    style={{ transformOrigin: "0 0 0" }}
+                    {...{ timeout: 2000 }}
+                    in={true}
+                  >
+                    <img
+                      // src={userData.likedPodcasts[1].image}
                       alt="podcast cover art - dark house"
                       style={styles.coverArtFav}
                     />
@@ -259,7 +296,7 @@ const PublishProfile = () => {
                     in={true}
                   >
                     <img
-                      src={DarkHouse}
+                      // src={userData.likedPodcasts[2].image}
                       alt="podcast cover art - dark house"
                       style={styles.coverArtFav}
                     />
@@ -295,43 +332,7 @@ const PublishProfile = () => {
                     in={true}
                   >
                     <img
-                      src={DarkHouse}
-                      alt="podcast cover art - dark house"
-                      style={styles.coverArtFav}
-                    />
-                  </Grow>
-                </Box>
-              </Grid>
-              <Grid md={8}>
-                <Grow
-                  style={{ transformOrigin: "0 0 0" }}
-                  {...{ timeout: 2000 }}
-                  in={true}
-                >
-                  <Typography
-                    variant="h5"
-                    // component={Link}
-                    align="left"
-                    pt={5}
-                    mx={3}
-                    sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-                    color="black"
-                  >
-                    Podcast 1
-                  </Typography>
-                </Grow>
-              </Grid>
-            </Grid>
-            <Grid container spacing={2}>
-              <Grid md={4}>
-                <Box pt={2}>
-                  <Grow
-                    style={{ transformOrigin: "0 0 0" }}
-                    {...{ timeout: 2000 }}
-                    in={true}
-                  >
-                    <img
-                      src={DarkHouse}
+                      // src={userData.likedPodcasts[3].image}
                       alt="podcast cover art - dark house"
                       style={styles.coverArtFav}
                     />
