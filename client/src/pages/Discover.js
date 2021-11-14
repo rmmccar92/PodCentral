@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -11,16 +12,16 @@ import CategoryCard from "../components/CategoryCard";
 
 const theme = createTheme({
   status: {
-    danger: "#e53e3e",
+    danger: '#e53e3e',
   },
   palette: {
     primary: {
-      main: "#ffffff",
-      darker: "#053e85",
+      main: '#ffffff',
+      darker: '#053e85',
     },
     neutral: {
-      main: "#64748B",
-      contrastText: "#fff",
+      main: '#64748B',
+      contrastText: '#fff',
     },
   },
 });
@@ -104,16 +105,17 @@ const Discover = () => {
 
   return (
     <div>
+
       <ThemeProvider theme={theme}>
         <Box
           sx={{
             flexGrow: 1,
-            width: "auto",
+            width: 'auto',
             fontSize: 64,
-            fontWeight: "bold",
-            ml: "50px",
-            mt: "50px",
-            mb: "50px",
+            fontWeight: 'bold',
+            // ml: '50px',
+            mt: '50px',
+            mb: '50px',
             letterSpacing: 8,
           }}
         >
@@ -124,9 +126,9 @@ const Discover = () => {
         <Box
           className="boxColor"
           sx={{
-            width: "auto",
-            mt: "30px",
-            pt: "20px",
+            width: 'auto',
+            mt: '30px',
+            pt: '20px',
           }}
         >
           <Grid
@@ -142,7 +144,7 @@ const Discover = () => {
               size="medium"
               component={Link}
               to="/allCategories"
-              sx={{ mr: "50px", mb: "10px" }}
+              sx={{ mr: '50px', mb: '10px' }}
             >
               BROWSE ALL
             </Button>
@@ -153,7 +155,7 @@ const Discover = () => {
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
-            sx={{ pb: "50px", pl: "50px", pr: "50px" }}
+            sx={{ pb: '50px', pl: '50px', pr: '50px' }}
           >
             {categoriesArr.map((categories) => {
               return (
@@ -171,7 +173,7 @@ const Discover = () => {
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
-            sx={{ pb: "50px", pl: "50px", pr: "50px" }}
+            sx={{ pb: '50px', pl: '50px', pr: '50px' }}
           >
             {popularArr.map((podcast) => {
               return (
@@ -189,7 +191,7 @@ const Discover = () => {
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
-            sx={{ pb: "50px", pl: "50px", pr: "50px" }}
+            sx={{ pb: '50px', pl: '50px', pr: '50px' }}
           >
             <Grid item xs={12} md={6} lg={2}>
               <Cards />

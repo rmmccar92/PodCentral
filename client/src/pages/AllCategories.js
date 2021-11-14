@@ -1,13 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import CategoryCard from '../components/CategoryCard';
-import { createTheme } from '@mui/material/styles';
-import { ThemeProvider } from '@emotion/react';
-import { Link } from 'react-router-dom';
-import Cards from '../components/Cards';
 
 export default function AllCategories({
   categoryName,
@@ -59,19 +53,19 @@ export default function AllCategories({
           alignItems="center"
           sx={{ pb: '75px', pl: '50px', pr: '50px' }}
         >
-          <Grid item xs={12} md={6} lg={2}>
+          <Grid item xs={12} md={8} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={12} md={6} lg={2}>
+          <Grid item xs={12} md={8} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={12} md={6} lg={2}>
+          <Grid item xs={12} md={8} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={12} md={6} lg={2}>
+          <Grid item xs={12} md={8} lg={2}>
             <CategoryCard />
           </Grid>
-          <Grid item xs={12} md={6} lg={2}>
+          <Grid item xs={12} md={8} lg={2}>
             <CategoryCard />
           </Grid>
         </Grid>
