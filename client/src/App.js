@@ -76,12 +76,13 @@ function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
+
+              <Route exact path="/signup" component={Signup} />
               {Auth.loggedIn() ? (
                 <Route exact path="/publish" component={Publish} />
               ) : (
                 <Redirect to="/login" />
               )}
-              <Route exact path="/signup" component={Signup} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/discover" component={Discover} />
               <Route exact path="/business" component={Business} />
