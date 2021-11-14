@@ -316,7 +316,7 @@ input:focus {
   font-size: 21px;
   letter-spacing: 2px;
   line-height: 30px;
-  font-weight: normal;
+  font-weight: lighter;
   margin-left: 400px;
   margin-right: 400px;
   padding-top: 25px;
@@ -353,14 +353,14 @@ input:focus {
 .publish {
   color: turquoise;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: normal;
   letter-spacing: 3px;
 }
 
 .discover {
   color: turquoise;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: normal;
   letter-spacing: 3px;
   display: flex;
   justify-content: end;
@@ -389,7 +389,7 @@ input:focus {
   /* padding-top: 5px; */
   margin-top: 40px;
   font-size: 40px;
-  font-weight: normal;
+  font-weight: lighter;
   letter-spacing: 2px;
   color: turquoise;
   /* border: 1px solid red; */
