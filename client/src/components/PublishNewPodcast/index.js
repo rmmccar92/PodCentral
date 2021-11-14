@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Grow from "@mui/material/Grow";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Input from "@mui/material/Input";
+import Grid from "@mui/material/Grid";
 // import FileUploadIcon from '@mui/icons-material/FileUploadIcon';
 import { GET_ME } from "../../utils/queries";
 import { ADD_PODCAST } from "../../utils/mutations";
@@ -49,7 +49,7 @@ const PublishNewPodcast = () => {
   };
   if (!userData?.addedPodcast) {
     return (
-      <Box sx={{ flexGrow: 1 }}>
+      <div>
         <Grow
           style={{ transformOrigin: "0 0 0" }}
           {...{ timeout: 2000 }}
@@ -95,40 +95,84 @@ const PublishNewPodcast = () => {
             let's start a podcast profile!
           </Typography>
         </Grow>
-        <Grow
-          style={{ transformOrigin: "0 0 0" }}
-          {...{ timeout: 11000 }}
-          in={true}
+        <Grid
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          pt={5}
         >
-          <Box sx={{ flexGrow: 1 }} justify="center">
-            <div className="flex-row space-between my-2">
-              <label htmlFor="title">Title: </label>
-              <Input
+          <Grid item>
+            <Grow
+              style={{ transformOrigin: "0 0 0" }}
+              {...{ timeout: 11000 }}
+              in={true}
+            >
+              <TextField
                 placeholder="Your Podcast"
+                label="Title"
                 name="title"
                 type="title"
                 id="title"
+                variant="filled"
                 onChange={handleChange}
               />
-            </div>
-            <div className="flex-row space-between my-2">
-              <label htmlFor="description">Description: </label>
+            </Grow>
+          </Grid>
+          <Grid item pt={1}>
+            <Grow
+              style={{ transformOrigin: "0 0 0" }}
+              {...{ timeout: 11000 }}
+              in={true}
+            >
               <TextField
                 multiline
                 rows={5}
-                variant="standard"
-                placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum orci eu elit aliquam maximus."
+                variant="filled"
+                label="Description"
+                placeholder="Descriptiom"
                 name="description"
                 type="description"
                 id="description"
                 onChange={handleChange}
               />
-            </div>
-            <div className="flex-row space-between my-2">
-              <label htmlFor="image">Upload Image: </label>
-            </div>
-            <div className="flex-row flex-end">
-              <CloudinaryWidget />
+            </Grow>
+          </Grid>
+          <Grid item>
+            <Grow
+              style={{ transformOrigin: "0 0 0" }}
+              {...{ timeout: 11000 }}
+              in={true}
+            >
+              <Typography
+                variant="p"
+                component="div"
+                pt={2}
+                sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+                align="center"
+              >
+                Upload Image
+              </Typography>
+            </Grow>
+          </Grid>
+          <Grid item>
+            <Grow
+              style={{ transformOrigin: "0 0 0" }}
+              {...{ timeout: 11000 }}
+              in={true}
+            >
+              <div>
+                <CloudinaryWidget />
+              </div>
+            </Grow>
+          </Grid>
+          <Grid item pt={1}>
+            <Grow
+              style={{ transformOrigin: "0 0 0" }}
+              {...{ timeout: 11000 }}
+              in={true}
+            >
               <Button
                 variant="contained"
                 sx={{ backgroundColor: "black" }}
@@ -137,10 +181,10 @@ const PublishNewPodcast = () => {
               >
                 Submit
               </Button>
-            </div>
-          </Box>
-        </Grow>
-      </Box>
+            </Grow >
+          </Grid>
+        </Grid>
+      </div >
     );
   }
 
