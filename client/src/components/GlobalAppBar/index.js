@@ -16,19 +16,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import Grid from "@mui/material/Grid";
 import Icon from "@mui/material/Icon";
 import PodcastsIcon from "@mui/icons-material/Podcasts";
-
-
 import Button from '@mui/material/Button';
-
-
-import podcastLogo from '../../assets/podcast-logo.png';
-
-const styles = {
-  podcastLogo: {
-    height: '25px',
-    aspectRatio: '1 / 1',
-  },
-};
 
 
 const GlobalAppBar = () => {
@@ -95,116 +83,108 @@ const GlobalAppBar = () => {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <div>
-          <ThemeProvider theme={darkBar}>
-            <AppBar position="static" color={'secondary'}>
-              <Toolbar>
-                <Grid
-                  container
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                >
-                  <Grid>
-                    <Typography
-                      // component={Link}
-                      // to="/"
-                      variant="h6"
-                    >
-                      <Button
-                        size="large"
-                        component={Link}
-                        color="inherit"
-                        to="/profile"
-                      >
-                        PodCentral
-                      </Button>
-                    </Typography>
-                  </Grid>
-
-                  <IconButton
-                    component={Link}
-                    to="/profile"
-                    size="large"
-                    align="center"
-                    aria-label="menu"
-                    sx={{ ml: 2, color: '#f5b727' }}
+        <ThemeProvider theme={darkBar}>
+          <AppBar position="static" color={'secondary'}>
+            <Toolbar>
+              <Grid
+                container
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+              >
+                <Grid>
+                  <Typography
+                    // component={Link}
+                    // to="/"
+                    variant="h6"
                   >
-                    <PodcastsIcon />
-                  </IconButton>
-
-                  <Button
-                    href="/"
-                    color="inherit"
-                    size="large"
-                    onClick={() => Auth.logout()}
-                  >
-                    <MenuItem>
-                      <IconButton
-                        size="large"
-                        aria-label="show 17 new notifications"
-                        color="inherit"
-                      >
-                        <Badge badgeContent={17} color="error">
-                          <NotificationsIcon />
-                        </Badge>
-                      </IconButton>
-                    </MenuItem>
-                    Logout
-                  </Button>
-                </Grid>
-              </Toolbar>
-            </AppBar>
-          </ThemeProvider>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <ThemeProvider theme={darkBar}>
-            <AppBar position="static" color={'secondary'}>
-              <Toolbar>
-                <Grid
-                  container
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                >
-                  <Grid>
                     <Button
                       size="large"
                       component={Link}
                       color="inherit"
-                      to="/"
+                      to="/profile"
                     >
                       PodCentral
                     </Button>
-                  </Grid>
-
-                  <IconButton
-                    component={Link}
-                    to="/"
-                    size="large"
-                    edge="start"
-                    aria-label="menu"
-                    sx={{ mr: 2, color: '#f5b727' }}
-                  >
-                    <PodcastsIcon />
-                  </IconButton>
-
+                  </Typography>
+                </Grid>
+                <IconButton
+                  component={Link}
+                  to="/"
+                  size="large"
+                  align="center"
+                  aria-label="menu"
+                  sx={{ ml: 2, color: '#f5b727' }}
+                >
+                  <PodcastsIcon />
+                </IconButton>
+                <Button
+                  href="/"
+                  color="inherit"
+                  size="large"
+                  onClick={() => Auth.logout()}
+                >
+                  <MenuItem>
+                    <IconButton
+                      size="large"
+                      aria-label="show 17 new notifications"
+                      color="inherit"
+                    >
+                      <Badge badgeContent={17} color="error">
+                        <NotificationsIcon />
+                      </Badge>
+                    </IconButton>
+                  </MenuItem>
+                  Logout
+                </Button>
+              </Grid>
+            </Toolbar>
+          </AppBar>
+        </ThemeProvider>
+      );
+    } else {
+      return (
+        <ThemeProvider theme={darkBar}>
+          <AppBar position="static" color={'secondary'}>
+            <Toolbar>
+              <Grid
+                container
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+              >
+                <Grid>
                   <Button
                     size="large"
                     component={Link}
                     color="inherit"
-                    to="/login"
+                    to="/"
                   >
-                    Login
+                    PodCentral
                   </Button>
                 </Grid>
-              </Toolbar>
-            </AppBar>
-          </ThemeProvider>
-        </div>
+                <IconButton
+                  component={Link}
+                  to="/"
+                  size="large"
+                  edge="start"
+                  aria-label="menu"
+                  sx={{ mr: 2, color: '#f5b727' }}
+                >
+                  <PodcastsIcon />
+                </IconButton>
+                <Button
+                  size="large"
+                  component={Link}
+                  color="inherit"
+                  to="/login"
+                >
+                  Login
+                </Button>
+              </Grid>
+            </Toolbar>
+          </AppBar>
+        </ThemeProvider>
       );
     }
   }

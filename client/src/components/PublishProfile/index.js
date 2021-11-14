@@ -12,6 +12,7 @@ import CloudinaryWidget from "../Cloudinary";
 import { GET_ME } from "../../utils/queries";
 import { ADD_EPISODE } from "../../utils/mutations";
 
+
 const styles = {
   coverArt: {
     display: "block",
@@ -20,18 +21,12 @@ const styles = {
     height: "250px",
     marginTop: "10px",
   },
-  coverArtFav: {
-    display: "block",
-    marginRight: "5px",
-    width: "115px",
-    padding: "5px 5px 5px",
-    aspectRatio: "1 / 1",
-  },
 };
 
 const PublishProfile = () => {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
+
   const [formState, setFormState] = useState({
     title: "",
     description: "",
@@ -71,7 +66,7 @@ const PublishProfile = () => {
     });
   };
 
-  const episodesArr = []
+  const episodesData = userData.addedPodcast.episodes
 
 
   return (
@@ -92,7 +87,7 @@ const PublishProfile = () => {
         </Typography>
       </Grow>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 3 }}>
-        <Grid sm={12} md={6}>
+        <Grid item sm={12} md={6}>
           <Grow
             style={{ transformOrigin: "0 0 0" }}
             {...{ timeout: 2000 }}
@@ -258,15 +253,15 @@ const PublishProfile = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item sm={12} md={6}>
-          {episodesArr.map((episode) => {
+        <Box flexGrow={1}>
+          {episodesData.map((episode) => {
             return (
-              <Grid item xs={12} md={6} lg={2} key={episode.key}>
-                <Player image={episode.image} redirect={episode.redirect} category={episode.category} />
+              <Grid item xs={12} md={6} key={episode.id}>
+                <Player title={episode.title} audio={episode.audio} episodeName={episode.title} seasonNum={episode.season} episodeNum={episode.episode} />
               </Grid>
             )
           })}
-        </Grid>
+        </Box>
       </Grid>
     </Box >
   );
