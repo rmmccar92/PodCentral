@@ -34,15 +34,6 @@ const styles = {
 };
 
 const PublishProfile = () => {
-  // TODO: Change to not Alerts maybe use modals
-  const successCallBack = () => {
-    alert("Success!");
-  };
-
-  const failureCallBack = () => {
-    alert("Failure!");
-  };
-
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
   const [formState, setFormState] = useState({

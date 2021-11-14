@@ -1,6 +1,11 @@
 import * as React from "react";
 import { PodCentralProvider } from "./utils/GlobalState";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -10,6 +15,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import Auth from "./utils/auth";
 
 import GlobalAppBar from "./components/GlobalAppBar";
 
@@ -70,14 +76,22 @@ function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
+              {Auth.loggedIn() ? (
+                <Route exact path="/publish" component={Publish} />
+              ) : (
+                <Redirect to="/login" />
+              )}
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/profile" component={Profile} />
-              <Route exact path="/publish" component={Publish} />
               <Route exact path="/discover" component={Discover} />
               <Route exact path="/business" component={Business} />
               <Route exact path="/comedy" component={Comedy} />
               <Route exact path="/health" component={Health} />
-              <Route exact path="/newsAndPolitics" component={NewsAndPolitics} />
+              <Route
+                exact
+                path="/newsAndPolitics"
+                component={NewsAndPolitics}
+              />
               <Route exact path="/popCulture" component={PopCulture} />
               <Route exact path="/trueCrime" component={TrueCrime} />
               <Route exact path="/allCategories" component={AllCategories} />
