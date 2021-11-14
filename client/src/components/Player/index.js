@@ -49,8 +49,8 @@ const Player = (props) => {
 
     const theme = useTheme();
     const duration = 200; // seconds
-    const [position, setPosition] = React.useState(32);
-    const [paused, setPaused] = React.useState(false);
+    const [position, setPosition] = React.useState(0);
+    const [paused, setPaused] = React.useState(true);
     function formatDuration(value) {
         const minute = Math.floor(value / 60);
         const secondLeft = value - minute * 60;
