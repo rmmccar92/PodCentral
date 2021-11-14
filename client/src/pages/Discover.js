@@ -109,13 +109,6 @@ const Discover = () => {
     )
   }
 
-  // console.log('all data', podcastData)
-  // console.log('all podcast data', podcastData)
-  // const testTitle = async () => {
-  //   await console.log('individual podcast title', podcastData[0].title);
-  // }
-  // testTitle()
-
   return (
     <ThemeProvider theme={theme} sx={{ bgcolor: '#f0eeeb', height: '100vh' }}>
       <Box
