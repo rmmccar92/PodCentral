@@ -21,13 +21,6 @@ const styles = {
     height: "250px",
     marginTop: "10px",
   },
-  coverArtFav: {
-    display: "block",
-    marginRight: "5px",
-    width: "115px",
-    padding: "5px 5px 5px",
-    aspectRatio: "1 / 1",
-  },
 };
 
 const PublishProfile = () => {
@@ -260,13 +253,15 @@ const PublishProfile = () => {
             </Grid>
           </Grid>
         </Grid>
-        {episodesData.map((episode) => {
-          return (
-            <Grid item xs={12} md={6} key={episode.id}>
-              <Player title={episode.title} audio={episode.audio} episodeName={episode.title} seasonNum={episode.season} episodeNum={episode.episode} />
-            </Grid>
-          )
-        })}
+        <Box flexGrow={1}>
+          {episodesData.map((episode) => {
+            return (
+              <Grid item xs={12} md={6} key={episode.id}>
+                <Player title={episode.title} audio={episode.audio} episodeName={episode.title} seasonNum={episode.season} episodeNum={episode.episode} />
+              </Grid>
+            )
+          })}
+        </Box>
       </Grid>
     </Box >
   );

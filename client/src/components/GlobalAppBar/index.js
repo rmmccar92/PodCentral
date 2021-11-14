@@ -110,7 +110,7 @@ const GlobalAppBar = () => {
                 </Grid>
                 <IconButton
                   component={Link}
-                  to="/profile"
+                  to="/"
                   size="large"
                   align="center"
                   aria-label="menu"
