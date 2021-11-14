@@ -87,11 +87,7 @@ function App() {
               <Route exact path="/business" component={Business} />
               <Route exact path="/comedy" component={Comedy} />
               <Route exact path="/health" component={Health} />
-              <Route
-                exact
-                path="/newsAndPolitics"
-                component={NewsAndPolitics}
-              />
+              <Route exact path="/newsAndPolitics" component={NewsAndPolitics} />
               <Route exact path="/popCulture" component={PopCulture} />
               <Route exact path="/trueCrime" component={TrueCrime} />
               <Route exact path="/allCategories" component={AllCategories} />

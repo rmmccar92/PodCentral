@@ -21,7 +21,7 @@ const styles = {
     display: "block",
     marginLeft: "auto",
     marginRight: "auto",
-    width: "250px",
+    height: "250px",
     marginTop: "10px",
   },
   coverArtFav: {
@@ -87,7 +87,7 @@ const PublishProfile = () => {
             component="div"
             align="center"
             pt={2}
-            sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+            sx={{ flexGrow: 1, display: { xs: "block", sm: "block", fontWeight: "400" } }}
           >
             Welcome Back {userData.firstName}!
           </Typography>
