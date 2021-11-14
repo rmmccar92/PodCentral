@@ -37,7 +37,7 @@ export default function MediaCard() {
             width: 'auto',
             fontSize: 64,
             fontWeight: 'bold',
-            ml: '50px',
+            // ml: '50px',
             mt: '50px',
             mb: '50px',
             letterSpacing: 8,

@@ -77,24 +77,42 @@ export default function Home({}) {
   return (
     <Grid container>
       <Box
-        className="boxColor"
-        pt={10}
+        pt="100px"
         sx={{
           flexGrow: 1,
-          height: '2000px',
+          // height: '2000px',
         }}
       >
-        <Grid item xs={10} md={10} lg={12}>
+        <Grid item xs={6} md={12} lg={12}>
+          <Box
+            sx={{
+              height: '100px',
+              backgroundColor: 'white',
+              letterSpacing: 7,
+              flexGrow: 1,
+              width: 'auto',
+              fontSize: 69,
+              fontWeight: 'bold',
+              // fontColor: '#17141d',
+              // ml: '50px',
+              // mt: '50px',
+              mb: '110px',
+            }}
+          >
+            <div className="title">PODCENTRAL</div>
+          </Box>
+        </Grid>
+        <Grid item xs={6} md={12} lg={12}>
           <Box
             className="boxColor"
-            ml={20}
-            mr={20}
+            // ml={20}
+            // mr={20}
             sx={{
               backgroundColor: '#17141d',
               boxShadow: '-1rem 0 3rem #000',
               border: 1,
               borderColor: 'black',
-              borderRadius: '5px',
+              borderRadius: '0px',
             }}
           >
             <Grow
@@ -103,26 +121,27 @@ export default function Home({}) {
               in={true}
             >
               <Grid item xs={12} md={12} lg={12}>
-                <Typography
-                  variant="h4"
-                  component="div"
-                  align="center"
-                  color="white"
-                  pt={2}
-                  sx={{
-                    flexGrow: 1,
-                    display: { xs: 'block', sm: 'block' },
-                    fontSize: '70px',
-                    fontWeight: 'bold',
-                    letterSpacing: 3,
-                    lineHeight: 1.5,
-                  }}
+                <Box
+                // m={20}
+                // sx={{ border: 1, borderColor: 'error.main' }}
+                // variant="h4"
+                // component="div"
+                // align="center"
+                // color="white"
+                // pt={2}
+                // sx={{
+                //   flexGrow: 1,
+                //   display: { xs: 'block', sm: 'block' },
+                //   fontSize: '70px',
+                //   fontWeight: 'bold',
+                //   letterSpacing: 3,
+                //   lineHeight: 1.5,
+                // }}
                 >
-                  PODCENTRAL
                   <p className="pStyling1">
                     Designed for Podcasts with You in Mind
                   </p>
-                </Typography>
+                </Box>
               </Grid>
             </Grow>
 
@@ -140,7 +159,7 @@ export default function Home({}) {
               </Box>
             </Grow>
             <Grid item xs={12} md={12} lg={12}>
-              <Box p={5} ml={5} mr={5}>
+              <Box ml={5} mr={5} mb="50px">
                 <Grow
                   style={{ transformOrigin: '0 0 0' }}
                   {...{ timeout: 2000 }}
@@ -155,8 +174,8 @@ export default function Home({}) {
                     sx={{
                       flexGrow: 1,
                       display: { xs: 'block', sm: 'block' },
-                      fontWeight: 'bold',
-                      fontSize: '40px',
+                      // fontWeight: 'bold',
+                      // fontSize: '40px',
                       letterSpacing: 1,
                     }}
                   >
@@ -171,100 +190,96 @@ export default function Home({}) {
             </Grid>
           </Box>
         </Grid>
-        <Grid item xs={12} md={8} lg={12}>
-          <Box
-            className="boxCenter grow"
-            component={Link}
-            to="/publish"
-            ml={20}
-            mr={100}
-            mt={10}
-            // sx={{ border: 1 }}
-          >
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU" />
-            <Box ml={1} mr={1}>
-              <Typography color="white" fontSize="18px">
-                <p className="publish">PUBLISH</p>
-                Upload your own podcast in just a few easy steps. We take care
-                of the hard parts so you can focus on making your best podcast.
-              </Typography>
-            </Box>
-          </Box>
-        </Grid>
-        <Grid item xs={12} md={12} lg={12}>
-          <Box
-            className="boxCenter2 grow"
-            component={Link}
-            to="/discover"
-            ml={100}
-            mr={20}
-            mt={10}
-            // sx={{ border: 1 }}
-          >
-            <Box ml={1} mr={1}>
-              <Typography color="white" fontSize="18px">
-                <p className="discover">DISCOVER</p>
-                Browse through our extensive library of podcasts to find
-                something you love. We have a podcast for everyone.
-              </Typography>
-            </Box>
-
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU" />
-          </Box>
-        </Grid>
         <Box
+          className="boxCenter"
+          mt={10}
+          mb={10}
           ml={20}
           mr={20}
-          mt={10}
+          // sx={{
+          //   backgroundColor: '#17141d',
+          //   boxShadow: '-1rem 0 3rem #000',
+          //   border: 1,
+          //   borderColor: 'black',
+          //   borderRadius: '0px',
+          // }}
+        >
+          <Grid item xs={12} md={8} lg={12}>
+            <Box
+              className="boxCenter"
+              sx={{ width: '100%', height: '100%' }}
+              // ml={20}
+              // mr={100}
+              // mt={10}
+              // mb={10}
+            >
+              <Box className="flex">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU" />
+
+                <Box
+                  className="grow"
+                  pl={1}
+                  component={Link}
+                  to="/publish"
+                  pr={1}
+                  sx={{
+                    backgroundColor: '#17141d',
+                    boxShadow: '-1rem 0 3rem #000',
+                    border: 1,
+                    borderColor: 'black',
+                    // borderRadius: '5px',
+                  }}
+                >
+                  <Typography color="white" fontSize="18px" fontWeight="bold">
+                    <p className="publish">PUBLISH</p>
+                    Upload your own podcast in just a few easy steps. We take
+                    care of the hard parts so you can focus on making your best
+                    podcast.
+                  </Typography>
+                </Box>
+              </Box>
+              <Box sx={{ width: '47px' }}></Box>
+              <Box className="flex">
+                <Box
+                  className="grow1"
+                  component={Link}
+                  to='/discover'
+                  pl={1}
+                  pr={1}
+                  sx={{
+                    backgroundColor: '#17141d',
+                    boxShadow: '-1rem 0 3rem #000',
+                    borderColor: 'black',
+                    // borderRadius: '5px',
+                  }}
+                >
+                  <Typography color="white" fontSize="18px" fontWeight="bold">
+                    <p className="discover">DISCOVER</p>
+                    Browse through our extensive library of podcasts to find
+                    something you love. We have a podcast for everyone.
+                  </Typography>
+                </Box>
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU" />
+              </Box>
+            </Box>
+          </Grid>
+        </Box>
+        <Box
+          // ml={20}
+          // mr={20}
+          // mt={10}
           p={1}
           style={{
             backgroundColor: '#17141d',
             boxShadow: '-1rem 0 3rem #000',
           }}
           sx={{
+            height: '200px',
             border: 1,
-            borderRadius: '5px',
+            // borderRadius: '5px',
           }}
-        >
-          <ImageList
-            className="scrollBar"
-            style={{
-              backgroundColor: '#17141d',
-              boxShadow: '-1rem 0 3rem #000',
-            }}
-            sx={{
-              width: '600px',
-              height: '400px',
-              border: 1,
-              borderRadius: '5px',
-            }}
-          >
-            {itemData.map((item) => (
-              <ImageListItem component={Link} to="/discover" key={item.img}>
-                <img
-                  className="podCardTwo"
-                  src={`${item.img}?w=248&fit=crop&auto=format`}
-                  srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                  alt={item.title}
-                  loading="lazy"
-                  sx={{ border: 1, borderRadius: '5px' }}
-                />
-                <ImageListItemBar
-                  title={item.title}
-                  subtitle={item.author}
-                  actionIcon={
-                    <IconButton
-                      sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                      aria-label={`info about ${item.title}`}
-                    >
-                      <InfoIcon />
-                    </IconButton>
-                  }
-                />
-              </ImageListItem>
-            ))}
-          </ImageList>
-        </Box>
+        ></Box>
       </Box>
     </Grid>
   );
