@@ -124,11 +124,11 @@ const GlobalAppBar = () => {
 
                   <IconButton
                     component={Link}
-                    to="/"
+                    to="/profile"
                     size="large"
                     align="center"
                     aria-label="menu"
-                    sx={{ ml: 2, color: 'turquoise' }}
+                    sx={{ ml: 2, color: '#f5b727' }}
                   >
                     <PodcastsIcon />
                   </IconButton>
@@ -171,29 +171,23 @@ const GlobalAppBar = () => {
                   alignItems="center"
                 >
                   <Grid>
-                    <Typography
-                      // component={Link}
-                      // to="/"
-                      variant="h6"
+                    <Button
+                      size="large"
+                      component={Link}
+                      color="inherit"
+                      to="/"
                     >
-                      <Button
-                        size="large"
-                        component={Link}
-                        color="inherit"
-                        to="/"
-                      >
-                        PodCentral
-                      </Button>
-                    </Typography>
+                      PodCentral
+                    </Button>
                   </Grid>
 
                   <IconButton
                     component={Link}
-                    to={"/"}
+                    to="/"
                     size="large"
                     edge="start"
                     aria-label="menu"
-                    sx={{ mr: 2, color: 'turquoise' }}
+                    sx={{ mr: 2, color: '#f5b727' }}
                   >
                     <PodcastsIcon />
                   </IconButton>

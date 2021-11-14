@@ -71,6 +71,8 @@ const PublishProfile = () => {
     });
   };
 
+  const episodesArr = []
+
 
   return (
     <Box flexGrow={1} sx={{ bgcolor: '#f0eeeb', height: '100vh' }} >

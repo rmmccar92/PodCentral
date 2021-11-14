@@ -14,6 +14,10 @@ const styles = {
     marginRight: 'auto',
     width: '150px',
   },
+  lowerImage: {
+    display: 'block',
+    width: '150px',
+  },
 };
 
 
@@ -70,15 +74,14 @@ const itemData = [
 
 export default function Home({ }) {
   return (
-    <Box
-      pt="100px"
-      sx={{
-        flexGrow: 1,
-        bgcolor: '#f0eeeb',
-        height: '100vh'
-      }}
-    >
-      <Grid container>
+    <Grid container>
+      <Box
+        pt="100px"
+        sx={{
+          flexGrow: 1,
+          // height: '2000px',
+        }}
+      >
         <Grid item xs={6} md={12} lg={12}>
           <Box
             sx={{
@@ -88,7 +91,7 @@ export default function Home({ }) {
               flexGrow: 1,
               width: 'auto',
               fontSize: 69,
-              fontWeight: 'bold',
+              // fontWeight: 'bold',
               // fontColor: '#17141d',
               // ml: '50px',
               // mt: '50px',
@@ -210,7 +213,7 @@ export default function Home({ }) {
             // mb={10}
             >
               <Box className="flex">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU" />
+                <img src="http://blog.saude.mg.gov.br/wp-content/uploads/2018/02/banner_podcast_ciencia_2018.jpg" alt="headphones and mic" style={styles.lowerImage} />
 
                 <Box
                   className="grow"
@@ -226,9 +229,9 @@ export default function Home({ }) {
                     // borderRadius: '5px',
                   }}
                 >
-                  <Typography color="white" fontSize="18px" fontWeight="bold">
+                  <Typography color="white" fontSize="18px" fontWeight="normal">
                     <p className="publish">PUBLISH</p>
-                    Upload your own podcast in just a few easy steps.We take
+                    Upload your own podcast in just a few easy steps. We take
                     care of the hard parts so you can focus on making your best
                     podcast.
                   </Typography>
@@ -249,19 +252,34 @@ export default function Home({ }) {
                     // borderRadius: '5px',
                   }}
                 >
-                  <Typography color="white" fontSize="18px" fontWeight="bold">
+                  <Typography color="white" fontSize="18px" fontWeight="normal">
                     <p className="discover">DISCOVER</p>
                     Browse through our extensive library of podcasts to find
-                    something you love.We have a podcast for everyone.
+                    something you love. We have a podcast for everyone.
                   </Typography>
                 </Box>
 
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU" />
+                <img src="http://blog.saude.mg.gov.br/wp-content/uploads/2018/02/banner_podcast_ciencia_2018.jpg" alt="headphones and mic" style={styles.lowerImage} />
               </Box>
             </Box>
           </Grid>
         </Box>
-      </Grid>
-    </Box>
+        <Box
+          // ml={20}
+          // mr={20}
+          // mt={10}
+          p={1}
+          style={{
+            backgroundColor: '#17141d',
+            boxShadow: '-1rem 0 3rem #000',
+          }}
+          sx={{
+            height: '200px',
+            border: 1,
+            // borderRadius: '5px',
+          }}
+        ></Box>
+      </Box>
+    </Grid>
   );
 }

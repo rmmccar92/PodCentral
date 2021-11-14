@@ -11,6 +11,7 @@ import FastForwardRounded from '@mui/icons-material/FastForwardRounded';
 import FastRewindRounded from '@mui/icons-material/FastRewindRounded';
 import VolumeUpRounded from '@mui/icons-material/VolumeUpRounded';
 import VolumeDownRounded from '@mui/icons-material/VolumeDownRounded';
+import AudioPlayer from 'material-ui-audio-player';
 
 const Player = (props) => {
     const Widget = styled('div')(({ theme }) => ({
