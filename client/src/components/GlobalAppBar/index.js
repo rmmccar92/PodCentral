@@ -109,8 +109,10 @@ const GlobalAppBar = () => {
                   </Grid>
 
                   <IconButton
+                    component={Link}
+                    to="/"
                     size="large"
-                    edge="start"
+                    align="center"
                     aria-label="menu"
                     sx={{ ml: 2, color: "turquoise" }}
                   >
@@ -125,8 +127,6 @@ const GlobalAppBar = () => {
                   >
                     <MenuItem>
                       <IconButton
-                        component={Link}
-                        to="/"
                         size="large"
                         aria-label="show 17 new notifications"
                         color="inherit"
