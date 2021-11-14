@@ -48,7 +48,7 @@ function Login(props) {
           justifyContent="center"
           pt={2}
         >
-          <Grid input>
+          <Grid item>
             <TextField
               placeholder="youremail@mail.com"
               label="Email"
@@ -58,7 +58,7 @@ function Login(props) {
               onChange={handleChange}
             />
           </Grid>
-          <Grid input pt={2}>
+          <Grid item pt={2}>
             <TextField
               placeholder="******"
               label="Password"
@@ -73,7 +73,7 @@ function Login(props) {
               <p className="error-text">The provided credentials are incorrect</p>
             </div>
           ) : null}
-          <Grid input pt={2}>
+          <Grid item pt={2}>
             <Button variant="contained" sx={{ backgroundColor: "black" }} type="submit">Submit</Button>
           </Grid>
         </Grid>

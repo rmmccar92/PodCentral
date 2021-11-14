@@ -75,296 +75,349 @@ const PublishProfile = () => {
     });
   };
   return (
-    <>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grow
-          style={{ transformOrigin: "0 0 0" }}
-          {...{ timeout: 2000 }}
-          in={true}
+    <div>
+      <Grow
+        style={{ transformOrigin: "0 0 0" }}
+        {...{ timeout: 2000 }}
+        in={true}
+      >
+        <Typography
+          variant="h2"
+          component="div"
+          align="center"
+          pt={2}
+          sx={{ flexGrow: 1, display: { xs: "block", sm: "block", fontWeight: "400" } }}
         >
-          <Typography
-            variant="h2"
-            component="div"
-            align="center"
-            pt={2}
-            sx={{ flexGrow: 1, display: { xs: "block", sm: "block", fontWeight: "400" } }}
+          Welcome Back {userData.firstName}!
+        </Typography>
+      </Grow>
+      <Box>
+        <Grid xs={12} md={6}>
+          <Grow
+            style={{ transformOrigin: "0 0 0" }}
+            {...{ timeout: 2000 }}
+            in={true}
           >
-            Welcome Back {userData.firstName}!
-          </Typography>
-        </Grow>
-        <Grid container spacing={5}>
-          <Grid xs={12} md={6}>
-            <Grow
-              style={{ transformOrigin: "0 0 0" }}
-              {...{ timeout: 2000 }}
-              in={true}
+            <Typography
+              variant="h4"
+              component="div"
+              align="center"
+              pt={5}
+              mx={3}
+              sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+              color="black"
             >
-              <Typography
-                variant="h4"
-                component="div"
-                align="center"
-                pt={5}
-                mx={3}
-                sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-                color="black"
+              Your Podcast: {userData.addedPodcast.title}
+            </Typography>
+          </Grow>
+          <Grow
+            style={{ transformOrigin: "0 0 0" }}
+            {...{ timeout: 2000 }}
+            in={true}
+          >
+            <img
+              src={userData.addedPodcast.image}
+              alt="podcast cover art - dark house"
+              style={styles.coverArt}
+            />
+          </Grow>
+          <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            pt={2}
+          >
+            <Grid item pt={2}>
+              <Grow
+                style={{ transformOrigin: "0 0 0" }}
+                {...{ timeout: 2000 }}
+                in={true}
               >
-                Your Podcast: {userData.addedPodcast.title}
-              </Typography>
-            </Grow>
-            <Grow
-              style={{ transformOrigin: "0 0 0" }}
-              {...{ timeout: 2000 }}
-              in={true}
-            >
-              <img
-                src={userData.addedPodcast.image}
-                alt="podcast cover art - dark house"
-                style={styles.coverArt}
-              />
-            </Grow>
-            <Grow
-              style={{ transformOrigin: "0 0 0" }}
-              {...{ timeout: 2000 }}
-              in={true}
-            >
-              <Typography
-                variant="h5"
-                //   component={Link}
-                align="center"
-                pt={5}
-                mx={3}
-                sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-                color="black"
+                <TextField
+                  placeholder="Title"
+                  label="Episode Title"
+                  name="title"
+                  type="title"
+                  id="title"
+                  onChange={handleChange}
+                />
+              </Grow>
+            </Grid>
+            <Grid item pt={2}>
+              <Grow
+                style={{ transformOrigin: "0 0 0" }}
+                {...{ timeout: 2000 }}
+                in={true}
               >
-                <Box sx={{ flexGrow: 1 }} justify="center">
-                  <div className="flex-row space-between my-2">
-                    <label htmlFor="title">Title: </label>
-                    <Input
-                      placeholder="Your Podcast"
-                      name="title"
-                      type="title"
-                      id="title"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="flex-row space-between my-2">
-                    <label htmlFor="description">Description: </label>
-                    <TextField
-                      multiline
-                      rows={5}
-                      variant="standard"
-                      placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum orci eu elit aliquam maximus."
-                      name="description"
-                      type="description"
-                      id="description"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="flex-row space-between my-2">
-                    <label htmlFor="title">Season: </label>
-                    <Input
-                      placeholder="1"
-                      name="season"
-                      type="season"
-                      id="season"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="flex-row space-between my-2">
-                    <label htmlFor="title">Episode: </label>
-                    <Input
-                      placeholder="1"
-                      name="episode"
-                      type="episode"
-                      id="episode"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="flex-row flex-end">
-                    <Button
-                      variant="contained"
-                      sx={{ backgroundColor: "black" }}
-                      type="submit"
-                      onClick={handleFormSubmit}
-                    >
-                      Submit
-                    </Button>
-                  </div>
-                </Box>
-                Upload New Episode
-                <CloudinaryWidget />
-              </Typography>
-            </Grow>
-          </Grid>
-          <Grid xs={12} md={6}>
-            <Grow
-              style={{ transformOrigin: "0 0 0" }}
-              {...{ timeout: 2000 }}
-              in={true}
-            >
-              <Typography
-                variant="h4"
-                component="div"
-                align="center"
-                pt={5}
-                mx={3}
-                sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-                color="black"
+                <TextField
+                  multiline
+                  rows={5}
+                  placeholder="Description"
+                  label="Episode Description"
+                  name="description"
+                  type="description"
+                  id="description"
+                  onChange={handleChange}
+                />
+              </Grow>
+            </Grid>
+            <Grid item pt={2}>
+              <Grow
+                style={{ transformOrigin: "0 0 0" }}
+                {...{ timeout: 2000 }}
+                in={true}
               >
-                Your Favorites
-              </Typography>
-              {/* We should map over these */}
-            </Grow>
-            <Grid container spacing={2}>
-              <Grid md={4}>
-                <Box pt={2}>
-                  <Grow
-                    style={{ transformOrigin: "0 0 0" }}
-                    {...{ timeout: 2000 }}
-                    in={true}
-                  >
-                    <img
-                      // src={userData.likedPodcasts[0].image}
-                      alt="podcast cover art"
-                      style={styles.coverArtFav}
-                    />
-                  </Grow>
-                </Box>
-              </Grid>
-              <Grid md={8}>
-                <Grow
-                  style={{ transformOrigin: "0 0 0" }}
-                  {...{ timeout: 2000 }}
-                  in={true}
-                >
-                  <Typography
-                    variant="h5"
-                    // component={Link}
-                    align="left"
-                    pt={5}
-                    mx={3}
-                    sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-                    color="black"
-                  >
-                    Podcast 1
-                  </Typography>
-                </Grow>
-              </Grid>
+                <TextField
+                  placeholder="Season"
+                  label="Season Number"
+                  name="season"
+                  type="season"
+                  id="season"
+                  onChange={handleChange}
+                />
+              </Grow>
             </Grid>
-            <Grid container spacing={2}>
-              <Grid md={4}>
-                <Box pt={2}>
-                  <Grow
-                    style={{ transformOrigin: "0 0 0" }}
-                    {...{ timeout: 2000 }}
-                    in={true}
-                  >
-                    <img
-                      // src={userData.likedPodcasts[1].image}
-                      alt="podcast cover art - dark house"
-                      style={styles.coverArtFav}
-                    />
-                  </Grow>
-                </Box>
-              </Grid>
-              <Grid md={8}>
-                <Grow
-                  style={{ transformOrigin: "0 0 0" }}
-                  {...{ timeout: 2000 }}
-                  in={true}
-                >
-                  <Typography
-                    variant="h5"
-                    // component={Link}
-                    align="left"
-                    pt={5}
-                    mx={3}
-                    sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-                    color="black"
-                  >
-                    Podcast 1
-                  </Typography>
-                </Grow>
-              </Grid>
+            <Grid item pt={2}>
+              <Grow
+                style={{ transformOrigin: "0 0 0" }}
+                {...{ timeout: 2000 }}
+                in={true}
+              >
+                <TextField
+                  placeholder="Episode"
+                  label="Episode Number"
+                  name="episode"
+                  type="episode"
+                  id="episode"
+                  onChange={handleChange}
+                />
+              </Grow>
             </Grid>
-            <Grid container spacing={2}>
-              <Grid md={4}>
-                <Box pt={2}>
-                  <Grow
-                    style={{ transformOrigin: "0 0 0" }}
-                    {...{ timeout: 2000 }}
-                    in={true}
-                  >
-                    <img
-                      // src={userData.likedPodcasts[2].image}
-                      alt="podcast cover art - dark house"
-                      style={styles.coverArtFav}
-                    />
-                  </Grow>
-                </Box>
-              </Grid>
-              <Grid md={8}>
-                <Grow
-                  style={{ transformOrigin: "0 0 0" }}
-                  {...{ timeout: 2000 }}
-                  in={true}
+            <Grid item pt={2}>
+              <Grow
+                style={{ transformOrigin: "0 0 0" }}
+                {...{ timeout: 2000 }}
+                in={true}
+              >
+                <Button
+                  variant="contained"
+                  sx={{ backgroundColor: "black" }}
+                  type="submit"
+                  onClick={handleFormSubmit}
                 >
-                  <Typography
-                    variant="h5"
-                    // component={Link}
-                    align="left"
-                    pt={5}
-                    mx={3}
-                    sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-                    color="black"
-                  >
-                    Podcast 1
-                  </Typography>
-                </Grow>
-              </Grid>
+                  Submit
+                </Button>
+              </Grow>
             </Grid>
-            <Grid container spacing={2}>
-              <Grid md={4}>
-                <Box pt={2}>
-                  <Grow
-                    style={{ transformOrigin: "0 0 0" }}
-                    {...{ timeout: 2000 }}
-                    in={true}
-                  >
-                    <img
-                      // src={userData.likedPodcasts[3].image}
-                      alt="podcast cover art - dark house"
-                      style={styles.coverArtFav}
-                    />
-                  </Grow>
-                </Box>
-              </Grid>
-              <Grid md={8}>
-                <Grow
-                  style={{ transformOrigin: "0 0 0" }}
-                  {...{ timeout: 2000 }}
-                  in={true}
+            <Grid item pt={2}>
+              <Grow
+                style={{ transformOrigin: "0 0 0" }}
+                {...{ timeout: 2000 }}
+                in={true}
+              >
+                <Typography
+                  variant="p"
+                  component="div"
+                  pt={2}
+                  sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+                  align="center"
                 >
-                  <Typography
-                    variant="h5"
-                    // component={Link}
-                    align="left"
-                    direction="column"
-                    justifyContent="center"
-                    pt={5}
-                    mx={3}
-                    sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-                    color="black"
-                  >
-                    Podcast 1
-                  </Typography>
-                </Grow>
-              </Grid>
+                  Upload New Episode
+                </Typography>
+              </Grow>
+            </Grid>
+            <Grid item pt={2}>
+              <Grow
+                style={{ transformOrigin: "0 0 0" }}
+                {...{ timeout: 2000 }}
+                in={true}
+              >
+                <div>
+                  <CloudinaryWidget />
+                </div>
+              </Grow>
             </Grid>
           </Grid>
         </Grid>
       </Box>
-    </>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid xs={12} md={6}>
+          <Grow
+            style={{ transformOrigin: "0 0 0" }}
+            {...{ timeout: 2000 }}
+            in={true}
+          >
+            <Typography
+              variant="h4"
+              component="div"
+              align="center"
+              pt={5}
+              mx={3}
+              sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+              color="black"
+            >
+              Your Favorites
+            </Typography>
+            {/* We should map over these */}
+          </Grow>
+          <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            pt={2}
+          >
+            <Grid md={4}>
+              <Box pt={2}>
+                <Grow
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...{ timeout: 2000 }}
+                  in={true}
+                >
+                  <img
+                    // src={userData.likedPodcasts[0].image}
+                    alt="podcast cover art"
+                    style={styles.coverArtFav}
+                  />
+                </Grow>
+              </Box>
+            </Grid>
+            <Grid md={8}>
+              <Grow
+                style={{ transformOrigin: "0 0 0" }}
+                {...{ timeout: 2000 }}
+                in={true}
+              >
+                <Typography
+                  variant="h5"
+                  // component={Link}
+                  align="left"
+                  pt={5}
+                  mx={3}
+                  sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+                  color="black"
+                >
+                  Podcast 1
+                </Typography>
+              </Grow>
+            </Grid>
+          </Grid>
+          <Grid container spacing={2}>
+            <Grid md={4}>
+              <Box pt={2}>
+                <Grow
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...{ timeout: 2000 }}
+                  in={true}
+                >
+                  <img
+                    // src={userData.likedPodcasts[1].image}
+                    alt="podcast cover art - dark house"
+                    style={styles.coverArtFav}
+                  />
+                </Grow>
+              </Box>
+            </Grid>
+            <Grid md={8}>
+              <Grow
+                style={{ transformOrigin: "0 0 0" }}
+                {...{ timeout: 2000 }}
+                in={true}
+              >
+                <Typography
+                  variant="h5"
+                  component="div"
+                  align="left"
+                  pt={5}
+                  mx={3}
+                  sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+                  color="black"
+                >
+                  Podcast 1
+                </Typography>
+              </Grow>
+            </Grid>
+          </Grid>
+          <Grid container spacing={2}>
+            <Grid md={4}>
+              <Box pt={2}>
+                <Grow
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...{ timeout: 2000 }}
+                  in={true}
+                >
+                  <img
+                    // src={userData.likedPodcasts[2].image}
+                    alt="podcast cover art - dark house"
+                    style={styles.coverArtFav}
+                  />
+                </Grow>
+              </Box>
+            </Grid>
+            <Grid md={8}>
+              <Grow
+                style={{ transformOrigin: "0 0 0" }}
+                {...{ timeout: 2000 }}
+                in={true}
+              >
+                <Typography
+                  variant="h5"
+                  // component={Link}
+                  align="left"
+                  pt={5}
+                  mx={3}
+                  sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+                  color="black"
+                >
+                  Podcast 1
+                </Typography>
+              </Grow>
+            </Grid>
+          </Grid>
+          <Grid container spacing={2}>
+            <Grid md={4}>
+              <Box pt={2}>
+                <Grow
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...{ timeout: 2000 }}
+                  in={true}
+                >
+                  <img
+                    // src={userData.likedPodcasts[3].image}
+                    alt="podcast cover art - dark house"
+                    style={styles.coverArtFav}
+                  />
+                </Grow>
+              </Box>
+            </Grid>
+            <Grid md={8}>
+              <Grow
+                style={{ transformOrigin: "0 0 0" }}
+                {...{ timeout: 2000 }}
+                in={true}
+              >
+                <Typography
+                  variant="h5"
+                  // component={Link}
+                  align="left"
+                  direction="column"
+                  justifyContent="center"
+                  pt={5}
+                  mx={3}
+                  sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+                  color="black"
+                >
+                  Podcast 1
+                </Typography>
+              </Grow>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Box>
+    </div >
   );
 };
 

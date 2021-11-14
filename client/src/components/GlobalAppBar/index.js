@@ -101,7 +101,7 @@ const GlobalAppBar = () => {
                         size="large"
                         component={Link}
                         color="inherit"
-                        to="/"
+                        to="/profile"
                       >
                         PodCentral
                       </Button>
