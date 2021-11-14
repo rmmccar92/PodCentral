@@ -6,6 +6,8 @@ const { typeDefs, resolvers } = require("./schemas");
 const { authMiddleware } = require("./utils/auth");
 const db = require("./config/connection");
 
+require('dotenv').config({ path: './.env' });
+
 const proxy = require("http-proxy-middleware");
 
 const { Client } = require("podcast-api");
