@@ -135,6 +135,8 @@ const GlobalAppBar = () => {
                   >
                     <MenuItem>
                       <IconButton
+                        component={Link}
+                        to="/"
                         size="large"
                         aria-label="show 17 new notifications"
                         color="inherit"
@@ -174,7 +176,7 @@ const GlobalAppBar = () => {
                         size="large"
                         component={Link}
                         color="inherit"
-                        to="/"
+                        to="/profile"
                       >
                         PodCentral
                       </Button>
@@ -182,6 +184,8 @@ const GlobalAppBar = () => {
                   </Grid>
 
                   <IconButton
+                    component={Link}
+                    to={"/"}
                     size="large"
                     edge="start"
                     aria-label="menu"

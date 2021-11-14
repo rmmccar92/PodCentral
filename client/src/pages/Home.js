@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grow from '@mui/material/Grow';
@@ -15,18 +16,9 @@ const styles = {
   },
 };
 
-export default function Home({}) {
+export default function Home() {
   return (
-    <Box
-      className="boxColor"
-      sx={{
-        flexGrow: 1,
-        height: '1000px',
-        border: 1,
-        borderColor: 'error.main',
-        width: '500px'
-      }}
-    >
+    <div>
       <Grow
         style={{ transformOrigin: '0 0 0' }}
         {...{ timeout: 2000 }}
@@ -36,8 +28,6 @@ export default function Home({}) {
           variant="h2"
           component="div"
           align="center"
-          color="white"
-
           pt={20}
           sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
 
@@ -52,9 +42,10 @@ export default function Home({}) {
       >
         <Typography
           variant="h4"
-          component="div"
+          component={Link}
+          to="/profile"
           align="center"
-          color="white"
+          color="black"
           pt={5}
           sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
         >
@@ -68,13 +59,29 @@ export default function Home({}) {
         in={true}
       >
         <Box pt={5}>
-          <img
+          <a href="/profile"><img
             src={podcastLogo}
             alt="podcast microphone"
             style={styles.podcastLogo}
-          />
+          /></a>
         </Box>
+        {/* <Grow
+          style={{ transformOrigin: '0 0 0' }}
+          {...{ timeout: 4000 }}
+          in={true}
+        >
+        <Typography
+          variant="h4"
+          component={Link}
+          to="/profile"
+          align="center"
+          pt={5}
+          sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
+        >
+          GET STARTED
+        </Typography>
+        </Grow> */}
       </Grow>
-    </Box>
+    </div >
   );
 }
