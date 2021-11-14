@@ -20,6 +20,12 @@ export const GET_ME = gql`
         title
         description
         image
+        episodes {
+          title
+          audio
+          season
+          episode
+        }
       }
     }
   }
