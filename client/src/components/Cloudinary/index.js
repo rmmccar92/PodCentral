@@ -1,10 +1,9 @@
 import React from "react";
 import { Widget } from "react-cloudinary-upload-widget";
-import Axios from "axios";
 
 const CloudinaryWidget = () => {
   const successCallBack = (response) => {
-    console.log(response);
+    // console.log(response);
     localStorage.setItem("podcastImage", response.info.secure_url);
   };
 

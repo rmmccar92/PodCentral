@@ -7,11 +7,10 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
-import Player from '../Player';
+import Player from "../Player";
 import CloudinaryWidget from "../Cloudinary";
 import { GET_ME } from "../../utils/queries";
 import { ADD_EPISODE } from "../../utils/mutations";
-
 
 const styles = {
   coverArt: {
@@ -67,11 +66,14 @@ const PublishProfile = () => {
   };
 
   const episodesData = userData.addedPodcast.episodes;
+<<<<<<< HEAD
 
   console.log(episodesData);
+=======
+>>>>>>> 0afd25df5c0838c25c0876abe139cb75954ce30e
 
   return (
-    <Box flexGrow={1} sx={{ bgcolor: '#f0eeeb', height: '100vh' }} >
+    <Box flexGrow={1} sx={{ bgcolor: "#f0eeeb", height: "100vh" }}>
       <Grow
         style={{ transformOrigin: "0 0 0" }}
         {...{ timeout: 2000 }}
@@ -82,7 +84,10 @@ const PublishProfile = () => {
           component="div"
           align="center"
           pt={2}
-          sx={{ flexGrow: 1, display: { xs: "block", sm: "block", fontWeight: "400" } }}
+          sx={{
+            flexGrow: 1,
+            display: { xs: "block", sm: "block", fontWeight: "400" },
+          }}
         >
           Welcome Back {userData.firstName}!
         </Typography>
@@ -257,14 +262,25 @@ const PublishProfile = () => {
         <Box flexGrow={1}>
           {episodesData.map((episode) => {
             return (
+<<<<<<< HEAD
               <Grid item xs={12} md={6} key={episode._id}>
                 <Player title={episode.title} audio={episode.audio} seasonNum={episode.season} episodeNum={episode.episode} />
+=======
+              <Grid item xs={12} md={6} key={episode.id}>
+                <Player
+                  title={episode.title}
+                  audio={episode.audio}
+                  episodeName={episode.title}
+                  seasonNum={episode.season}
+                  episodeNum={episode.episode}
+                />
+>>>>>>> 0afd25df5c0838c25c0876abe139cb75954ce30e
               </Grid>
-            )
+            );
           })}
         </Box>
       </Grid>
-    </Box >
+    </Box>
   );
 };
 
