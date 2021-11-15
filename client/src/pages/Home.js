@@ -15,8 +15,8 @@ const styles = {
     width: "150px",
   },
   lowerImage: {
-    display: "flex",
-    maxWidth: "18em",
+    display: "block",
+    width: "150px",
   },
 };
 
@@ -233,7 +233,7 @@ export default function Home({}) {
                   }}
                 >
                   <Typography color="white" fontSize="18px" fontWeight="normal">
-                    <span className="publish">PUBLISH</span>
+                    <p className="publish">PUBLISH</p>
                     Upload your own podcast in just a few easy steps. We take
                     care of the hard parts so you can focus on making your best
                     podcast.
@@ -256,7 +256,7 @@ export default function Home({}) {
                   }}
                 >
                   <Typography color="white" fontSize="18px" fontWeight="normal">
-                    <span className="discover">DISCOVER</span>
+                    <p className="discover">DISCOVER</p>
                     Browse through our extensive library of podcasts to find
                     something you love. We have a podcast for everyone.
                   </Typography>
