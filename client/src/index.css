@@ -370,7 +370,7 @@ input:focus {
   font-weight: normal;
   letter-spacing: 3px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .title {
