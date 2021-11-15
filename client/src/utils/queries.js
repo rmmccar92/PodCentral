@@ -25,6 +25,11 @@ export const GET_ME = gql`
           audio
           season
           episode
+          _id
+          podcast {
+            title
+            image
+          }
         }
       }
     }

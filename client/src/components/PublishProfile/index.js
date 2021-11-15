@@ -66,6 +66,11 @@ const PublishProfile = () => {
   };
 
   const episodesData = userData.addedPodcast.episodes;
+<<<<<<< HEAD
+
+  console.log(episodesData);
+=======
+>>>>>>> 0afd25df5c0838c25c0876abe139cb75954ce30e
 
   return (
     <Box flexGrow={1} sx={{ bgcolor: "#f0eeeb", height: "100vh" }}>
@@ -257,6 +262,10 @@ const PublishProfile = () => {
         <Box flexGrow={1}>
           {episodesData.map((episode) => {
             return (
+<<<<<<< HEAD
+              <Grid item xs={12} md={6} key={episode._id}>
+                <Player title={episode.title} audio={episode.audio} seasonNum={episode.season} episodeNum={episode.episode} />
+=======
               <Grid item xs={12} md={6} key={episode.id}>
                 <Player
                   title={episode.title}
@@ -265,6 +274,7 @@ const PublishProfile = () => {
                   seasonNum={episode.season}
                   episodeNum={episode.episode}
                 />
+>>>>>>> 0afd25df5c0838c25c0876abe139cb75954ce30e
               </Grid>
             );
           })}
