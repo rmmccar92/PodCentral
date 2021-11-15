@@ -7,11 +7,10 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
-import Player from '../Player';
+import Player from "../Player";
 import CloudinaryWidget from "../Cloudinary";
 import { GET_ME } from "../../utils/queries";
 import { ADD_EPISODE } from "../../utils/mutations";
-
 
 const styles = {
   coverArt: {
@@ -66,11 +65,10 @@ const PublishProfile = () => {
     });
   };
 
-  const episodesData = userData.addedPodcast.episodes
-
+  const episodesData = userData.addedPodcast.episodes;
 
   return (
-    <Box flexGrow={1} sx={{ bgcolor: '#f0eeeb', height: '100vh' }} >
+    <Box flexGrow={1} sx={{ bgcolor: "#f0eeeb", height: "100vh" }}>
       <Grow
         style={{ transformOrigin: "0 0 0" }}
         {...{ timeout: 2000 }}
@@ -81,7 +79,10 @@ const PublishProfile = () => {
           component="div"
           align="center"
           pt={2}
-          sx={{ flexGrow: 1, display: { xs: "block", sm: "block", fontWeight: "400" } }}
+          sx={{
+            flexGrow: 1,
+            display: { xs: "block", sm: "block", fontWeight: "400" },
+          }}
         >
           Welcome Back {userData.firstName}!
         </Typography>
@@ -257,13 +258,19 @@ const PublishProfile = () => {
           {episodesData.map((episode) => {
             return (
               <Grid item xs={12} md={6} key={episode.id}>
-                <Player title={episode.title} audio={episode.audio} episodeName={episode.title} seasonNum={episode.season} episodeNum={episode.episode} />
+                <Player
+                  title={episode.title}
+                  audio={episode.audio}
+                  episodeName={episode.title}
+                  seasonNum={episode.season}
+                  episodeNum={episode.episode}
+                />
               </Grid>
-            )
+            );
           })}
         </Box>
       </Grid>
-    </Box >
+    </Box>
   );
 };
 
