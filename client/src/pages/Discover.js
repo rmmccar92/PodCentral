@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Cards from '../components/Cards'
 import CategoryCard from "../components/CategoryCard";
-
+const originalsArr = [];
 const theme = createTheme({
   status: {
     danger: '#e53e3e',
@@ -111,7 +111,7 @@ const Discover = () => {
   }
 
   return (
-    <ThemeProvider theme={theme} sx={{ bgcolor: '#f0eeeb', height: '100vh' }}>
+    <ThemeProvider theme={theme}>
       <Box
         sx={{
           flexGrow: 1,
@@ -189,7 +189,7 @@ const Discover = () => {
           })}
         </Grid>
 
-        <p className="categories">Family</p>
+        <p className="categories">PodCentral Originals</p>
         <Grid
           container
           spacing={7}
@@ -198,24 +198,13 @@ const Discover = () => {
           alignItems="center"
           sx={{ pb: "50px", pl: "50px", pr: "50px" }}
         >
-          <Grid item xs={12} md={6} lg={2}>
-            <Cards />
-          </Grid>
-          <Grid item xs={12} md={6} lg={2}>
-            <Cards />
-          </Grid>
-          <Grid item xs={12} md={6} lg={2}>
-            <Cards />
-          </Grid>
-          <Grid item xs={12} md={6} lg={2}>
-            <Cards />
-          </Grid>
-          <Grid item xs={12} md={6} lg={2}>
-            <Cards />
-          </Grid>
-          <Grid item xs={12} md={6} lg={2}>
-            <Cards />
-          </Grid>
+          {originalsArr.map((podcast) => {
+            return (
+              <Grid item xs={12} md={6} lg={2} key={podcast.id}>
+                <Cards title={podcast.title} image={podcast.image} link={podcast.listennotes_url} description={podcast.description} />
+              </Grid>
+            )
+          })}
         </Grid>
       </Box>
     </ThemeProvider>

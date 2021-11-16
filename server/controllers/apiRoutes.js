@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const { Client } = require("podcast-api");
 
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config({ path: "../../.env" });
+
 const client = Client({ apiKey: process.env.API_KEY });
 
 router.get("/popularPodcasts", async (req, res) => {
