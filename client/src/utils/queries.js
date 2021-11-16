@@ -35,3 +35,14 @@ export const GET_ME = gql`
     }
   }
 `;
+
+// const QUERY_PODCAST = gql`
+// {
+//   podcast{
+//     title
+//     description
+//     image
+//     episodes{
+//   }
+// }
+// `;
