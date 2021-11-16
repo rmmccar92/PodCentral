@@ -32,11 +32,19 @@ const resolvers = {
       });
     },
     podcasts: async () => {
-      return await Podcast.find({}).populate("episodes");
+      return await Podcast.find().populate("episodes");
     },
-    // addedPodcast: async () => {
-    //   return await Podcast.find
-    // }
+
+    podcast: async (parent, args) => {
+      try {
+        const podcastData = await Podcast.findOne({
+          _id: args._id,
+        }).populate("episodes");
+        return podcastData;
+      } catch (err) {
+        console.log(err);
+      }
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
