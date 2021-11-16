@@ -33,112 +33,114 @@ const Profile = () => {
   }
 
   return (
-    <Grid container spacing={5} sx={{ bgcolor: '#f0eeeb', height: '100vh' }}>
-      <Grid item xs={12} md={6}>
-        <Grow
-          style={{ transformOrigin: "0 0 0" }}
-          {...{ timeout: 2000 }}
-          in={true}
-        >
-          <Typography
-            variant="h2"
-            component={Link}
-            to="/publish"
-            align="center"
-            pt={5}
-            sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-            color="black"
+    <Box flexGrow={1}>
+      <Grid container spacing={5} >
+        <Grid item xs={12} md={6}  >
+          <Grow
+            style={{ transformOrigin: "0 0 0" }}
+            {...{ timeout: 2000 }}
+            in={true}
           >
-            Publish
-          </Typography>
-        </Grow>
-        <Grow
-          style={{ transformOrigin: "0 0 0" }}
-          {...{ timeout: 2000 }}
-          in={true}
-        >
-          <Typography
-            variant="h5"
-            component="div"
-            align="center"
-            pt={5}
-            mx={3}
-            sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-            color="black"
+            <Typography
+              variant="h2"
+              component={Link}
+              to="/publish"
+              align="center"
+              pt={5}
+              sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+              color="black"
+            >
+              Publish
+            </Typography>
+          </Grow>
+          <Grow
+            style={{ transformOrigin: "0 0 0" }}
+            {...{ timeout: 2000 }}
+            in={true}
           >
-            Upload your own podcast in just a few easy steps. We take care of
-            the hard parts so you can focus on making your best podcast.
-          </Typography>
-        </Grow>
-        <Grow
-          style={{ transformOrigin: "0 0 0" }}
-          {...{ timeout: 2000 }}
-          in={true}
-        >
-          <Box pt={3}>
-            <a href="/publish">
-              <img
-                src={podcastLogo}
-                alt="space ship - discover logo"
-                style={styles.logo}
-              />
-            </a>
-          </Box>
-        </Grow>
+            <Typography
+              variant="h5"
+              component="div"
+              align="center"
+              pt={5}
+              mx={3}
+              sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+              color="black"
+            >
+              Upload your own podcast in just a few easy steps. We take care of
+              the hard parts so you can focus on making your best podcast.
+            </Typography>
+          </Grow>
+          <Grow
+            style={{ transformOrigin: "0 0 0" }}
+            {...{ timeout: 2000 }}
+            in={true}
+          >
+            <Box pt={3}>
+              <a href="/publish">
+                <img
+                  src={podcastLogo}
+                  alt="space ship - discover logo"
+                  style={styles.logo}
+                />
+              </a>
+            </Box>
+          </Grow>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Grow
+            style={{ transformOrigin: "0 0 0" }}
+            {...{ timeout: 2000 }}
+            in={true}
+          >
+            <Typography
+              variant="h2"
+              component={Link}
+              to="/discover"
+              align="center"
+              pt={5}
+              sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+              color="black"
+            >
+              Discover
+            </Typography>
+          </Grow>
+          <Grow
+            style={{ transformOrigin: "0 0 0" }}
+            {...{ timeout: 2000 }}
+            in={true}
+          >
+            <Typography
+              variant="h5"
+              component="div"
+              align="center"
+              pt={5}
+              mx={3}
+              sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+              color="black"
+            >
+              Browse through our extensive library of podcasts to find something
+              you love. We have a podcast for everyone.
+            </Typography>
+          </Grow>
+          <Grow
+            style={{ transformOrigin: "0 0 0" }}
+            {...{ timeout: 2000 }}
+            in={true}
+          >
+            <Box pt={3}>
+              <a href="/discover">
+                <img
+                  src={spaceShipLogo}
+                  alt="space ship - discover logo"
+                  style={styles.spaceLogo}
+                />
+              </a>
+            </Box>
+          </Grow>
+        </Grid>
       </Grid>
-      <Grid item xs={12} md={6}>
-        <Grow
-          style={{ transformOrigin: "0 0 0" }}
-          {...{ timeout: 2000 }}
-          in={true}
-        >
-          <Typography
-            variant="h2"
-            component={Link}
-            to="/discover"
-            align="center"
-            pt={5}
-            sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-            color="black"
-          >
-            Discover
-          </Typography>
-        </Grow>
-        <Grow
-          style={{ transformOrigin: "0 0 0" }}
-          {...{ timeout: 2000 }}
-          in={true}
-        >
-          <Typography
-            variant="h5"
-            component="div"
-            align="center"
-            pt={5}
-            mx={3}
-            sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-            color="black"
-          >
-            Browse through our extensive library of podcasts to find something
-            you love. We have a podcast for everyone.
-          </Typography>
-        </Grow>
-        <Grow
-          style={{ transformOrigin: "0 0 0" }}
-          {...{ timeout: 2000 }}
-          in={true}
-        >
-          <Box pt={3}>
-            <a href="/discover">
-              <img
-                src={spaceShipLogo}
-                alt="space ship - discover logo"
-                style={styles.spaceLogo}
-              />
-            </a>
-          </Box>
-        </Grow>
-      </Grid>
-    </Grid>
+    </Box >
   );
 };
 

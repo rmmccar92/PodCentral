@@ -71,7 +71,7 @@ const itemData = [
   },
 ];
 
-export default function Home({}) {
+export default function Home({ }) {
   return (
     <Grid container>
       <Box
@@ -85,7 +85,7 @@ export default function Home({}) {
           <Box
             sx={{
               height: "100px",
-              backgroundColor: "white",
+              backgroundColor: "inherit",
               letterSpacing: 7,
               flexGrow: 1,
               width: "auto",
@@ -194,22 +194,22 @@ export default function Home({}) {
           mb={10}
           ml={20}
           mr={20}
-          // sx={{
-          //   backgroundColor: '#17141d',
-          //   boxShadow: '-1rem 0 3rem #000',
-          //   border: 1,
-          //   borderColor: 'black',
-          //   borderRadius: '0px',
-          // }}
+        // sx={{
+        //   backgroundColor: '#17141d',
+        //   boxShadow: '-1rem 0 3rem #000',
+        //   border: 1,
+        //   borderColor: 'black',
+        //   borderRadius: '0px',
+        // }}
         >
           <Grid item xs={12} md={8} lg={12}>
             <Box
               className="boxCenter"
               sx={{ width: "100%", height: "100%" }}
-              // ml={20}
-              // mr={100}
-              // mt={10}
-              // mb={10}
+            // ml={20}
+            // mr={100}
+            // mt={10}
+            // mb={10}
             >
               <Box className="flex">
                 <img
@@ -233,7 +233,7 @@ export default function Home({}) {
                   }}
                 >
                   <Typography color="white" fontSize="18px" fontWeight="normal">
-                    <p className="publish">PUBLISH</p>
+                    <b className="publish">PUBLISH</b>
                     Upload your own podcast in just a few easy steps. We take
                     care of the hard parts so you can focus on making your best
                     podcast.
@@ -256,7 +256,7 @@ export default function Home({}) {
                   }}
                 >
                   <Typography color="white" fontSize="18px" fontWeight="normal">
-                    <p className="discover">DISCOVER</p>
+                    <b className="discover">DISCOVER</b>
                     Browse through our extensive library of podcasts to find
                     something you love. We have a podcast for everyone.
                   </Typography>

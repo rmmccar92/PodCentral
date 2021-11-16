@@ -37,7 +37,7 @@ function Signup(props) {
   };
 
   return (
-    <Box flexGrow={1} sx={{ bgcolor: '#f0eeeb', height: '100vh', mx: 8 }} >
+    <Box flexGrow={1} sx={{ mx: 8 }} >
       <Typography variant="h6" component={Link} to="/login">← Go to Login</Typography>
       <Typography variant="h4" sx={{ fontWeight: 'bold' }} mx={20}>Signup</Typography>
       <form onSubmit={handleFormSubmit}>

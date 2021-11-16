@@ -9,7 +9,7 @@ export default function AllCategories({
   categoryRedirect,
 }) {
   return (
-    <Box flexGrow={1} sx={{ bgcolor: '#f0eeeb', height: '100vh' }} >
+    <Box flexGrow={1}>
       {/* <Box
         sx={{
           flexGrow: 1,
