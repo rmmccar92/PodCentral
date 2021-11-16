@@ -32,7 +32,7 @@ const useAudio = url => {
 
     useEffect(() => {
         playing ? audio.play() : audio.pause();
-        setCurrentTime(audio.currentTime);
+        // setCurrentTime(audio.currentTime);
     },
         [playing]
     );
