@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { styled, useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Box from "@mui/material/Box";
@@ -12,6 +12,40 @@ import FastRewindRounded from '@mui/icons-material/FastRewindRounded';
 import VolumeUpRounded from '@mui/icons-material/VolumeUpRounded';
 import VolumeDownRounded from '@mui/icons-material/VolumeDownRounded';
 import AudioPlayer from 'material-ui-audio-player';
+
+const useAudio = url => {
+    const [audio] = useState(new Audio(url));
+    const [playing, setPlaying] = useState(false);
+    const [duration, setDuration] = useState(0);
+    // const [currentTime, setCurrentTime] = useState(0);
+
+    const toggle = () => setPlaying(!playing);
+
+    console.log("audio 2:", audio)
+    audio.addEventListener("loadedmetadata", () => {
+        console.log("audio params: ", audio);
+        console.log("duration:", audio.duration);
+        setDuration(audio.duration);
+        console.log("current time", audio.currentTime);
+        // setCurrentTime(audio.currentTime);
+    });
+
+    useEffect(() => {
+        playing ? audio.play() : audio.pause();
+        setCurrentTime(audio.currentTime);
+    },
+        [playing]
+    );
+
+    useEffect(() => {
+        audio.addEventListener('ended', () => setPlaying(false));
+        return () => {
+            audio.removeEventListener('ended', () => setPlaying(false));
+        };
+    }, []);
+
+    return [duration, audio, playing, toggle];
+};
 
 const Player = (props) => {
     const Widget = styled('div')(({ theme }) => ({
@@ -48,9 +82,11 @@ const Player = (props) => {
     });
 
     const theme = useTheme();
-    const duration = 200; // seconds
-    const [position, setPosition] = React.useState(0);
-    const [paused, setPaused] = React.useState(true);
+    // const duration = 200; // seconds
+    const [duration, audio, playing, toggle] = useAudio(props.audio)
+    const [position, setPosition] = React.useState(audio.currentTime);
+    // const [playing, setPaused] = React.useState(true);
+
     function formatDuration(value) {
         const minute = Math.floor(value / 60);
         const secondLeft = value - minute * 60;
@@ -60,11 +96,8 @@ const Player = (props) => {
     const lightIconColor =
         theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.4)';
 
-    const playAudio = () => {
-        const audioEl = document.getElementsByClassName("audio-element")[0];
-        audioEl.play();
-        // setPaused(!paused);
-    };
+    console.log("audio time: ", audio.currentTime)
+
 
     return (
         <Widget>
@@ -96,7 +129,7 @@ const Player = (props) => {
                 min={0}
                 step={1}
                 max={duration}
-                onChange={(_, value) => setPosition(value)}
+                onChange={(_, value) => { setPosition(value) }}
                 sx={{
                     color: theme.palette.mode === 'dark' ? '#fff' : 'rgba(0,0,0,0.87)',
                     height: 4,
@@ -146,10 +179,10 @@ const Player = (props) => {
                     <FastRewindRounded fontSize="large" htmlColor={mainIconColor} />
                 </IconButton>
                 <IconButton
-                    aria-label={paused ? 'play' : 'pause'}
-                    onClick={playAudio}
+                    aria-label={playing ? 'pause' : 'play'}
+                    onClick={(event) => { event.preventDefault(); toggle() }}
                 >
-                    {paused ? (
+                    {!playing ? (
                         <PlayArrowRounded
                             sx={{ fontSize: '3rem' }}
                             htmlColor={mainIconColor}
@@ -187,10 +220,6 @@ const Player = (props) => {
                 />
                 <VolumeUpRounded htmlColor={lightIconColor} />
             </Stack>
-            <audio className="audio-element">
-                <source src={props.audio}>
-                </source>
-            </audio>
         </Widget>
     )
 }

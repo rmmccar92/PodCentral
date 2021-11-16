@@ -54,6 +54,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+document.body.style = 'background-color: #f0eeeb'
+
 function App() {
   const theme = createTheme({
     typography: {

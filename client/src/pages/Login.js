@@ -36,7 +36,7 @@ function Login(props) {
   };
 
   return (
-    <Box flexGrow={1} sx={{ bgcolor: '#f0eeeb', height: '100vh' }} >
+    <Box flexGrow={1} >
       <Typography variant="h6" component={Link} to="/signup" mx={4}>← Go to Signup</Typography>
       <Typography variant="h4" sx={{ fontWeight: 'bold' }} mx={25}>Login</Typography>
 
