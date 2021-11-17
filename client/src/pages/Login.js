@@ -138,6 +138,7 @@ function Login(props) {
                     style={{ width: '350px' }}
                   >
                     <Button
+                      className="grow"
                       variant="contained"
                       size="medium"
                       sx={{

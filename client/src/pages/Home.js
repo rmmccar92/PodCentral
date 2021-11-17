@@ -20,7 +20,6 @@ const styles = {
   },
 };
 
-
 const itemData = [
   {
     img: 'https://thumbs.dreamstime.com/b/young-man-recording-podcast-smiling-to-camera-close-up-young-men-recording-podcast-smiling-to-camera-close-up-104865306.jpg',
@@ -72,7 +71,7 @@ const itemData = [
   },
 ];
 
-export default function Home({ }) {
+export default function Home({}) {
   return (
     <Grid container>
       <Box
@@ -195,28 +194,32 @@ export default function Home({ }) {
           mb={10}
           ml={20}
           mr={20}
-        // sx={{
-        //   backgroundColor: '#17141d',
-        //   boxShadow: '-1rem 0 3rem #000',
-        //   border: 1,
-        //   borderColor: 'black',
-        //   borderRadius: '0px',
-        // }}
+          // sx={{
+          //   backgroundColor: '#17141d',
+          //   boxShadow: '-1rem 0 3rem #000',
+          //   border: 1,
+          //   borderColor: 'black',
+          //   borderRadius: '0px',
+          // }}
         >
           <Grid item xs={12} md={8} lg={12}>
             <Box
               className="boxCenter"
               sx={{ width: '100%', height: '100%' }}
-            // ml={20}
-            // mr={100}
-            // mt={10}
-            // mb={10}
+              // ml={20}
+              // mr={100}
+              // mt={10}
+              // mb={10}
             >
-              <Box className="flex">
-                <img src="http://blog.saude.mg.gov.br/wp-content/uploads/2018/02/banner_podcast_ciencia_2018.jpg" alt="headphones and mic" style={styles.lowerImage} />
+              <Box className="flex grow">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU"
+                  alt="headphones and mic"
+                  style={styles.lowerImage}
+                />
 
                 <Box
-                  className="grow"
+                  className=""
                   pl={1}
                   component={Link}
                   to="/publish"
@@ -237,20 +240,22 @@ export default function Home({ }) {
                   </Typography>
                 </Box>
               </Box>
-              <Box sx={{ width: '47px' }}></Box>
-              <Box className="flex">
+              {/* <Box sx={{ width: '50px' }}></Box> */}
+              <Box
+                className="flex grow1"
+                sx={{
+                  backgroundColor: '#17141d',
+                  boxShadow: '-1rem 0 3rem #000',
+                  borderColor: 'black',
+                  // borderRadius: '5px',
+                }}
+              >
                 <Box
-                  className="grow1"
+                  className=""
                   component={Link}
-                  to='/discover'
+                  to="/discover"
                   pl={1}
                   pr={1}
-                  sx={{
-                    backgroundColor: '#17141d',
-                    boxShadow: '-1rem 0 3rem #000',
-                    borderColor: 'black',
-                    // borderRadius: '5px',
-                  }}
                 >
                   <Typography color="white" fontSize="18px" fontWeight="normal">
                     <p className="discover">DISCOVER</p>
@@ -259,7 +264,11 @@ export default function Home({ }) {
                   </Typography>
                 </Box>
 
-                <img src="http://blog.saude.mg.gov.br/wp-content/uploads/2018/02/banner_podcast_ciencia_2018.jpg" alt="headphones and mic" style={styles.lowerImage} />
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU"
+                  alt="headphones and mic"
+                  style={styles.lowerImage}
+                />
               </Box>
             </Box>
           </Grid>
