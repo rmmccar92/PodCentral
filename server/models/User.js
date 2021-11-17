@@ -27,12 +27,8 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-    likedPodcasts: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Podcast",
-      },
-    ],
+    likedPodcasts: [Podcast.schema],
+
     addedPodcast: {
       type: Schema.Types.ObjectId,
       ref: "Podcast",
