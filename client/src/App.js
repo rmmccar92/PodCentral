@@ -24,6 +24,7 @@ import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ProfileTest from "./pages/ProfileTest";
 import Profile from "./pages/Profile";
 import Publish from "./pages/Publish";
 import Discover from "./pages/Discover";
@@ -83,6 +84,7 @@ function App() {
               <Route exact path="/comedy" component={Comedy} />
               <Route exact path="/health" component={Health} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path="/profiletest" component={ProfileTest} />
               {Auth.loggedIn() ? (
                 <Route exact path="/publish" component={Publish} />
               ) : (
