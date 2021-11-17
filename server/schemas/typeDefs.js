@@ -59,6 +59,7 @@ const typeDefs = gql`
   }
 
   input likedPodcast {
+    podcastId: String
     title: String
     description: String
     image: String
@@ -86,6 +87,7 @@ const typeDefs = gql`
     catagories: [Category]
     comments(firstName: String, lastName: String): [Comment]
     podcasts: [Podcast]
+    podcast(_id: ID!): Podcast
     episode(_id: ID): Episode
     episodes(podcastId: ID): Podcast
     addedPodcast: Podcast

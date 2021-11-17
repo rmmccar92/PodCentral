@@ -55,3 +55,26 @@ export const ADD_EPISODE = gql`
     }
   }
 `;
+
+export const LIKE_PODCAST = gql`
+  mutation likePodcast($input: likedPodcast!) {
+    likePodcast(input: $input) {
+      _id
+      email
+      likedPodcasts {
+        podcastId
+        title
+        description
+        image
+        episodes {
+          title
+          description
+          audio
+          duration
+          season
+          episode
+        }
+      }
+    }
+  }
+`;

@@ -31,3 +31,38 @@ export const GET_ME = gql`
     }
   }
 `;
+
+export const QUERY_ALL_PODCASTS = gql`
+  {
+    podcasts {
+      _id
+      title
+      description
+      image
+      episodes {
+        title
+        description
+        audio
+        season
+        episode
+      }
+    }
+  }
+`;
+export const QUERY_SINGLE_PODCAST = gql`
+  {
+    podcast {
+      _id
+      title
+      description
+      image
+      episodes {
+        title
+        description
+        audio
+        season
+        episode
+      }
+    }
+  }
+`;

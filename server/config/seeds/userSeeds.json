@@ -4,19 +4,5 @@
     "lastName": "Washington",
     "email": "pamela@testmail.com",
     "password": "password12345"
-  },
-    {
-        "firstName": "Elijah",
-        "lastName": "Holt",
-        "email": "eholt@testmail.com",
-        "password": "password12345"
-
-        },
-
-        {
-            "firstName": "test",
-            "lastName": "tester",
-            "email": "t@t.com",
-            "password": "12345678"
-        }
+  }
 ]
