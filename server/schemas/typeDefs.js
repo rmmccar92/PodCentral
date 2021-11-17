@@ -59,6 +59,7 @@ const typeDefs = gql`
   }
 
   input likedPodcast {
+    podcastId: String
     title: String
     description: String
     image: String

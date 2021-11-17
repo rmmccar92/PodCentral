@@ -1,11 +1,42 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
 import LikeButton from "../LikeButton";
+import { useQuery, useMutation } from "@apollo/client";
+import { LIKE_PODCAST } from "../../utils/mutations";
+import { getPodcastIds, savePodcastIds } from "../../utils/localStorage";
+import Auth from "../../utils/auth";
 
 export default function Cards(props) {
+  const [likedPodcastIds, setLikedPodcastIds] = useState(getPodcastIds());
+  useEffect(() => {
+    return () => savePodcastIds(likedPodcastIds);
+  });
+  const podcastData = { ...props };
+
+  const [likePodcast] = useMutation(LIKE_PODCAST);
+  const handleLike = async (podcastId) => {
+    const likedPodcast = { ...props };
+    // console.log(props.podcastId);
+
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      await likePodcast({
+        variables: { input: likedPodcast },
+      });
+
+      setLikedPodcastIds([...likedPodcastIds, likedPodcast.podcastId]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <Card
       className="podCard"
@@ -44,7 +75,7 @@ export default function Cards(props) {
           </Typography>
         </CardContent>
       </a>
-      <LikeButton />
+      <LikeButton onClick={() => handleLike(props.podCastId)} />
     </Card>
   );
 }
