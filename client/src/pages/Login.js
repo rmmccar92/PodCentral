@@ -65,7 +65,7 @@ function Login(props) {
                 color="white"
                 sx={{ fontWeight: 'lighter', fontSize: '26px', letterSpacing: "1px" }}
               >
-                Login to Continue
+                Log in to continue
               </Typography>
             </Grid>
             <Grid mt={4}>
@@ -154,7 +154,7 @@ function Login(props) {
                       }}
                       type="submit"
                     >
-                      Login
+                      Log in
                     </Button>
                     <Button
                       variant="text"
@@ -179,9 +179,9 @@ function Login(props) {
               pb={3}
               sx={{ borderBottom: 1 }}
             >
-              <Typography letterSpacing={1} fontSize="16px" color="white" fontWeight="lighter">
+              {/* <Typography letterSpacing={1} fontSize="16px" color="white" fontWeight="lighter">
                 OR
-              </Typography>
+              </Typography> */}
             </Grid>
             <Grid item display="flex" justifyContent="center">
               <Typography fontSize="22px" color="white" fontWeight="lighter" letterSpacing="1px">
@@ -199,10 +199,9 @@ function Login(props) {
                     paddingLeft: '54px',
                     paddingRight: '54px',
                     backgroundColor: '#f5b727',
-                    fontSize: '20px',
                   }}
                 >
-                  <Typography color="black" fontWeight="bold">
+                  <Typography color="black" fontWeight="bold" fontSize="18px">
                     Sign up for PodCentral
                   </Typography>
                 </Button>

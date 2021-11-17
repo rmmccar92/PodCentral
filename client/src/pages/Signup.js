@@ -70,7 +70,7 @@ function Signup(props) {
                   letterSpacing: '1px',
                 }}
               >
-                Sign up for free to continue
+                Sign up to continue
               </Typography>
             </Grid>
             <Grid mt={4}>
@@ -200,7 +200,7 @@ function Signup(props) {
                         boxShadow: '-1rem 0 3rem #000',
                         border: 1,
                         borderColor: 'black',
-                        fontSize: "18px"
+                        fontSize: '18px',
                       }}
                       type="submit"
                     >
@@ -221,14 +221,14 @@ function Signup(props) {
               pb={3}
               sx={{ borderBottom: 1 }}
             >
-              <Typography
+              {/* <Typography
                 letterSpacing={1}
                 fontSize="16px"
                 color="white"
                 fontWeight="lighter"
               >
                 OR
-              </Typography>
+              </Typography> */}
             </Grid>
             <Grid item display="flex" justifyContent="center">
               <Typography
@@ -243,18 +243,18 @@ function Signup(props) {
             <Grid item>
               <Box display="flex" justifyContent="center" mt={2}>
                 <Button
+                  className=""
                   variant="contained"
                   size="large"
                   component={Link}
-                  to="/signup"
+                  to="/signin"
                   sx={{
                     paddingLeft: '54px',
                     paddingRight: '54px',
                     backgroundColor: '#f5b727',
-                    fontSize: '20px',
                   }}
                 >
-                  <Typography color="black" fontWeight="bold">
+                  <Typography color="black" fontWeight="bold" fontSize="18px">
                     Sign In to your account
                   </Typography>
                 </Button>
