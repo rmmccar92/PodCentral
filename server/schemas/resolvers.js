@@ -32,11 +32,19 @@ const resolvers = {
       });
     },
     podcasts: async () => {
-      return await Podcast.find({}).populate("episodes");
+      return await Podcast.find().populate("episodes");
     },
-    // addedPodcast: async () => {
-    //   return await Podcast.find
-    // }
+
+    podcast: async (parent, args) => {
+      try {
+        const podcastData = await Podcast.findOne({
+          _id: args._id,
+        }).populate("episodes");
+        return podcastData;
+      } catch (err) {
+        console.log(err);
+      }
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -115,13 +123,13 @@ const resolvers = {
     likePodcast: async (parent, args, context) => {
       if (context.user) {
         try {
-          const podcast = await Podcast.findByIdAndUpdate(
-            args.podcastId,
-            { $addToSet: { likes: context.user._id } },
-            { new: true }
+          const updateUser = await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $addToSet: { likedPodcasts: args.input } },
+            { new: true, runValidators: true }
           );
 
-          return podcast;
+          return updateUser;
         } catch (err) {
           console.log(err);
         }
