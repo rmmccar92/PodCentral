@@ -343,8 +343,8 @@ input:focus {
 
 .boxCenter {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
   /* flex-direction: row; */
   /* position: relative; */
 }
@@ -404,7 +404,7 @@ input:focus {
 
 .grow {
   width: 45%;
-  height: 100%;
+  /* height: 100%; */
   transition: all 0.2s ease-in-out;
 }
 
@@ -413,8 +413,8 @@ input:focus {
 }
 
 .grow1 {
-  width: auto;
-  height: 100%;
+  /* width: 50%; */
+  /* height: 100%; */
   transition: all 0.2s ease-in-out;
 }
 

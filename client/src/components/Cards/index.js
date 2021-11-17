@@ -18,7 +18,11 @@ export default function Cards(props) {
 
   const [likePodcast] = useMutation(LIKE_PODCAST);
   const handleLike = async (podcastId) => {
-    const likedPodcast = { ...props };
+    const likedPodcast = {
+      title: props.title,
+      description: props.description,
+      image: props.image,
+    };
     // console.log(props.podcastId);
 
     const token = Auth.loggedIn() ? Auth.getToken() : null;
