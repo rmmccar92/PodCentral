@@ -42,7 +42,7 @@ const NewsAndPolitics = () => {
 
     if (loading) {
         return (
-            <Box flexGrow={1} sx={{ bgcolor: '#f0eeeb', height: '100vh' }} >
+            <Box flexGrow={1} >
                 <Typography
                     variant="h2"
                     component="div"

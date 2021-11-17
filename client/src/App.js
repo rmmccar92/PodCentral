@@ -38,7 +38,6 @@ import AllCategories from './pages/AllCategories';
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
-
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
   return {
@@ -53,6 +52,8 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
+document.body.style = 'background-color: #f0eeeb'
 
 function App() {
   const theme = createTheme({

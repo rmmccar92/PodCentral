@@ -178,10 +178,10 @@ const PublishNewPodcast = () => {
               >
                 Submit
               </Button>
-            </Grow >
+            </Grow>
           </Grid>
         </Grid>
-      </div >
+      </div>
     );
   }
 

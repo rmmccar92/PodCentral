@@ -13,7 +13,7 @@ db.once("open", async () => {
 
   console.log("podcasts seeded");
 
-  const users = await User.insertMany(userData);
+  const users = await User.create(userData);
 
   console.log("users seeded");
 

@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 
 const NoMatch = () => {
   return (
-    <Box flexGrow={1} sx={{ bgcolor: '#f0eeeb', height: '100vh' }} >
+    <Box flexGrow={1}>
       <h1 align="center">404 Page Not Found</h1>
       <h1 align="center">
         <span role="img" aria-label="Face With Rolling Eyes Emoji">

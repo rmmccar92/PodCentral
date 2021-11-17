@@ -58,7 +58,7 @@ const Comedy = () => {
     }
 
     return (
-        <ThemeProvider theme={theme} sx={{ bgcolor: '#f0eeeb', height: '100vh' }}>
+        <ThemeProvider theme={theme}>
             <Box
                 sx={{
                     flexGrow: 1,

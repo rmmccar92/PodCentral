@@ -1,73 +1,73 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Grow from '@mui/material/Grow';
-import Grid from '@mui/material/Grid';
+import React from "react";
+import { Link } from "react-router-dom";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Grow from "@mui/material/Grow";
+import Grid from "@mui/material/Grid";
 
-import podcastLogo from '../assets/podcast-logo.png';
+import podcastLogo from "../assets/podcast-logo.png";
 
 const styles = {
   podcastLogo: {
-    display: 'block',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    width: '150px',
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "150px",
   },
   lowerImage: {
-    display: 'block',
-    width: '150px',
+    display: "block",
+    width: "150px",
   },
 };
 
 const itemData = [
   {
-    img: 'https://thumbs.dreamstime.com/b/young-man-recording-podcast-smiling-to-camera-close-up-young-men-recording-podcast-smiling-to-camera-close-up-104865306.jpg',
-    title: 'Breakfast',
-    author: '@bkristastucchio',
+    img: "https://thumbs.dreamstime.com/b/young-man-recording-podcast-smiling-to-camera-close-up-young-men-recording-podcast-smiling-to-camera-close-up-104865306.jpg",
+    title: "Breakfast",
+    author: "@bkristastucchio",
     rows: 2,
     cols: 2,
     featured: true,
   },
   {
-    img: 'https://st4.depositphotos.com/13193658/27296/i/600/depositphotos_272967952-stock-photo-cropped-shot-radio-host-speaking.jpg',
-    title: 'Burger',
-    author: '@rollelflex_graphy726',
+    img: "https://st4.depositphotos.com/13193658/27296/i/600/depositphotos_272967952-stock-photo-cropped-shot-radio-host-speaking.jpg",
+    title: "Burger",
+    author: "@rollelflex_graphy726",
   },
   {
-    img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-    title: 'Camera',
-    author: '@helloimnik',
+    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
+    title: "Camera",
+    author: "@helloimnik",
   },
   {
-    img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-    title: 'Coffee',
-    author: '@nolanissac',
+    img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
+    title: "Coffee",
+    author: "@nolanissac",
     cols: 2,
   },
   {
-    img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
-    title: 'Hats',
-    author: '@hjrc33',
+    img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
+    title: "Hats",
+    author: "@hjrc33",
     cols: 2,
   },
   {
-    img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
-    title: 'Honey',
-    author: '@arwinneil',
+    img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
+    title: "Honey",
+    author: "@arwinneil",
     rows: 2,
     cols: 2,
     featured: true,
   },
   {
-    img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
-    title: 'Basketball',
-    author: '@tjdragotta',
+    img: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
+    title: "Basketball",
+    author: "@tjdragotta",
   },
   {
-    img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
-    title: 'Fern',
-    author: '@katie_wasserman',
+    img: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
+    title: "Fern",
+    author: "@katie_wasserman",
   },
 ];
 
@@ -84,17 +84,17 @@ export default function Home({}) {
         <Grid item xs={6} md={12} lg={12}>
           <Box
             sx={{
-              height: '100px',
-              backgroundColor: 'white',
+              height: "100px",
+              backgroundColor: "inherit",
               letterSpacing: 7,
               flexGrow: 1,
-              width: 'auto',
+              width: "auto",
               fontSize: 69,
               // fontWeight: 'bold',
               // fontColor: '#17141d',
               // ml: '50px',
               // mt: '50px',
-              mb: '110px',
+              mb: "110px",
             }}
           >
             <div className="title">PODCENTRAL</div>
@@ -106,15 +106,15 @@ export default function Home({}) {
             // ml={20}
             // mr={20}
             sx={{
-              backgroundColor: '#17141d',
-              boxShadow: '-1rem 0 3rem #000',
+              backgroundColor: "#17141d",
+              boxShadow: "-1rem 0 3rem #000",
               border: 1,
-              borderColor: 'black',
-              borderRadius: '0px',
+              borderColor: "black",
+              borderRadius: "0px",
             }}
           >
             <Grow
-              style={{ transformOrigin: '0 0 0' }}
+              style={{ transformOrigin: "0 0 0" }}
               {...{ timeout: 2000 }}
               in={true}
             >
@@ -144,7 +144,7 @@ export default function Home({}) {
             </Grow>
 
             <Grow
-              style={{ transformOrigin: '0 0 0' }}
+              style={{ transformOrigin: "0 0 0" }}
               {...{ timeout: 2000 }}
               in={true}
             >
@@ -159,7 +159,7 @@ export default function Home({}) {
             <Grid item xs={12} md={12} lg={12}>
               <Box ml={5} mr={5} mb="50px">
                 <Grow
-                  style={{ transformOrigin: '0 0 0' }}
+                  style={{ transformOrigin: "0 0 0" }}
                   {...{ timeout: 2000 }}
                   in={true}
                 >
@@ -171,7 +171,7 @@ export default function Home({}) {
                     // pt={5}
                     sx={{
                       flexGrow: 1,
-                      display: { xs: 'block', sm: 'block' },
+                      display: { xs: "block", sm: "block" },
                       // fontWeight: 'bold',
                       // fontSize: '40px',
                       letterSpacing: 1,
@@ -205,15 +205,17 @@ export default function Home({}) {
           <Grid item xs={12} md={8} lg={12}>
             <Box
               className="boxCenter"
-              sx={{ width: '100%', height: '100%' }}
-              // ml={20}
-              // mr={100}
-              // mt={10}
-              // mb={10}
+
+              sx={{ width: "100%", height: "100%" }}
+            // ml={20}
+            // mr={100}
+            // mt={10}
+            // mb={10}
             >
-              <Box className="flex grow">
+              <Box className="flex">
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU"
+                  src="http://blog.saude.mg.gov.br/wp-content/uploads/2018/02/banner_podcast_ciencia_2018.jpg"
+
                   alt="headphones and mic"
                   style={styles.lowerImage}
                 />
@@ -225,47 +227,50 @@ export default function Home({}) {
                   to="/publish"
                   pr={1}
                   sx={{
-                    backgroundColor: '#17141d',
-                    boxShadow: '-1rem 0 3rem #000',
+                    backgroundColor: "#17141d",
+                    boxShadow: "-1rem 0 3rem #000",
                     border: 1,
-                    borderColor: 'black',
+                    borderColor: "black",
                     // borderRadius: '5px',
                   }}
                 >
                   <Typography color="white" fontSize="18px" fontWeight="normal">
-                    <p className="publish">PUBLISH</p>
+                    <b className="publish">PUBLISH</b>
                     Upload your own podcast in just a few easy steps. We take
                     care of the hard parts so you can focus on making your best
                     podcast.
                   </Typography>
                 </Box>
               </Box>
-              {/* <Box sx={{ width: '50px' }}></Box> */}
-              <Box
-                className="flex grow1"
-                sx={{
-                  backgroundColor: '#17141d',
-                  boxShadow: '-1rem 0 3rem #000',
-                  borderColor: 'black',
-                  // borderRadius: '5px',
-                }}
-              >
+
+              <Box sx={{ width: "47px" }}></Box>
+              <Box className="flex">
                 <Box
                   className=""
                   component={Link}
                   to="/discover"
                   pl={1}
                   pr={1}
+
+                  sx={{
+                    backgroundColor: "#17141d",
+                    boxShadow: "-1rem 0 3rem #000",
+                    borderColor: "black",
+                    // borderRadius: '5px',
+                  }}
+
                 >
                   <Typography color="white" fontSize="18px" fontWeight="normal">
-                    <p className="discover">DISCOVER</p>
+                    <b className="discover">DISCOVER</b>
                     Browse through our extensive library of podcasts to find
                     something you love. We have a podcast for everyone.
                   </Typography>
                 </Box>
 
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs09z6iKS33RJuFggxwiFZc_-D5rknAZ7bjg&usqp=CAU"
+
+                  src="http://blog.saude.mg.gov.br/wp-content/uploads/2018/02/banner_podcast_ciencia_2018.jpg"
+
                   alt="headphones and mic"
                   style={styles.lowerImage}
                 />
@@ -279,11 +284,11 @@ export default function Home({}) {
           // mt={10}
           p={1}
           style={{
-            backgroundColor: '#17141d',
-            boxShadow: '-1rem 0 3rem #000',
+            backgroundColor: "#17141d",
+            boxShadow: "-1rem 0 3rem #000",
           }}
           sx={{
-            height: '200px',
+            height: "200px",
             border: 1,
             // borderRadius: '5px',
           }}

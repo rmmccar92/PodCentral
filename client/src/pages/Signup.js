@@ -37,6 +37,7 @@ function Signup(props) {
   };
 
   return (
+
     <>
       <Grid
         container
@@ -52,6 +53,7 @@ function Signup(props) {
           flexGrow={1}
           display="flex"
           // alignItems="center"
+
           justifyContent="center"
           height={650}
           width={500}
