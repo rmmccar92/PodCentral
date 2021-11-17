@@ -122,8 +122,10 @@ const resolvers = {
 
     likePodcast: async (parent, args, context) => {
       if (context.user) {
+        console.log(args.input);
+        console.log("user: ", context.user.firstName);
         try {
-          const updateUser = await User.findByIdAndUpdate(
+          const updateUser = await User.findOneAndUpdate(
             { _id: context.user._id },
             { $addToSet: { likedPodcasts: args.input } },
             { new: true, runValidators: true }
