@@ -5,13 +5,13 @@ import Box from "@mui/material/Box";
 import Slider from '@mui/material/Slider';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
+import Grow from '@mui/material/Grow';
 import PauseRounded from '@mui/icons-material/PauseRounded';
 import PlayArrowRounded from '@mui/icons-material/PlayArrowRounded';
 import FastForwardRounded from '@mui/icons-material/FastForwardRounded';
 import FastRewindRounded from '@mui/icons-material/FastRewindRounded';
 import VolumeUpRounded from '@mui/icons-material/VolumeUpRounded';
 import VolumeDownRounded from '@mui/icons-material/VolumeDownRounded';
-import AudioPlayer from 'material-ui-audio-player';
 
 const useAudio = url => {
     const [audio] = useState(new Audio(url));
@@ -32,7 +32,6 @@ const useAudio = url => {
 
     useEffect(() => {
         playing ? audio.play() : audio.pause();
-        // setCurrentTime(audio.currentTime);
     },
         [playing]
     );
@@ -90,7 +89,7 @@ const Player = (props) => {
     function formatDuration(value) {
         const minute = Math.floor(value / 60);
         const secondLeft = value - minute * 60;
-        return `${minute}:${secondLeft < 9 ? `0${secondLeft}` : secondLeft}`;
+        return `${minute}:${secondLeft < 9 ? `0${secondLeft}` : Math.round(secondLeft)}`;
     }
     const mainIconColor = theme.palette.mode === 'dark' ? '#fff' : '#000';
     const lightIconColor =
@@ -100,19 +99,18 @@ const Player = (props) => {
 
 
     return (
+
         <Widget>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <CoverImage>
                     <img
                         alt="podcast cover art"
-                        // src={props.image}
-                        src="https://res.cloudinary.com/ryanmcc/image/upload/v1636910849/my_folder/bwedwcd1zjp0gkoevrh5.jpg"
+                        src={props.image}
                     />
                 </CoverImage>
                 <Box sx={{ ml: 1.5, minWidth: 0 }}>
                     <Typography variant="caption" color="text.secondary" fontWeight={500}>
-                        {/* {props.podcastName} */}
-                        Feeling Content
+                        {props.podcastName}
                     </Typography>
                     <Typography noWrap>
                         <b>{props.title}</b>
@@ -195,32 +193,7 @@ const Player = (props) => {
                     <FastForwardRounded fontSize="large" htmlColor={mainIconColor} />
                 </IconButton>
             </Box>
-            <Stack spacing={2} direction="row" sx={{ mb: 1, px: 1 }} alignItems="center">
-                <VolumeDownRounded htmlColor={lightIconColor} />
-                <Slider
-                    aria-label="Volume"
-                    defaultValue={30}
-                    sx={{
-                        color: theme.palette.mode === 'dark' ? '#fff' : 'rgba(0,0,0,0.87)',
-                        '& .MuiSlider-track': {
-                            border: 'none',
-                        },
-                        '& .MuiSlider-thumb': {
-                            width: 24,
-                            height: 24,
-                            backgroundColor: '#fff',
-                            '&:before': {
-                                boxShadow: '0 4px 8px rgba(0,0,0,0.4)',
-                            },
-                            '&:hover, &.Mui-focusVisible, &.Mui-active': {
-                                boxShadow: 'none',
-                            },
-                        },
-                    }}
-                />
-                <VolumeUpRounded htmlColor={lightIconColor} />
-            </Stack>
-        </Widget>
+        </Widget >
     )
 }
 

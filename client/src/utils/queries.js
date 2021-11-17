@@ -26,10 +26,6 @@ export const GET_ME = gql`
           season
           episode
           _id
-          podcast {
-            title
-            image
-          }
         }
       }
     }

@@ -21,8 +21,6 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
-// const client = Client({ apiKey: process.env.API_KEY });
-
 server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: false }));

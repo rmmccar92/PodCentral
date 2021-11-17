@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Cards from '../components/Cards'
 import CategoryCard from "../components/CategoryCard";
-const originalsArr = [];
+
 const theme = createTheme({
   status: {
     danger: '#e53e3e',
@@ -29,6 +29,9 @@ const theme = createTheme({
 
 
 const Discover = () => {
+
+
+
   const [popularPodcastData, setPodcastData] = useState('');
   useEffect(() => {
     fetch('/api/popularPodcasts')
