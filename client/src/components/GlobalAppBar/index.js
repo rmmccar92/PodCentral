@@ -1,23 +1,18 @@
-
-import * as React from "react";
-import Auth from "../../utils/auth";
-import { Link } from "react-router-dom";
-import { styled, alpha } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import MenuItem from "@mui/material/MenuItem";
-import Badge from "@mui/material/Badge";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import Grid from "@mui/material/Grid";
-import Icon from "@mui/material/Icon";
-import PodcastsIcon from "@mui/icons-material/Podcasts";
+import * as React from 'react';
+import Auth from '../../utils/auth';
+import { Link } from 'react-router-dom';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
+import PodcastsIcon from '@mui/icons-material/Podcasts';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 import Button from '@mui/material/Button';
-
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const GlobalAppBar = () => {
   const darkBar = createTheme({
@@ -93,11 +88,7 @@ const GlobalAppBar = () => {
                 alignItems="center"
               >
                 <Grid>
-                  <Typography
-                    // component={Link}
-                    // to="/"
-                    variant="h6"
-                  >
+                  <Typography variant="h6">
                     <Button
                       size="large"
                       component={Link}
@@ -108,24 +99,29 @@ const GlobalAppBar = () => {
                     </Button>
                   </Typography>
                 </Grid>
-                <IconButton
-                  component={Link}
-                  to="/"
-                  size="large"
-                  align="center"
-                  aria-label="menu"
-                  sx={{ ml: 2, color: '#f5b727' }}
-                >
-                  <PodcastsIcon />
-                </IconButton>
-                <Button
-                  href="/"
-                  color="inherit"
-                  size="large"
-                  onClick={() => Auth.logout()}
-                >
-                  Logout
-                </Button>
+                <Grid item>
+                  <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                    <IconButton
+                      size="large"
+                      component={Link}
+                      to="/profile"
+                      edge="end"
+                      aria-label="account of current user"
+                      aria-haspopup="true"
+                      color="inherit"
+                    >
+                      <AccountCircle />
+                    </IconButton>
+                    <IconButton
+                      size="large"
+                      component={Link}
+                      color="inherit"
+                      to="/logout"
+                    >
+                      <LogoutIcon />
+                    </IconButton>
+                  </Box>
+                </Grid>
               </Grid>
             </Toolbar>
           </AppBar>
@@ -143,12 +139,7 @@ const GlobalAppBar = () => {
                 alignItems="center"
               >
                 <Grid>
-                  <Button
-                    size="large"
-                    component={Link}
-                    color="inherit"
-                    to="/"
-                  >
+                  <Button size="large" component={Link} color="inherit" to="/">
                     PodCentral
                   </Button>
                 </Grid>
@@ -162,14 +153,18 @@ const GlobalAppBar = () => {
                 >
                   <PodcastsIcon />
                 </IconButton>
-                <Button
-                  size="large"
-                  component={Link}
-                  color="inherit"
-                  to="/login"
-                >
-                  Login
-                </Button>
+                <Grid item>
+                  <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                    <IconButton
+                      size="large"
+                      component={Link}
+                      color="inherit"
+                      to="/login"
+                    >
+                      <LoginIcon />
+                    </IconButton>
+                  </Box>
+                </Grid>
               </Grid>
             </Toolbar>
           </AppBar>
