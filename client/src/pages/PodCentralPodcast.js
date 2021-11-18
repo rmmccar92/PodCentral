@@ -11,18 +11,12 @@ import Player from "../components/PlayerCopy";
 import { QUERY_SINGLE_PODCAST } from "../utils/queries";
 import { QUERY_ALL_PODCASTS } from "../utils/queries";
 
-const PodCentralPodcast = () => {
+const PodCentralPodcast = (props) => {
     const { loading, data } = useQuery(QUERY_SINGLE_PODCAST, {
-        variables: { _id: "619432bfc1891430200c3b21" },
+        variables: { _id: props.id },
     });
     const podcastData = data?.podcast || [];
     console.log("podcastData:", podcastData);
-    // const [querySinglePodcast] = useQuery(QUERY_SINGLE_PODCAST);
-    // try {
-    //     querySinglePodcast({ variables: { input: { _id: '619455d4f26a803d' } } });
-    // } catch (err) {
-    //     console.error(err);
-    // }
 
     return (
         <Box flexGrow={1}>
