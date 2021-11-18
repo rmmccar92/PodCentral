@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { styled, useTheme } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
+import { styled, useTheme } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Slider from '@mui/material/Slider';
 import IconButton from '@mui/material/IconButton';
@@ -29,9 +29,9 @@ const TogglePlay = audio => {
     );
 
     useEffect(() => {
-        audio.addEventListener('ended', () => setPlaying(false));
+        audio.addEventListener("ended", () => setPlaying(false));
         return () => {
-            audio.removeEventListener('ended', () => setPlaying(false));
+            audio.removeEventListener("ended", () => setPlaying(false));
         };
     }, []);
 
@@ -99,7 +99,7 @@ const Player = (props) => {
     });
 
     const TinyText = styled(Typography)({
-        fontSize: '0.75rem',
+        fontSize: "0.75rem",
         opacity: 0.38,
         fontWeight: 500,
         letterSpacing: 0.2,
@@ -118,6 +118,7 @@ const Player = (props) => {
 
 
 
+    // console.log("audio time: ", audio.currentTime);
 
     return (
 

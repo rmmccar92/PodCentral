@@ -3,8 +3,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
-import LikeButton from "../LikeButton";
-import { useQuery, useMutation } from "@apollo/client";
+import { LikeBtn } from "../LikeButton";
+import { LikeBtnFull } from "../LikeButton";
+import { useMutation } from "@apollo/client";
 import { LIKE_PODCAST } from "../../utils/mutations";
 import { getPodcastIds, savePodcastIds } from "../../utils/localStorage";
 import Auth from "../../utils/auth";
@@ -14,7 +15,7 @@ export default function Cards(props) {
   useEffect(() => {
     return () => savePodcastIds(likedPodcastIds);
   });
-  const podcastData = { ...props };
+  // const podcastData = { ...props };
 
   const [likePodcast] = useMutation(LIKE_PODCAST);
   const handleLike = async (podcastId) => {
@@ -79,7 +80,13 @@ export default function Cards(props) {
           </Typography>
         </CardContent>
       </a>
-      <LikeButton onClick={() => handleLike(props.podCastId)} />
+      {likedPodcastIds?.some(
+        (likedPodcast) => likedPodcast === props.podCastId
+      ) ? (
+        <LikeBtnFull onClick={() => handleLike(props.podCastId)} />
+      ) : (
+        <LikeBtn onClick={() => handleLike(props.podCastId)} />
+      )}
     </Card>
   );
 }

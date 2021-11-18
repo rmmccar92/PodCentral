@@ -7,7 +7,7 @@ const Publish = () => {
   return (
     <Box flexGrow={1}>
       <WidgetLoader />
-      <PublishNewPodcast />;
+      <PublishNewPodcast />
     </Box>
   );
 };
