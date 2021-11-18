@@ -27,13 +27,14 @@ const PublishNewPodcast = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     const podcastImage = localStorage.getItem("podcastImage");
-    console.log(podcastImage);
+    // console.log(podcastImage);
     try {
       const { data } = await addPodcast({
         variables: {
           input: { ...formState, image: podcastImage },
         },
       });
+      window.location.reload();
     } catch (err) {
       console.log(err);
     }
@@ -46,6 +47,9 @@ const PublishNewPodcast = () => {
       [name]: value,
     });
   };
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   if (!userData?.addedPodcast) {
     return (
       <div>
@@ -183,10 +187,6 @@ const PublishNewPodcast = () => {
         </Grid>
       </div>
     );
-  }
-
-  if (loading) {
-    return <h2>LOADING...</h2>;
   }
   return (
     // The view if a user has a podcast
