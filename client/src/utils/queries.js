@@ -51,13 +51,13 @@ export const QUERY_ALL_PODCASTS = gql`
   }
 `;
 export const QUERY_SINGLE_PODCAST = gql`
-  {
-    podcast {
+  query podcast($_id: ID!) {
+    podcast(_id: $_id) {
       _id
       title
       description
-      image
       episodes {
+        _id
         title
         description
         audio

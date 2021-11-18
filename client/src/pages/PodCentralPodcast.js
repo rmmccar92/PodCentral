@@ -12,78 +12,75 @@ import { QUERY_SINGLE_PODCAST } from "../utils/queries";
 import { QUERY_ALL_PODCASTS } from "../utils/queries";
 
 const PodCentralPodcast = () => {
-    const { loading, data } = useQuery(QUERY_SINGLE_PODCAST, {
-        variables: { input: { _id: '619455d4f26a803d8c466ff2' } }
-    });
-    const podcastData = data?.podcast || [];
-    // console.log('podcastData:', podcastData);
-    // const [querySinglePodcast] = useQuery(QUERY_SINGLE_PODCAST);
-    // try {
-    //     querySinglePodcast({ variables: { input: { _id: '619455d4f26a803d' } } });
-    // } catch (err) {
-    //     console.error(err);
-    // }
+  const { loading, data } = useQuery(QUERY_SINGLE_PODCAST, {
+    variables: { _id: "619432bfc1891430200c3b21" },
+  });
+  const podcastData = data?.podcast || [];
+  console.log("podcastData:", podcastData);
+  // const [querySinglePodcast] = useQuery(QUERY_SINGLE_PODCAST);
+  // try {
+  //     querySinglePodcast({ variables: { input: { _id: '619455d4f26a803d' } } });
+  // } catch (err) {
+  //     console.error(err);
+  // }
 
-
-    return (
-        <Box flexGrow={1} >
-            <Grow
-                style={{ transformOrigin: "0 0 0" }}
-                {...{ timeout: 2000 }}
-                in={true}
+  return (
+    <Box flexGrow={1}>
+      <Grow
+        style={{ transformOrigin: "0 0 0" }}
+        {...{ timeout: 2000 }}
+        in={true}
+      >
+        <Typography
+          variant="h2"
+          component="div"
+          align="center"
+          pt={2}
+          sx={{
+            flexGrow: 1,
+            display: { xs: "block", sm: "block", fontWeight: "400" },
+          }}
+        ></Typography>
+      </Grow>
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 3 }}>
+        <Grid item sm={12} md={6}>
+          <Grow
+            style={{ transformOrigin: "0 0 0" }}
+            {...{ timeout: 2000 }}
+            in={true}
+          >
+            <Typography
+              variant="h4"
+              component="div"
+              align="center"
+              pt={5}
+              mx={3}
+              sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+              color="black"
             >
-                <Typography
-                    variant="h2"
-                    component="div"
-                    align="center"
-                    pt={2}
-                    sx={{
-                        flexGrow: 1,
-                        display: { xs: "block", sm: "block", fontWeight: "400" },
-                    }}
-                >
-
-                </Typography>
-            </Grow>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 3 }}>
-                <Grid item sm={12} md={6}>
-                    <Grow
-                        style={{ transformOrigin: "0 0 0" }}
-                        {...{ timeout: 2000 }}
-                        in={true}
-                    >
-                        <Typography
-                            variant="h4"
-                            component="div"
-                            align="center"
-                            pt={5}
-                            mx={3}
-                            sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-                            color="black"
-                        >
-                            Podcast Title
-                        </Typography>
-                    </Grow>
-                </Grid>
-                <Grid item sm={12} md={6}>
-                    <Grow
-                        style={{ transformOrigin: "0 0 0" }}
-                        {...{ timeout: 2000 }}
-                        in={true}
-                    >
-                        <Typography
-                            variant="h4"
-                            component="div"
-                            align="center"
-                            pt={5}
-                            mx={3}
-                            sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-                            color="black"
-                        >
-                            Your Episodes
-                        </Typography>
-                    </Grow>
-                    {/* {podcastData.map((episode) => {
+              Podcast Title
+            </Typography>
+          </Grow>
+        </Grid>
+        <Grid item sm={12} md={6}>
+          <Grow
+            style={{ transformOrigin: "0 0 0" }}
+            {...{ timeout: 2000 }}
+            in={true}
+          >
+            <Typography
+              variant="h4"
+              component="div"
+              align="center"
+              pt={5}
+              mx={3}
+              sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+              color="black"
+            >
+              Your Episodes
+            </Typography>
+          </Grow>
+          {/* {podcastData.map((episode) => {
                         return (
                             <Box flexGrow={1} key={episode._id} pt={3}>
                                 <Player
@@ -99,10 +96,10 @@ const PodCentralPodcast = () => {
                             </Box>
                         );
                     })} */}
-                </Grid>
-            </Grid>
-        </Box >
-    );
+        </Grid>
+      </Grid>
+    </Box>
+  );
 };
 
 export default PodCentralPodcast;
