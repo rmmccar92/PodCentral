@@ -1,9 +1,10 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import Grow from "@mui/material/Grow";
+// import Grow from "@mui/material/Grow";
 import { GET_ME } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import Avatar from "@mui/material/Avatar";
@@ -76,7 +77,18 @@ const Profile = () => {
     setValue(index);
   };
   const { loading, data } = useQuery(GET_ME);
-  const userData = data?.me || [];
+  const me = data?.me || [];
+  const [userData, setUserData] = useState(
+    me || {
+      firstName: me.firstName,
+      lastName: me.lastName,
+      addedPodcast: {
+        image: "",
+        title: "",
+      },
+      email: "",
+    }
+  );
 
   if (loading) {
     return <div>Loading...</div>;
@@ -118,12 +130,14 @@ const Profile = () => {
           >
             <Grid item>
               <Box>
-                <Avatar
-                  alt="Travis Howard"
-                  src={userData.addedPodcast.image}
-                  // display="flex"
-                  sx={{ height: "90px", width: "90px" }}
-                />
+                {userData.addedPodcast && (
+                  <Avatar
+                    alt="Travis Howard"
+                    src={userData.addedPodcast.image}
+                    // display="flex"
+                    sx={{ height: "90px", width: "90px" }}
+                  />
+                )}
               </Box>
             </Grid>
           </Box>
@@ -249,14 +263,16 @@ const Profile = () => {
                       Home tab for recent news or any data
                     </TabPanel>
                     <TabPanel value={value} index={1} dir={theme.direction}>
-                      <Typography
-                        variant="h4"
-                        color="white"
-                        component={Link}
-                        to="/publish"
-                      >
-                        {userData.addedPodcast.title}
-                      </Typography>
+                      {userData.addedPodcast && (
+                        <Typography
+                          variant="h4"
+                          color="white"
+                          component={Link}
+                          to="/publish"
+                        >
+                          {userData.addedPodcast.title}
+                        </Typography>
+                      )}
                       {/* <Grid
                         item
                         spacing={3}
