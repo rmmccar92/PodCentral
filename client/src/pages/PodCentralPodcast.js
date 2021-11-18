@@ -9,21 +9,13 @@ import TextField from "@mui/material/TextField";
 
 import Player from "../components/PlayerCopy";
 import { QUERY_SINGLE_PODCAST } from "../utils/queries";
-
-const styles = {
-    coverArt: {
-        display: "block",
-        marginLeft: "auto",
-        marginRight: "auto",
-        height: "250px",
-        marginTop: "10px",
-    },
-};
+import { QUERY_ALL_PODCASTS } from "../utils/queries";
 
 const PodCentralPodcast = () => {
-    const { loading, data } = useQuery(QUERY_SINGLE_PODCAST);
-    const podcastData = data?.podcast || [];
-    console.log('podcastData:', podcastData);
+    const { loading, data } = useQuery(QUERY_SINGLE_PODCAST, {
+        variables: { _id: '619455d4f26a803d8c466ff2' }
+    });
+    console.log('podcastData:', data);
     return (
         <Box flexGrow={1} >
             <Grow
@@ -82,7 +74,7 @@ const PodCentralPodcast = () => {
                             Your Episodes
                         </Typography>
                     </Grow>
-                    {podcastData.map((episode) => {
+                    {/* {podcastData.map((episode) => {
                         return (
                             <Box flexGrow={1} key={episode._id} pt={3}>
                                 <Player
@@ -97,7 +89,7 @@ const PodCentralPodcast = () => {
                                 />
                             </Box>
                         );
-                    })}
+                    })} */}
                 </Grid>
             </Grid>
         </Box >
