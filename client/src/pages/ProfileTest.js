@@ -70,7 +70,7 @@ function a11yProps(index) {
   };
 }
 
-const Profile = () => {
+const ProfileTest = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
@@ -89,32 +89,6 @@ const Profile = () => {
   }
 
   return (
-<<<<<<< HEAD
-    <Box flexGrow={1}>
-      <Grid container spacing={5} >
-        <Grid item xs={12} md={6} >
-          <Grow
-            style={{ transformOrigin: "0 0 0" }}
-            {...{ timeout: 2000 }}
-            in={true}
-          >
-            <Typography
-              variant="h2"
-              component={Link}
-              to="/publish"
-              align="center"
-              pt={5}
-              sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-              color="black"
-            >
-              Publish
-            </Typography>
-          </Grow>
-          <Grow
-            style={{ transformOrigin: "0 0 0" }}
-            {...{ timeout: 2000 }}
-            in={true}
-=======
     <Grid
       container
       // spacing={0}
@@ -147,7 +121,6 @@ const Profile = () => {
               height: 'auto',
               width: 'auto',
             }}
->>>>>>> 776bc18cff11e2e1f064712bd9768013377e301c
           >
             <Grid item>
               <Box>
@@ -330,4 +303,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfileTest;

@@ -62,18 +62,9 @@ export const LIKE_PODCAST = gql`
       _id
       email
       likedPodcasts {
-        podcastId
         title
         description
         image
-        episodes {
-          title
-          description
-          audio
-          duration
-          season
-          episode
-        }
       }
     }
   }

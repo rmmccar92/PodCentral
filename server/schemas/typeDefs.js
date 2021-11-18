@@ -59,7 +59,7 @@ const typeDefs = gql`
   }
 
   input likedPodcast {
-    podcastId: String
+    id: String
     title: String
     description: String
     image: String
@@ -89,7 +89,7 @@ const typeDefs = gql`
     podcasts: [Podcast]
     podcast(_id: String!): Podcast
     episode(_id: ID): Episode
-    episodes(podcastId: ID): Podcast
+    episodes(_id: ID): Podcast
     addedPodcast: Podcast
   }
 
