@@ -70,7 +70,7 @@ function a11yProps(index) {
   };
 }
 
-const Profile = () => {
+const ProfileTest = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
@@ -303,4 +303,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfileTest;
