@@ -1,13 +1,11 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
-import { Link } from "react-router-dom";
 
 export default function CategoryCard(props) {
-  // Doesn't work still returning the same set of podcasts
   const [podcastData, setPodcastData] = useState("");
 
   const handleClick = () => {
