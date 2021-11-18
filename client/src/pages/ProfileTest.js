@@ -47,7 +47,7 @@ const ProfileTest = () => {
           height: '200px',
           width: '100%',
           backgroundColor: '#17111e',
-          borderBottom: 1,
+          // borderBottom: 1,
         }}
       >
         <Grid item>
@@ -176,23 +176,31 @@ const ProfileTest = () => {
         </Box>
         <Grid item>
           <Box
-            pl={20}
+            // pl={20}
             display="flex"
-            alignItems="flex-start"
-            sx={{ backgroundColor: '#17111e', height: '378px' }}
+            // alignItems="flex-start"
+            sx={{ backgroundColor: '#17111e', height: '378px', border: 1 }}
           >
             <Typography
               display="flex"
+              ml={5}
               alignItems="center"
               color="white"
               fontSize="24px"
               fontWeight="lighter"
               letterSpacing="2px"
             >
-              Your Uploads
+              Uploads
             </Typography>
-            <br />
-            <Box display="flex">
+            <Grid
+              container
+              // spacing={3}
+              direction="row"
+              justifyContent="space-evenly"
+              alignItems="center"
+              // sx={{ pb: '75px', pl: '50px', pr: '50px' }}
+            >
+              {/* <br /> */}
               <Grid item xs={12} md={8} lg={2}>
                 <CategoryCard />
               </Grid>
@@ -208,7 +216,7 @@ const ProfileTest = () => {
               <Grid item xs={12} md={8} lg={2}>
                 <CategoryCard />
               </Grid>
-            </Box>
+            </Grid>
           </Box>
         </Grid>
       </Grid>
