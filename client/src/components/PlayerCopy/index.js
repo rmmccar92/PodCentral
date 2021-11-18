@@ -13,22 +13,14 @@ import FastRewindRounded from '@mui/icons-material/FastRewindRounded';
 import VolumeUpRounded from '@mui/icons-material/VolumeUpRounded';
 import VolumeDownRounded from '@mui/icons-material/VolumeDownRounded';
 
-const useAudio = url => {
-    const [audio] = useState(new Audio(url));
+const TogglePlay = audio => {
     const [playing, setPlaying] = useState(false);
-    const [duration, setDuration] = useState(0);
-    // const [currentTime, setCurrentTime] = useState(0);
 
-    const toggle = () => setPlaying(!playing);
+    const toggle = () => {
+        setPlaying(!playing);
+        console.log("toggle cclicked: ", playing)
+    }
 
-    console.log("audio 2:", audio)
-    audio.addEventListener("loadedmetadata", () => {
-        console.log("audio params: ", audio);
-        console.log("duration:", audio.duration);
-        setDuration(audio.duration);
-        console.log("current time", audio.currentTime);
-        // setCurrentTime(audio.currentTime);
-    });
 
     useEffect(() => {
         playing ? audio.play() : audio.pause();
@@ -43,10 +35,43 @@ const useAudio = url => {
         };
     }, []);
 
-    return [duration, audio, playing, toggle];
+    return [playing, toggle];
 };
 
 const Player = (props) => {
+    const [audio] = useState(new Audio(props.audio));
+    const [playing, toggle] = TogglePlay(audio)
+    const [duration, setDuration] = useState(0);
+    const [position, setCurrentTime] = useState(0);
+
+    audio.addEventListener("loadedmetadata", () => {
+        // console.log("duration:", audio.duration);
+        setDuration(audio.duration);
+
+        // console.log("current time", audio.currentTime);
+        setCurrentTime(audio.currentTime);
+    });
+    useEffect(() => {
+
+        const time = setInterval(() => {
+
+            setDuration(duration => (audio.duration - audio.currentTime).toFixed(0))
+            setCurrentTime(() => audio.currentTime.toFixed(0))
+        }, 1000);
+
+        return () => clearInterval(time);
+    },
+        []
+    );
+
+
+    // const [durationAudio] = useState(new Audio(props.audio))
+    // const [duration, setDuration] = useState(0);
+
+    const theme = useTheme();
+
+    // const [position, setPosition] = React.useState(0);
+
     const Widget = styled('div')(({ theme }) => ({
         padding: 16,
         borderRadius: 16,
@@ -80,22 +105,18 @@ const Player = (props) => {
         letterSpacing: 0.2,
     });
 
-    const theme = useTheme();
-    // const duration = 200; // seconds
-    const [duration, audio, playing, toggle] = useAudio(props.audio)
-    const [position, setPosition] = React.useState(audio.currentTime);
-    // const [playing, setPaused] = React.useState(true);
+
 
     function formatDuration(value) {
         const minute = Math.floor(value / 60);
         const secondLeft = value - minute * 60;
-        return `${minute}:${secondLeft < 9 ? `0${secondLeft}` : Math.round(secondLeft)}`;
+        return `${minute}:${secondLeft < 9 ? `0${secondLeft}` : secondLeft.toFixed(0)}`;
     }
     const mainIconColor = theme.palette.mode === 'dark' ? '#fff' : '#000';
     const lightIconColor =
         theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.4)';
 
-    console.log("audio time: ", audio.currentTime)
+
 
 
     return (
@@ -126,8 +147,12 @@ const Player = (props) => {
                 value={position}
                 min={0}
                 step={1}
-                max={duration}
-                onChange={(_, value) => { setPosition(value) }}
+                max={audio.duration}
+                onChangeCommitted={(_, value) => {
+                    const newVal = value;
+                    setDuration(duration => (audio.duration - newVal).toFixed(0));
+                    audio.currentTime = newVal; setCurrentTime(newVal)
+                }}
                 sx={{
                     color: theme.palette.mode === 'dark' ? '#fff' : 'rgba(0,0,0,0.87)',
                     height: 4,
@@ -163,7 +188,7 @@ const Player = (props) => {
                 }}
             >
                 <TinyText>{formatDuration(position)}</TinyText>
-                <TinyText>-{formatDuration(duration - position)}</TinyText>
+                <TinyText>-{formatDuration(duration)}</TinyText>
             </Box>
             <Box
                 sx={{
@@ -173,7 +198,12 @@ const Player = (props) => {
                     mt: -1,
                 }}
             >
-                <IconButton aria-label="previous song">
+                <IconButton aria-label="previous song" onClick={(event) => {
+                    event.preventDefault();
+                    setDuration(duration => (audio.duration - 10).toFixed(0));
+                    audio.currentTime = position - 10;
+                    setCurrentTime(position - 10);
+                }}>
                     <FastRewindRounded fontSize="large" htmlColor={mainIconColor} />
                 </IconButton>
                 <IconButton
@@ -189,7 +219,12 @@ const Player = (props) => {
                         <PauseRounded sx={{ fontSize: '3rem' }} htmlColor={mainIconColor} />
                     )}
                 </IconButton>
-                <IconButton aria-label="next song">
+                <IconButton aria-label="next song" onClick={(event) => {
+                    event.preventDefault();
+                    setDuration(duration => (audio.duration + 10).toFixed(0));
+                    audio.currentTime = audio.currentTime + 10;
+                    setCurrentTime(audio.currentTime + 10)
+                }}>
                     <FastForwardRounded fontSize="large" htmlColor={mainIconColor} />
                 </IconButton>
             </Box>

@@ -26,6 +26,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Publish from "./pages/Publish";
+import PodCentralPodcast from "./pages/PodCentralPodcast";
 import Discover from "./pages/Discover";
 import Business from "./pages/Business";
 import Comedy from "./pages/Comedy";
@@ -89,7 +90,7 @@ function App() {
                 <Redirect to="/login" />
               )}
               <Route exact path="/profile" component={Profile} />
-
+              <Route exact path="/podcast/:_id" component={PodCentralPodcast} />
               <Route
                 exact
                 path="/newsAndPolitics"
