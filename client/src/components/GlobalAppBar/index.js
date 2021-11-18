@@ -1,40 +1,31 @@
-
 import * as React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
-import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import MenuItem from "@mui/material/MenuItem";
-import Badge from "@mui/material/Badge";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import Grid from "@mui/material/Grid";
-import Icon from "@mui/material/Icon";
 import PodcastsIcon from "@mui/icons-material/Podcasts";
-import Button from '@mui/material/Button';
-
+import Button from "@mui/material/Button";
 
 const GlobalAppBar = () => {
   const darkBar = createTheme({
     palette: {
       secondary: {
-        main: '#17141d',
-        contrastText: '#FFFFFF',
+        main: "#17141d",
+        contrastText: "#FFFFFF",
       },
     },
     typography: {
       fontFamily: [
-        'Oswald',
-        'Roboto',
+        "Oswald",
+        "Roboto",
         '"Helvetica Neue"',
-        'Arial',
-        'sans-serif',
-      ].join(','),
+        "Arial",
+        "sans-serif",
+      ].join(","),
     },
   });
 
@@ -84,7 +75,7 @@ const GlobalAppBar = () => {
     if (Auth.loggedIn()) {
       return (
         <ThemeProvider theme={darkBar}>
-          <AppBar position="static" color={'secondary'}>
+          <AppBar position="static" color={"secondary"}>
             <Toolbar>
               <Grid
                 container
@@ -114,7 +105,7 @@ const GlobalAppBar = () => {
                   size="large"
                   align="center"
                   aria-label="menu"
-                  sx={{ ml: 2, color: '#f5b727' }}
+                  sx={{ ml: 2, color: "#f5b727" }}
                 >
                   <PodcastsIcon />
                 </IconButton>
@@ -134,7 +125,7 @@ const GlobalAppBar = () => {
     } else {
       return (
         <ThemeProvider theme={darkBar}>
-          <AppBar position="static" color={'secondary'}>
+          <AppBar position="static" color={"secondary"}>
             <Toolbar>
               <Grid
                 container
@@ -143,12 +134,7 @@ const GlobalAppBar = () => {
                 alignItems="center"
               >
                 <Grid>
-                  <Button
-                    size="large"
-                    component={Link}
-                    color="inherit"
-                    to="/"
-                  >
+                  <Button size="large" component={Link} color="inherit" to="/">
                     PodCentral
                   </Button>
                 </Grid>
@@ -158,7 +144,7 @@ const GlobalAppBar = () => {
                   size="large"
                   edge="start"
                   aria-label="menu"
-                  sx={{ mr: 2, color: '#f5b727' }}
+                  sx={{ mr: 2, color: "#f5b727" }}
                 >
                   <PodcastsIcon />
                 </IconButton>

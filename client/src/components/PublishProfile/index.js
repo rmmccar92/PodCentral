@@ -25,7 +25,7 @@ const styles = {
 const PublishProfile = () => {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
-  const [episodes, setEpisodes] = useState(userData.addedPodcast.episodes);
+  const [episodes, setEpisodes] = useState(...userData.addedPodcast.episodes);
 
   const [formState, setFormState] = useState({
     title: "",
@@ -52,12 +52,12 @@ const PublishProfile = () => {
             audio: podcastImage,
           },
         },
-      });
+      }).then(() => setEpisodes([...episodes, data]));
       // const episodesData = data;
       // setEpisodes(...episodes, episodesData);
       // console.log(episodes);
       // console.log(data);
-      window.location.reload();
+      // window.location.reload();
     } catch (err) {
       console.log(err);
     }
@@ -261,7 +261,7 @@ const PublishProfile = () => {
           </Grid>
         </Grid>
         <Box flexGrow={1}>
-          {podcastEpisodes.map((episode) => {
+          {episodes.map((episode) => {
             return (
               <Grid item xs={12} md={6} key={episode._id}>
                 <Player
