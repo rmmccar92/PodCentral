@@ -246,6 +246,18 @@ input:focus {
   justify-content: center;
 }
 
+.profileName {
+  font-size: 26px;
+  font-weight: lighter;
+  letter-spacing: 2px;
+}
+
+.profileFollowers {
+  font-size: 18px;
+  font-weight: lighter;
+  /* letter-spacing: 2px; */
+}
+
 .boxColor {
   background-color: #17141d;
 }

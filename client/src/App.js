@@ -34,6 +34,7 @@ import NewsAndPolitics from './pages/NewsAndPolitics';
 import PopCulture from './pages/PopCulture';
 import TrueCrime from './pages/TrueCrime';
 import AllCategories from './pages/AllCategories';
+import ProfileTest from './pages/ProfileTest';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
