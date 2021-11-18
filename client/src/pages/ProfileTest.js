@@ -107,8 +107,8 @@ const ProfileTest = () => {
         width={600}
         pt={5}
         pb={5}
-        mt={3}
-        mb={3}
+        mt={4}
+        // mb={4}
         sx={{ bgcolor: '#17141d', boxShadow: '-1rem 0 3rem #000', border: 1 }}
       >
         <Grid item>
@@ -151,7 +151,7 @@ const ProfileTest = () => {
                 <Box
                   display="flex"
                   justifyContent="space-between"
-                  mt={4}
+                  mt={2}
                   height="auto"
                   width="300px"
                   sx={{ borderBottom: 2, borderColor: 'black' }}
@@ -190,66 +190,6 @@ const ProfileTest = () => {
                     <SettingsIcon sx={{ fontSize: '50px' }} />
                   </IconButton>
                 </Box>
-                <Tabs
-                  value={value}
-                  onChange={handleChange}
-                  indicatorColor="secondary"
-                  textColor="inherit"
-                  variant="fullWidth"
-                  aria-label="full width tabs example"
-                >
-                  <Tab label="Home" {...a11yProps(0)} />
-                  <Tab label="Uploads" {...a11yProps(1)} />
-                  <Tab label="About" {...a11yProps(2)} />
-                </Tabs>
-                <SwipeableViews
-                  axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                  index={value}
-                  onChangeIndex={handleChangeIndex}
-                >
-                  <TabPanel value={value} index={0} dir={theme.direction}>
-                    Item One
-                  </TabPanel>
-                  <TabPanel value={value} index={1} dir={theme.direction}>
-                    <Grid
-                      item
-                      spacing={3}
-                      display="flex"
-                      direction="row"
-                      justifyContent="space-evenly"
-                      alignItems="center"
-                    >
-                      <Box
-                        // container
-                        // spacing={3}
-                        display="flex"
-                        direction="row"
-                        justifyContent="space-evenly"
-                        // alignItems="center"
-                        // sx={{ pb: '75px', pl: '50px', pr: '50px' }}
-                      >
-                        <Grid item xs={12} md={8} lg={2}>
-                          <CategoryCard />
-                        </Grid>
-                        <Grid item xs={12} md={8} lg={2}>
-                          <CategoryCard />
-                        </Grid>
-                        <Grid item xs={12} md={8} lg={2}>
-                          <CategoryCard />
-                        </Grid>
-                        <Grid item xs={12} md={8} lg={2}>
-                          <CategoryCard />
-                        </Grid>
-                        <Grid item xs={12} md={8} lg={2}>
-                          <CategoryCard />
-                        </Grid>
-                      </Box>
-                    </Grid>
-                  </TabPanel>
-                  <TabPanel value={value} index={2} dir={theme.direction}>
-                    Item Three
-                  </TabPanel>
-                </SwipeableViews>
               </Grid>
               <Grid item>
                 <Box
@@ -279,10 +219,10 @@ const ProfileTest = () => {
                 <Box
                   // display="flex"
                   // justifyContent="center"
-                  ml="-50px"
-                  mr="-50px"
+                  ml="-100px"
+                  mr="-100px"
                   mt={3}
-                  height="225px"
+                  height="250px"
                   // width="300px"
                   style={{
                     backgroundColor: '#17141d',
@@ -292,7 +232,67 @@ const ProfileTest = () => {
                     borderColor: 'black',
                   }}
                 >
-                  <Typography>Biography or info card</Typography>
+                  <Tabs
+                    value={value}
+                    onChange={handleChange}
+                    indicatorColor="secondary"
+                    textColor="inherit"
+                    variant="fullWidth"
+                    aria-label="full width tabs example"
+                  >
+                    <Tab label="Home" {...a11yProps(0)} />
+                    <Tab label="Uploads" {...a11yProps(1)} />
+                    <Tab label="About" {...a11yProps(2)} />
+                  </Tabs>
+                  <SwipeableViews
+                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                    index={value}
+                    onChangeIndex={handleChangeIndex}
+                  >
+                    <TabPanel value={value} index={0} dir={theme.direction}>
+                      Home tab for recent news or any data
+                    </TabPanel>
+                    <TabPanel value={value} index={1} dir={theme.direction}>
+                      Users podcast upload tab
+                      {/* <Grid
+                        item
+                        spacing={3}
+                        display="flex"
+                        direction="row"
+                        justifyContent="space-evenly"
+                        alignItems="center"
+                      >
+                        <Box
+                          // container
+                          // spacing={3}
+                          display="flex"
+                          direction="row"
+                          justifyContent="space-evenly"
+                          // alignItems="center"
+                          // sx={{ pb: '75px', pl: '50px', pr: '50px' }}
+                        >
+                          <Grid item xs={12} md={4} lg={10}>
+                            <CategoryCard />
+                          </Grid>
+                          <Grid item xs={12} md={4} lg={2}>
+                            <CategoryCard />
+                          </Grid>
+                          <Grid item xs={12} md={4} lg={2}>
+                            <CategoryCard />
+                          </Grid>
+                          <Grid item xs={12} md={4} lg={2}>
+                            <CategoryCard />
+                          </Grid>
+                          <Grid item xs={12} md={4} lg={2}>
+                            <CategoryCard />
+                          </Grid>
+                        </Box>
+                      </Grid> */}
+                    </TabPanel>
+                    <TabPanel value={value} index={2} dir={theme.direction}>
+                      Bio or info tab
+                    </TabPanel>
+                  </SwipeableViews>
                 </Box>
               </Grid>
             </Grid>
