@@ -17,6 +17,8 @@ import PropTypes from "prop-types";
 import { useTheme } from "@mui/material/styles";
 import SwipeableViews from "react-swipeable-views";
 
+import Player from "../components/PlayerCopy";
+
 const styles = {
   logo: {
     display: "block",
@@ -81,6 +83,14 @@ const Profile = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
+
+  const podcastData = Object.values(userData.addedPodcast);
+
+  const podcastImage = podcastData[4]
+  const podcastName = podcastData[2]
+  const episodeData = userData.addedPodcast.episodes
+
+  console.log('podcast data: ', podcastData);
 
   return (
     <Grid
@@ -257,7 +267,18 @@ const Profile = () => {
                       >
                         {userData.addedPodcast.title}
                       </Typography>
-                      {/* <Grid
+                      {/* <Box
+                        flexGrow={1}
+                        display="block"
+                        // alignItems="center"
+                        justifyContent="center"
+                        height="auto"
+                        width={600}
+                        sx={{ bgcolor: "#17141d", boxShadow: "-1rem 0 3rem #000", border: 1 }}
+                      >
+                        
+                      </Box> */}
+                      <Grid
                         item
                         spacing={3}
                         display="flex"
@@ -271,26 +292,27 @@ const Profile = () => {
                           display="flex"
                           direction="row"
                           justifyContent="space-evenly"
-                          // alignItems="center"
-                          // sx={{ pb: '75px', pl: '50px', pr: '50px' }}
+                        // alignItems="center"
+                        // sx={{ pb: '75px', pl: '50px', pr: '50px' }}
                         >
-                          <Grid item xs={12} md={4} lg={10}>
-                            <CategoryCard />
-                          </Grid>
-                          <Grid item xs={12} md={4} lg={2}>
-                            <CategoryCard />
-                          </Grid>
-                          <Grid item xs={12} md={4} lg={2}>
-                            <CategoryCard />
-                          </Grid>
-                          <Grid item xs={12} md={4} lg={2}>
-                            <CategoryCard />
-                          </Grid>
-                          <Grid item xs={12} md={4} lg={2}>
-                            <CategoryCard />
-                          </Grid>
+                          {episodeData.map((episode) => {
+                            return (
+                              <Box flexGrow={1} width={"auto"} height={"auto"} key={episode._id} pt={3}>
+                                <Player
+                                  title={episode.title}
+                                  audio={episode.audio}
+                                  episodeName={episode.title}
+                                  seasonNum={episode.season}
+                                  episodeNum={episode.episode}
+                                  image={podcastImage}
+                                  podcastName={podcastName}
+
+                                />
+                              </Box>
+                            );
+                          })}
                         </Box>
-                      </Grid> */}
+                      </Grid>
                     </TabPanel>
                     <TabPanel value={value} index={2} dir={theme.direction}>
                       Bio or info tab
@@ -302,7 +324,7 @@ const Profile = () => {
           </Typography>
         </Grid>
       </Box>
-    </Grid>
+    </Grid >
   );
 };
 
