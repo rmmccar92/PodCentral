@@ -258,6 +258,18 @@ input:focus {
   /* letter-spacing: 2px; */
 }
 
+.followerCount {
+  font-size: 26px;
+  font-weight: lighter;
+}
+
+.follower {
+  font-size: 16px;
+  font-weight: lighter;
+  display: flex;
+  justify-content: center;
+}
+
 .boxColor {
   background-color: #17141d;
 }
