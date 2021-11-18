@@ -50,8 +50,9 @@ export const QUERY_ALL_PODCASTS = gql`
   }
 `;
 export const QUERY_SINGLE_PODCAST = gql`
-  query QuerySinglePodcast($_id: String){
-    podcast(_id: $_id) {
+  {
+    podcast {
+      _id
       title
       description
       image

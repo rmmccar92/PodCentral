@@ -84,7 +84,6 @@ function App() {
               <Route exact path="/comedy" component={Comedy} />
               <Route exact path="/health" component={Health} />
               <Route exact path="/signup" component={Signup} />
-              <Route exact path="/profiletest" component={ProfileTest} />
               {Auth.loggedIn() ? (
                 <Route exact path="/publish" component={Publish} />
               ) : (

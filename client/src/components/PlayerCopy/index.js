@@ -12,10 +12,6 @@ import FastForwardRounded from '@mui/icons-material/FastForwardRounded';
 import FastRewindRounded from '@mui/icons-material/FastRewindRounded';
 import VolumeUpRounded from '@mui/icons-material/VolumeUpRounded';
 import VolumeDownRounded from '@mui/icons-material/VolumeDownRounded';
-<<<<<<< HEAD
-=======
-// import AudioPlayer from 'material-ui-audio-player';
->>>>>>> 776bc18cff11e2e1f064712bd9768013377e301c
 
 const TogglePlay = audio => {
     const [playing, setPlaying] = useState(false);

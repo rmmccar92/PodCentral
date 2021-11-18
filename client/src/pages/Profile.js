@@ -89,32 +89,6 @@ const Profile = () => {
   }
 
   return (
-<<<<<<< HEAD
-    <Box flexGrow={1}>
-      <Grid container spacing={5} >
-        <Grid item xs={12} md={6} >
-          <Grow
-            style={{ transformOrigin: "0 0 0" }}
-            {...{ timeout: 2000 }}
-            in={true}
-          >
-            <Typography
-              variant="h2"
-              component={Link}
-              to="/publish"
-              align="center"
-              pt={5}
-              sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
-              color="black"
-            >
-              Publish
-            </Typography>
-          </Grow>
-          <Grow
-            style={{ transformOrigin: "0 0 0" }}
-            {...{ timeout: 2000 }}
-            in={true}
-=======
     <Grid
       container
       // spacing={0}
@@ -147,7 +121,6 @@ const Profile = () => {
               height: 'auto',
               width: 'auto',
             }}
->>>>>>> 776bc18cff11e2e1f064712bd9768013377e301c
           >
             <Grid item>
               <Box>
@@ -226,9 +199,9 @@ const Profile = () => {
                   pr={2}
                   direction="row"
                   justifyContent="space-between"
-                  // height="auto"
-                  // width="auto"
-                  // sx={{ border: 1 }}
+                // height="auto"
+                // width="auto"
+                // sx={{ border: 1 }}
                 >
                   <Typography>
                     <span className="followerCount">2,360</span>

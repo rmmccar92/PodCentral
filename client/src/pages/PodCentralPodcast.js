@@ -13,9 +13,18 @@ import { QUERY_ALL_PODCASTS } from "../utils/queries";
 
 const PodCentralPodcast = () => {
     const { loading, data } = useQuery(QUERY_SINGLE_PODCAST, {
-        variables: { _id: '619455d4f26a803d8c466ff2' }
+        variables: { input: { _id: '619455d4f26a803d8c466ff2' } }
     });
-    console.log('podcastData:', data);
+    const podcastData = data?.podcast || [];
+    // console.log('podcastData:', podcastData);
+    // const [querySinglePodcast] = useQuery(QUERY_SINGLE_PODCAST);
+    // try {
+    //     querySinglePodcast({ variables: { input: { _id: '619455d4f26a803d' } } });
+    // } catch (err) {
+    //     console.error(err);
+    // }
+
+
     return (
         <Box flexGrow={1} >
             <Grow
