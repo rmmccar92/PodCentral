@@ -261,7 +261,7 @@ const PublishProfile = () => {
           </Grid>
         </Grid>
         <Box flexGrow={1}>
-          {episodes.map((episode) => {
+          {podcastEpisodes.map((episode) => {
             return (
               <Grid item xs={12} md={6} key={episode._id}>
                 <Player
