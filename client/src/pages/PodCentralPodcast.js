@@ -13,10 +13,10 @@ import { QUERY_ALL_PODCASTS } from "../utils/queries";
 
 const PodCentralPodcast = () => {
     const { loading, data } = useQuery(QUERY_SINGLE_PODCAST, {
-        variables: { _id: '619455d4f26a803d8c466ff2' }
+        variables: { _id: "619432bfc1891430200c3b21" },
     });
     const podcastData = data?.podcast || [];
-    // console.log('podcastData:', podcastData);
+    console.log("podcastData:", podcastData);
     // const [querySinglePodcast] = useQuery(QUERY_SINGLE_PODCAST);
     // try {
     //     querySinglePodcast({ variables: { input: { _id: '619455d4f26a803d' } } });
@@ -24,9 +24,8 @@ const PodCentralPodcast = () => {
     //     console.error(err);
     // }
 
-    console.log('podcastData:', data);
     return (
-        <Box flexGrow={1} >
+        <Box flexGrow={1}>
             <Grow
                 style={{ transformOrigin: "0 0 0" }}
                 {...{ timeout: 2000 }}
@@ -41,9 +40,7 @@ const PodCentralPodcast = () => {
                         flexGrow: 1,
                         display: { xs: "block", sm: "block", fontWeight: "400" },
                     }}
-                >
-
-                </Typography>
+                ></Typography>
             </Grow>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 3 }}>
                 <Grid item sm={12} md={6}>
@@ -101,7 +98,7 @@ const PodCentralPodcast = () => {
                     })} */}
                 </Grid>
             </Grid>
-        </Box >
+        </Box>
     );
 };
 

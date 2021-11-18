@@ -56,8 +56,8 @@ export const QUERY_SINGLE_PODCAST = gql`
       _id
       title
       description
-      image
       episodes {
+        _id
         title
         description
         audio

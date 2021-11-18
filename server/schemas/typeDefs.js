@@ -87,7 +87,7 @@ const typeDefs = gql`
     catagories: [Category]
     comments(firstName: String, lastName: String): [Comment]
     podcasts: [Podcast]
-    podcast(_id: String!): Podcast
+    podcast(_id: ID!): Podcast
     episode(_id: ID): Episode
     episodes(_id: ID): Podcast
     addedPodcast: Podcast
