@@ -1,18 +1,15 @@
 import * as React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Grow from "@mui/material/Grow";
 import Button from "@mui/material/Button";
-// import FileUploadIcon from '@mui/icons-material/FileUploadIcon';
 import { GET_ME } from "../../utils/queries";
 import { ADD_PODCAST } from "../../utils/mutations";
 import PublishProfile from "../PublishProfile";
 import CloudinaryWidget from "../Cloudinary";
-import Auth from "../../utils/auth";
 const PublishNewPodcast = () => {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];

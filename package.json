@@ -29,6 +29,7 @@
     "mongoose": "^6.0.12",
     "podcast-api": "^1.1.1",
     "react-cloudinary-upload-widget": "^1.4.3",
+    "react-swipeable-views": "^0.14.0",
     "unirest": "^0.6.0"
   }
 }

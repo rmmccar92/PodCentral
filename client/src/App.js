@@ -34,6 +34,7 @@ import NewsAndPolitics from './pages/NewsAndPolitics';
 import PopCulture from './pages/PopCulture';
 import TrueCrime from './pages/TrueCrime';
 import AllCategories from './pages/AllCategories';
+import ProfileTest from './pages/ProfileTest';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -53,7 +54,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-document.body.style = 'background-color: #f0eeeb'
+document.body.style = 'background-color: #f0eeeb';
 
 function App() {
   const theme = createTheme({
@@ -83,6 +84,7 @@ function App() {
               <Route exact path="/comedy" component={Comedy} />
               <Route exact path="/health" component={Health} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path="/profiletest" component={ProfileTest} />
               {Auth.loggedIn() ? (
                 <Route exact path="/publish" component={Publish} />
               ) : (
