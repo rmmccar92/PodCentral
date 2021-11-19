@@ -42,7 +42,7 @@ const Discover = () => {
       .then((res) => res.json())
       .then((data) => {
         setPodcastData(data);
-        console.log("all podcast data from data attribute", data);
+        // console.log("all podcast data from data attribute", data);
         // console.log("title from data attribute", data[0].title);
       });
   }, []);

@@ -21,7 +21,9 @@ const styles = {
   },
 };
 
-export default function Home({}) {
+
+export default function Home() {
+
   return (
     <Grid container>
       <Box
@@ -46,6 +48,7 @@ export default function Home({}) {
             </Typography>
           </Box>
         </Grid>
+
         <Grid item>
           <Box
             display="flex"
@@ -77,6 +80,7 @@ export default function Home({}) {
                 </Box>
                 <Box mb={6}>
                   <Typography fontSize="30px" fontWeight="lighter">
+
                     Upload your own podcast in just a few easy steps. We take
                     care of the hard parts so you can focus on making your best
                     podcast.
@@ -96,6 +100,7 @@ export default function Home({}) {
                   </Box>
                 </Box>
               </Box>
+
             </Box>
           </Box>
         </Grid>
