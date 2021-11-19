@@ -44,4 +44,4 @@ Video of Usage
 
 - [Ryan McCarthy](https://github.com/rmmccar92/) [:envelope:](rmmccar92@gmail.com)
 - [Brad Rollinson](https://github.com/likearollinson) [:envelope:](brad.w.rollinson@gmail.com)
-- [Joey Swafford](https://github.com/joeyswafford) [:envelope:]
+- [Joey Swafford](https://github.com/joeyswafford) [:envelope:](joey@swafford.co)
