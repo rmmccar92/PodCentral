@@ -99,29 +99,37 @@ const GlobalAppBar = () => {
                     </Button>
                   </Typography>
                 </Grid>
-                <Grid item>
-                  <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                    <IconButton
-                      size="large"
-                      component={Link}
-                      to="/profile"
-                      edge="end"
-                      aria-label="account of current user"
-                      aria-haspopup="true"
-                      color="inherit"
-                    >
-                      <AccountCircle />
-                    </IconButton>
-                    <IconButton
-                      href="/"
-                      color="inherit"
-                      size="large"
-                      onClick={() => Auth.logout()}
-                    >
-                      <LogoutIcon />
-                    </IconButton>
-                  </Box>
-                </Grid>
+                {/* <Grid item></Grid> */}
+                <IconButton
+                  component={Link}
+                  to="/"
+                  size="large"
+                  align="center"
+                  aria-label="menu"
+                  sx={{ ml: 2, color: "#f5b727" }}
+                >
+                  <PodcastsIcon />
+                </IconButton>
+                <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                  <IconButton
+                    size="large"
+                    component={Link}
+                    to="/profile"
+                    edge="end"
+                    aria-label="account of current user"
+                    aria-haspopup="true"
+                    color="inherit"
+                  >
+                    <AccountCircle />
+                  </IconButton>
+                  <IconButton
+                    size="large"
+                    color="inherit"
+                    onClick={() => Auth.logout()}
+                  >
+                    <LogoutIcon />
+                  </IconButton>
+                </Box>
               </Grid>
             </Toolbar>
           </AppBar>
