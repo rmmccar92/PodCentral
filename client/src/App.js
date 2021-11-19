@@ -1,50 +1,50 @@
-import * as React from "react";
-import { PodCentralProvider } from "./utils/GlobalState";
+import * as React from 'react';
+import { PodCentralProvider } from './utils/GlobalState';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
-} from "react-router-dom";
+} from 'react-router-dom';
 
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-} from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import Auth from "./utils/auth";
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Auth from './utils/auth';
 
-import GlobalAppBar from "./components/GlobalAppBar";
+import GlobalAppBar from './components/GlobalAppBar';
 
-import Home from "./pages/Home";
-import NoMatch from "./pages/NoMatch";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Profile from "./pages/Profile";
-import Publish from "./pages/Publish";
-import PodCentralPodcast from "./pages/PodCentralPodcast";
-import Discover from "./pages/Discover";
-import Business from "./pages/Business";
-import Comedy from "./pages/Comedy";
-import Health from "./pages/Health";
-import NewsAndPolitics from "./pages/NewsAndPolitics";
-import PopCulture from "./pages/PopCulture";
-import TrueCrime from "./pages/TrueCrime";
-import AllCategories from "./pages/AllCategories";
+import Home from './pages/Home';
+import NoMatch from './pages/NoMatch';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Profile from './pages/Profile';
+import Publish from './pages/Publish';
+import PodCentralPodcast from './pages/PodCentralPodcast';
+import Discover from './pages/Discover';
+import Business from './pages/Business';
+import Comedy from './pages/Comedy';
+import Health from './pages/Health';
+import NewsAndPolitics from './pages/NewsAndPolitics';
+import PopCulture from './pages/PopCulture';
+import TrueCrime from './pages/TrueCrime';
+import AllCategories from './pages/AllCategories';
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: '/graphql',
 });
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem("id_token");
+  const token = localStorage.getItem('id_token');
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : "",
+      authorization: token ? `Bearer ${token}` : '',
     },
   };
 });
@@ -54,18 +54,18 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-document.body.style = "background-color: #f0eeeb";
+document.body.style = 'background-color: #f0eeeb';
 
 function App() {
   const theme = createTheme({
     typography: {
       fontFamily: [
-        "Oswald",
-        "Roboto",
+        'Oswald',
+        'Roboto',
         '"Helvetica Neue"',
-        "Arial",
-        "sans-serif",
-      ].join(","),
+        'Arial',
+        'sans-serif',
+      ].join(','),
     },
   });
 
