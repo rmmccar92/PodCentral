@@ -19,7 +19,7 @@ PodCentral is a place for Podcast creators and listeners to collaborate, upload,
 ## Usage
 
 Video of Usage
-![Video of Usage]()
+![Video of Usage](https://github.com/rmmccar92/PodCentral/blob/main/assets/PC_demo.gif)
 
 ## License
 
