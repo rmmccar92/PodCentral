@@ -113,10 +113,27 @@ const Player = (props) => {
         return `${minute}:${secondLeft < 9 ? `0${secondLeft}` : secondLeft.toFixed(0)}`;
     }
     const mainIconColor = theme.palette.mode === 'dark' ? '#fff' : '#000';
-    const lightIconColor =
-        theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.4)';
 
+    let loading2 = false;
+    if (isNaN(audio.duration) || isNaN(position)) {
+        loading2 = true;
+    }
 
+    if (loading2) {
+        return (
+            <Box flexGrow={1} sx={{ bgcolor: "#f0eeeb", height: "100vh" }}>
+                <Typography
+                    variant="h2"
+                    component="div"
+                    align="center"
+                    pt={20}
+                    sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+                >
+                    LOADING...
+                </Typography>
+            </Box>
+        );
+    }
 
     // console.log("audio time: ", audio.currentTime);
 
