@@ -14,7 +14,7 @@
 
 ## Description
 
-A place for Podcast creators and listeners to collaborate, upload, and interact with their favorite podcasts and creators.
+PodCentral is a place for Podcast creators and listeners to collaborate, upload, and interact with their favorite podcasts and creators.
 
 ## Usage
 
