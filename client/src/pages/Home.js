@@ -20,58 +20,7 @@ const styles = {
   },
 };
 
-const itemData = [
-  {
-    img: "https://thumbs.dreamstime.com/b/young-man-recording-podcast-smiling-to-camera-close-up-young-men-recording-podcast-smiling-to-camera-close-up-104865306.jpg",
-    title: "Breakfast",
-    author: "@bkristastucchio",
-    rows: 2,
-    cols: 2,
-    featured: true,
-  },
-  {
-    img: "https://st4.depositphotos.com/13193658/27296/i/600/depositphotos_272967952-stock-photo-cropped-shot-radio-host-speaking.jpg",
-    title: "Burger",
-    author: "@rollelflex_graphy726",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
-    title: "Camera",
-    author: "@helloimnik",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
-    title: "Coffee",
-    author: "@nolanissac",
-    cols: 2,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
-    title: "Hats",
-    author: "@hjrc33",
-    cols: 2,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
-    title: "Honey",
-    author: "@arwinneil",
-    rows: 2,
-    cols: 2,
-    featured: true,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
-    title: "Basketball",
-    author: "@tjdragotta",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
-    title: "Fern",
-    author: "@katie_wasserman",
-  },
-];
-
-export default function Home({ }) {
+export default function Home() {
   return (
     <Grid container>
       <Box
@@ -106,28 +55,26 @@ export default function Home({ }) {
           mb={10}
           ml={20}
           mr={20}
-        // sx={{
-        //   backgroundColor: '#17141d',
-        //   boxShadow: '-1rem 0 3rem #000',
-        //   border: 1,
-        //   borderColor: 'black',
-        //   borderRadius: '0px',
-        // }}
+          // sx={{
+          //   backgroundColor: '#17141d',
+          //   boxShadow: '-1rem 0 3rem #000',
+          //   border: 1,
+          //   borderColor: 'black',
+          //   borderRadius: '0px',
+          // }}
         >
           <Grid item xs={12} md={8} lg={12}>
             <Box
               className="boxCenter"
-
               sx={{ width: "100%", height: "100%" }}
-            // ml={20}
-            // mr={100}
-            // mt={10}
-            // mb={10}
+              // ml={20}
+              // mr={100}
+              // mt={10}
+              // mb={10}
             >
               <Box className="flex">
                 <img
-                  src="http://blog.saude.mg.gov.br/wp-content/uploads/2018/02/banner_podcast_ciencia_2018.jpg"
-
+                  src="https://res.cloudinary.com/ryanmcc/image/upload/v1637004278/my_folder/banner_podcast_ciencia_2018_ecybtz.jpg"
                   alt="headphones and mic"
                   style={styles.lowerImage}
                 />
@@ -163,14 +110,12 @@ export default function Home({ }) {
                   to="/discover"
                   pl={1}
                   pr={1}
-
                   sx={{
                     backgroundColor: "#17141d",
                     boxShadow: "-1rem 0 3rem #000",
                     borderColor: "black",
                     // borderRadius: '5px',
                   }}
-
                 >
                   <Typography color="white" fontSize="18px" fontWeight="normal">
                     <b className="discover">DISCOVER</b>
@@ -180,9 +125,7 @@ export default function Home({ }) {
                 </Box>
 
                 <img
-
-                  src="http://blog.saude.mg.gov.br/wp-content/uploads/2018/02/banner_podcast_ciencia_2018.jpg"
-
+                  src="https://res.cloudinary.com/ryanmcc/image/upload/v1637004278/my_folder/banner_podcast_ciencia_2018_ecybtz.jpg"
                   alt="headphones and mic"
                   style={styles.lowerImage}
                 />
