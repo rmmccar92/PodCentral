@@ -78,17 +78,17 @@ const Profile = () => {
   };
   const { loading, data } = useQuery(GET_ME);
   const me = data?.me || [];
-  const [userData, setUserData] = useState(
-    me || {
-      firstName: me.firstName,
-      lastName: me.lastName,
-      addedPodcast: {
-        image: "",
-        title: "",
-      },
-      email: "",
-    }
-  );
+  // const [userData, setUserData] = useState(
+  //   me || {
+  //     firstName: me.firstName,
+  //     lastName: me.lastName,
+  //     addedPodcast: {
+  //       image: "",
+  //       title: "",
+  //     },
+  //     email: "",
+  //   }
+  // );
 
   if (loading) {
     return <div>Loading...</div>;
@@ -130,10 +130,10 @@ const Profile = () => {
           >
             <Grid item>
               <Box>
-                {userData.addedPodcast && (
+                {me.addedPodcast && (
                   <Avatar
                     alt="Travis Howard"
-                    src={userData.addedPodcast.image}
+                    src={me.addedPodcast.image}
                     // display="flex"
                     sx={{ height: "90px", width: "90px" }}
                   />
@@ -151,7 +151,7 @@ const Profile = () => {
               <Box display="flex" justifyContent="center" mt={2}>
                 <Typography>
                   <span className="profileName">
-                    {userData.firstName} {userData.lastName}{" "}
+                    {me.firstName} {me.lastName}{" "}
                   </span>
                   {/* <br />
                   <span className="profileFollowers">No Followers</span> */}
@@ -209,9 +209,9 @@ const Profile = () => {
                   pr={2}
                   direction="row"
                   justifyContent="space-between"
-                // height="auto"
-                // width="auto"
-                // sx={{ border: 1 }}
+                  // height="auto"
+                  // width="auto"
+                  // sx={{ border: 1 }}
                 >
                   <Typography>
                     <span className="followerCount">2,360</span>
@@ -263,14 +263,14 @@ const Profile = () => {
                       Home tab for recent news or any data
                     </TabPanel>
                     <TabPanel value={value} index={1} dir={theme.direction}>
-                      {userData.addedPodcast && (
+                      {me.addedPodcast && (
                         <Typography
                           variant="h4"
                           color="white"
                           component={Link}
                           to="/publish"
                         >
-                          {userData.addedPodcast.title}
+                          {me.addedPodcast.title}
                         </Typography>
                       )}
                       {/* <Grid
