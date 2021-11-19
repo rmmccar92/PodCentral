@@ -1,35 +1,35 @@
-import * as React from 'react';
-import Auth from '../../utils/auth';
-import { Link } from 'react-router-dom';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
-import PodcastsIcon from '@mui/icons-material/Podcasts';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import Button from '@mui/material/Button';
-import LoginIcon from '@mui/icons-material/Login';
-import LogoutIcon from '@mui/icons-material/Logout';
+import * as React from "react";
+import Auth from "../../utils/auth";
+import { Link } from "react-router-dom";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Grid from "@mui/material/Grid";
+import PodcastsIcon from "@mui/icons-material/Podcasts";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import Button from "@mui/material/Button";
+import LoginIcon from "@mui/icons-material/Login";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const GlobalAppBar = () => {
   const darkBar = createTheme({
     palette: {
       secondary: {
-        main: '#17141d',
-        contrastText: '#FFFFFF',
+        main: "#17141d",
+        contrastText: "#FFFFFF",
       },
     },
     typography: {
       fontFamily: [
-        'Oswald',
-        'Roboto',
+        "Oswald",
+        "Roboto",
         '"Helvetica Neue"',
-        'Arial',
-        'sans-serif',
-      ].join(','),
+        "Arial",
+        "sans-serif",
+      ].join(","),
     },
   });
 
@@ -79,7 +79,7 @@ const GlobalAppBar = () => {
     if (Auth.loggedIn()) {
       return (
         <ThemeProvider theme={darkBar}>
-          <AppBar position="static" color={'secondary'}>
+          <AppBar position="static" color={"secondary"}>
             <Toolbar>
               <Grid
                 container
@@ -100,7 +100,7 @@ const GlobalAppBar = () => {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                  <Box sx={{ display: { xs: "none", md: "flex" } }}>
                     <IconButton
                       size="large"
                       component={Link}
@@ -113,10 +113,10 @@ const GlobalAppBar = () => {
                       <AccountCircle />
                     </IconButton>
                     <IconButton
-                      size="large"
-                      component={Link}
+                      href="/"
                       color="inherit"
-                      to="/logout"
+                      size="large"
+                      onClick={() => Auth.logout()}
                     >
                       <LogoutIcon />
                     </IconButton>
@@ -130,7 +130,7 @@ const GlobalAppBar = () => {
     } else {
       return (
         <ThemeProvider theme={darkBar}>
-          <AppBar position="static" color={'secondary'}>
+          <AppBar position="static" color={"secondary"}>
             <Toolbar>
               <Grid
                 container
@@ -149,12 +149,12 @@ const GlobalAppBar = () => {
                   size="large"
                   edge="start"
                   aria-label="menu"
-                  sx={{ mr: 2, color: '#f5b727' }}
+                  sx={{ mr: 2, color: "#f5b727" }}
                 >
                   <PodcastsIcon />
                 </IconButton>
                 <Grid item>
-                  <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                  <Box sx={{ display: { xs: "none", md: "flex" } }}>
                     <IconButton
                       size="large"
                       component={Link}

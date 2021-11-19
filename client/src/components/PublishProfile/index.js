@@ -25,6 +25,7 @@ const styles = {
 const PublishProfile = () => {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
+  const [episodes, setEpisodes] = useState(...userData.addedPodcast.episodes);
 
   const [formState, setFormState] = useState({
     title: "",
@@ -32,26 +33,31 @@ const PublishProfile = () => {
     season: "",
     episode: "",
   });
+
   const [addEpisode] = useMutation(ADD_EPISODE);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     // Works for now but should be changed to be dynamic
     const podcastImage = localStorage.getItem("podcastImage");
-    console.log(podcastImage);
+    // console.log(podcastImage);
     try {
       const { data } = await addEpisode({
         variables: {
           input: {
-            title: formState.title,
-            description: formState.description,
+            title: formState.title.trim(),
+            description: formState.description.trim(),
             episode: parseInt(formState.episode),
             season: parseInt(formState.season),
             audio: podcastImage,
           },
         },
-      });
-      console.log(data);
+      }).then(() => setEpisodes([...episodes, data]));
+      // const episodesData = data;
+      // setEpisodes(...episodes, episodesData);
+      // console.log(episodes);
+      // console.log(data);
+      // window.location.reload();
     } catch (err) {
       console.log(err);
     }
@@ -64,13 +70,11 @@ const PublishProfile = () => {
       [name]: value,
     });
   };
-
-  const episodesData = userData.addedPodcast.episodes;
-
-  console.log(episodesData);
-
+  const podcastEpisodes = userData.addedPodcast.episodes;
+  // console.log(episodesData);
+  if (loading) return <p>Loading...</p>;
   return (
-    <Box flexGrow={1} >
+    <Box flexGrow={1}>
       <Grow
         style={{ transformOrigin: "0 0 0" }}
         {...{ timeout: 2000 }}
@@ -257,7 +261,7 @@ const PublishProfile = () => {
           </Grid>
         </Grid>
         <Box flexGrow={1}>
-          {episodesData.map((episode) => {
+          {podcastEpisodes.map((episode) => {
             return (
               <Grid item xs={12} md={6} key={episode._id}>
                 <Player
@@ -266,6 +270,8 @@ const PublishProfile = () => {
                   episodeName={episode.title}
                   seasonNum={episode.season}
                   episodeNum={episode.episode}
+                  image={userData.addedPodcast.image}
+                  podcastName={userData.addedPodcast.title}
                 />
               </Grid>
             );

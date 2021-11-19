@@ -1,40 +1,35 @@
-import * as React from 'react';
-import { Link } from 'react-router-dom';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Grow from '@mui/material/Grow';
-import { GET_ME } from '../utils/queries';
-import { useQuery } from '@apollo/client';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import CategoryCard from '../components/CategoryCard';
-import { IconButton } from '@mui/material';
-import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
-import ChatIcon from '@mui/icons-material/Chat';
-import SettingsIcon from '@mui/icons-material/Settings';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
-import SwipeableViews from 'react-swipeable-views';
-
-import podcastLogo from '../assets/podcast-logo-2.png';
-import spaceShipLogo from '../assets/space-ship-logo.png';
+import * as React from "react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+// import Grow from "@mui/material/Grow";
+import { GET_ME } from "../utils/queries";
+import { useQuery } from "@apollo/client";
+import Avatar from "@mui/material/Avatar";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import { IconButton } from "@mui/material";
+import ChatIcon from "@mui/icons-material/Chat";
+import SettingsIcon from "@mui/icons-material/Settings";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import PropTypes from "prop-types";
+import { useTheme } from "@mui/material/styles";
+import SwipeableViews from "react-swipeable-views";
 
 const styles = {
   logo: {
-    display: 'block',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    width: '125px',
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "125px",
   },
   spaceLogo: {
-    display: 'block',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    width: '190px',
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "190px",
   },
 };
 function TabPanel(props) {
@@ -66,7 +61,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
+    "aria-controls": `full-width-tabpanel-${index}`,
   };
 }
 
@@ -81,11 +76,22 @@ const Profile = () => {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
-  const { data } = useQuery(GET_ME);
-  let user;
+  const { loading, data } = useQuery(GET_ME);
+  const me = data?.me || [];
+  const [userData, setUserData] = useState(
+    me || {
+      firstName: me.firstName,
+      lastName: me.lastName,
+      addedPodcast: {
+        image: "",
+        title: "",
+      },
+      email: "",
+    }
+  );
 
-  if (data) {
-    user = data.me;
+  if (loading) {
+    return <div>Loading...</div>;
   }
 
   return (
@@ -109,7 +115,7 @@ const Profile = () => {
         pb={5}
         mt={4}
         // mb={4}
-        sx={{ bgcolor: '#17141d', boxShadow: '-1rem 0 3rem #000', border: 1 }}
+        sx={{ bgcolor: "#17141d", boxShadow: "-1rem 0 3rem #000", border: 1 }}
       >
         <Grid item>
           <Box
@@ -118,18 +124,20 @@ const Profile = () => {
             sx={{
               // border: 1,
               // borderColor: 'error.main',
-              height: 'auto',
-              width: 'auto',
+              height: "auto",
+              width: "auto",
             }}
           >
             <Grid item>
               <Box>
-                <Avatar
-                  alt="Travis Howard"
-                  src="/broken-image.jpg"
-                  // display="flex"
-                  sx={{ height: '90px', width: '90px' }}
-                />
+                {userData.addedPodcast && (
+                  <Avatar
+                    alt="Travis Howard"
+                    src={userData.addedPodcast.image}
+                    // display="flex"
+                    sx={{ height: "90px", width: "90px" }}
+                  />
+                )}
               </Box>
             </Grid>
           </Box>
@@ -142,7 +150,9 @@ const Profile = () => {
             <Grid item>
               <Box display="flex" justifyContent="center" mt={2}>
                 <Typography>
-                  <span className="profileName">Joey Swafford</span>
+                  <span className="profileName">
+                    {userData.firstName} {userData.lastName}{" "}
+                  </span>
                   {/* <br />
                   <span className="profileFollowers">No Followers</span> */}
                 </Typography>
@@ -154,7 +164,7 @@ const Profile = () => {
                   mt={2}
                   height="auto"
                   width="300px"
-                  sx={{ borderBottom: 2, borderColor: 'black' }}
+                  sx={{ borderBottom: 2, borderColor: "black" }}
                 >
                   <IconButton
                     className="grow1"
@@ -163,9 +173,9 @@ const Profile = () => {
                     size="large"
                     align="center"
                     aria-label="menu"
-                    sx={{ color: '#f5b727' }}
+                    sx={{ color: "#f5b727" }}
                   >
-                    <NotificationsIcon sx={{ fontSize: '50px' }} />
+                    <NotificationsIcon sx={{ fontSize: "50px" }} />
                   </IconButton>
                   <IconButton
                     className="grow1"
@@ -174,9 +184,9 @@ const Profile = () => {
                     size="large"
                     align="center"
                     aria-label="menu"
-                    sx={{ color: '#f5b727' }}
+                    sx={{ color: "#f5b727" }}
                   >
-                    <ChatIcon sx={{ fontSize: '50px' }} />
+                    <ChatIcon sx={{ fontSize: "50px" }} />
                   </IconButton>
                   <IconButton
                     className="grow1"
@@ -185,9 +195,9 @@ const Profile = () => {
                     size="large"
                     align="center"
                     aria-label="menu"
-                    sx={{ color: '#f5b727' }}
+                    sx={{ color: "#f5b727" }}
                   >
-                    <SettingsIcon sx={{ fontSize: '50px' }} />
+                    <SettingsIcon sx={{ fontSize: "50px" }} />
                   </IconButton>
                 </Box>
               </Grid>
@@ -225,11 +235,11 @@ const Profile = () => {
                   height="250px"
                   // width="300px"
                   style={{
-                    backgroundColor: '#17141d',
-                    boxShadow: '-1rem 0 3rem #000',
+                    backgroundColor: "#17141d",
+                    boxShadow: "-1rem 0 3rem #000",
                     border: 1,
-                    borderRadius: '5px',
-                    borderColor: 'black',
+                    borderRadius: "5px",
+                    borderColor: "black",
                   }}
                 >
                   <Tabs
@@ -245,7 +255,7 @@ const Profile = () => {
                     <Tab label="About" {...a11yProps(2)} />
                   </Tabs>
                   <SwipeableViews
-                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                    axis={theme.direction === "rtl" ? "x-reverse" : "x"}
                     index={value}
                     onChangeIndex={handleChangeIndex}
                   >
@@ -253,7 +263,16 @@ const Profile = () => {
                       Home tab for recent news or any data
                     </TabPanel>
                     <TabPanel value={value} index={1} dir={theme.direction}>
-                      Users podcast upload tab
+                      {userData.addedPodcast && (
+                        <Typography
+                          variant="h4"
+                          color="white"
+                          component={Link}
+                          to="/publish"
+                        >
+                          {userData.addedPodcast.title}
+                        </Typography>
+                      )}
                       {/* <Grid
                         item
                         spacing={3}
