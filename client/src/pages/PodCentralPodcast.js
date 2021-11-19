@@ -84,7 +84,7 @@ const PodCentralPodcast = () => {
                         {...{ timeout: 2000 }}
                         in={true}
                     >
-                        <Box flexGrow={1}>
+                        <Box flexGrow={1} pt={5}>
                             <img src={image} alt="cover art" style={styles.coverArt} />
                         </Box>
                     </Grow>
