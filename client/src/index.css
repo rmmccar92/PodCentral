@@ -274,6 +274,16 @@ input:focus {
   background-color: #17141d;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.center1 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
 .wYl-font {
   font-size: 64px;
   font-weight: bold;
