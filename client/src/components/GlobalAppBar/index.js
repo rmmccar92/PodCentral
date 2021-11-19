@@ -60,7 +60,7 @@ const GlobalAppBar = () => {
                 {/* <Grid item></Grid> */}
                 <IconButton
                   component={Link}
-                  to="/profile"
+                  to="/publish"
                   size="large"
                   align="center"
                   aria-label="menu"
