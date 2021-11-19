@@ -29,6 +29,7 @@ Video of Usage
 
 - React
 - GraphQL
+- Material UI
 - JavaScript
 - CSS
 - Node.js
