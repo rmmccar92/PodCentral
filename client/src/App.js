@@ -26,6 +26,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Publish from "./pages/Publish";
+import PodCentralPodcast from "./pages/PodCentralPodcast";
 import Discover from "./pages/Discover";
 import Business from "./pages/Business";
 import Comedy from "./pages/Comedy";
@@ -34,7 +35,6 @@ import NewsAndPolitics from "./pages/NewsAndPolitics";
 import PopCulture from "./pages/PopCulture";
 import TrueCrime from "./pages/TrueCrime";
 import AllCategories from "./pages/AllCategories";
-import ProfileTest from "./pages/ProfileTest";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -84,14 +84,13 @@ function App() {
               <Route exact path="/comedy" component={Comedy} />
               <Route exact path="/health" component={Health} />
               <Route exact path="/signup" component={Signup} />
-              <Route exact path="/profiletest" component={ProfileTest} />
               {Auth.loggedIn() ? (
                 <Route exact path="/publish" component={Publish} />
               ) : (
                 <Redirect to="/login" />
               )}
               <Route exact path="/profile" component={Profile} />
-
+              <Route exact path="/podcast/:_id" component={PodCentralPodcast} />
               <Route
                 exact
                 path="/newsAndPolitics"

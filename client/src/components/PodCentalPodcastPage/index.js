@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
-import Player from "../Player";
+import Player from "../PlayerCopy";
 import CloudinaryWidget from "../Cloudinary";
 import { GET_ME } from "../../utils/queries";
 import { ADD_EPISODE } from "../../utils/mutations";
@@ -25,7 +25,6 @@ const styles = {
 const PublishProfile = () => {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
-  const [episodes, setEpisodes] = useState(...userData.addedPodcast.episodes);
 
   const [formState, setFormState] = useState({
     title: "",
@@ -33,31 +32,26 @@ const PublishProfile = () => {
     season: "",
     episode: "",
   });
-
   const [addEpisode] = useMutation(ADD_EPISODE);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     // Works for now but should be changed to be dynamic
     const podcastImage = localStorage.getItem("podcastImage");
-    // console.log(podcastImage);
+    console.log(podcastImage);
     try {
       const { data } = await addEpisode({
         variables: {
           input: {
-            title: formState.title.trim(),
-            description: formState.description.trim(),
+            title: formState.title,
+            description: formState.description,
             episode: parseInt(formState.episode),
             season: parseInt(formState.season),
             audio: podcastImage,
           },
         },
-      }).then(() => setEpisodes([...episodes, data]));
-      // const episodesData = data;
-      // setEpisodes(...episodes, episodesData);
-      // console.log(episodes);
-      // console.log(data);
-      // window.location.reload();
+      });
+      console.log(data);
     } catch (err) {
       console.log(err);
     }
@@ -73,13 +67,12 @@ const PublishProfile = () => {
 
   const podcastData = Object.values(userData.addedPodcast);
 
-  const podcastImage = podcastData[4]
-  const podcastName = podcastData[2]
+  const podcastImage = podcastData[3]
+  const podcastName = podcastData[1]
   const episodeData = userData.addedPodcast.episodes
 
-  if (loading) return <p>Loading...</p>;
   return (
-    <Box flexGrow={1}>
+    <Box flexGrow={1} >
       <Grow
         style={{ transformOrigin: "0 0 0" }}
         {...{ timeout: 2000 }}
@@ -300,7 +293,7 @@ const PublishProfile = () => {
             );
           })}
         </Grid>
-      </Grid >
+      </Grid>
     </Box >
   );
 };

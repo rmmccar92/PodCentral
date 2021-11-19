@@ -1,20 +1,20 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Cards from "../components/Cards";
 import CategoryCard from "../components/CategoryCard";
-import { useMutation } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { getPodcastIds, savePodcastIds } from "../utils/localStorage";
 import Auth from "../utils/auth";
 import { LIKE_PODCAST } from "../utils/mutations";
+import { QUERY_ALL_PODCASTS } from "../utils/queries";
 
-const originalsArr = [];
 const theme = createTheme({
   status: {
     danger: "#e53e3e",
@@ -32,6 +32,9 @@ const theme = createTheme({
 });
 
 const Discover = () => {
+  const { loading2, data } = useQuery(QUERY_ALL_PODCASTS);
+  const podcastsData = data?.podcasts || [];
+
   const [popularPodcastData, setPodcastData] = useState("");
 
   useEffect(() => {
@@ -218,14 +221,15 @@ const Discover = () => {
           alignItems="center"
           sx={{ pb: "50px", pl: "50px", pr: "50px" }}
         >
-          {originalsArr.map((podcast) => {
+          {podcastsData.map((podcast) => {
             return (
-              <Grid item xs={12} md={6} lg={2} key={podcast.id}>
+              <Grid item xs={12} md={6} lg={2} key={podcast._id}>
                 <Cards
                   title={podcast.title}
                   image={podcast.image}
-                  link={podcast.listennotes_url}
                   description={podcast.description}
+                  id={podcast._id}
+                  link={`/podcast/${podcast._id}`}
                 />
               </Grid>
             );

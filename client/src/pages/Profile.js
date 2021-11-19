@@ -209,9 +209,9 @@ const Profile = () => {
                   pr={2}
                   direction="row"
                   justifyContent="space-between"
-                  // height="auto"
-                  // width="auto"
-                  // sx={{ border: 1 }}
+                // height="auto"
+                // width="auto"
+                // sx={{ border: 1 }}
                 >
                   <Typography>
                     <span className="followerCount">2,360</span>

@@ -51,7 +51,7 @@ const GlobalAppBar = () => {
                       size="large"
                       component={Link}
                       color="inherit"
-                      to="/profile"
+                      to="/"
                     >
                       PodCentral
                     </Button>
@@ -60,7 +60,7 @@ const GlobalAppBar = () => {
                 {/* <Grid item></Grid> */}
                 <IconButton
                   component={Link}
-                  to="/"
+                  to="/profile"
                   size="large"
                   align="center"
                   aria-label="menu"
