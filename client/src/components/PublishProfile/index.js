@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
-import Player from "../PlayerCopy";
+import Player from "../Player";
 import CloudinaryWidget from "../Cloudinary";
 import { GET_ME } from "../../utils/queries";
 import { ADD_EPISODE } from "../../utils/mutations";
@@ -73,12 +73,10 @@ const PublishProfile = () => {
 
   const podcastData = Object.values(userData.addedPodcast);
 
-  const podcastImage = podcastData[3]
-  const podcastName = podcastData[1]
+  const podcastImage = podcastData[4]
+  const podcastName = podcastData[2]
   const episodeData = userData.addedPodcast.episodes
 
-  const podcastEpisodes = userData.addedPodcast.episodes;
-  // console.log(episodesData);
   if (loading) return <p>Loading...</p>;
   return (
     <Box flexGrow={1}>

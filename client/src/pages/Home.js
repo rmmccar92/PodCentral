@@ -71,7 +71,7 @@ const itemData = [
   },
 ];
 
-export default function Home({}) {
+export default function Home({ }) {
   return (
     <Grid container>
       <Box
@@ -100,6 +100,96 @@ export default function Home({}) {
             <div className="title">PODCENTRAL</div>
           </Box>
         </Grid>
+        <Box
+          className="boxCenter"
+          mt={10}
+          mb={10}
+          ml={20}
+          mr={20}
+        // sx={{
+        //   backgroundColor: '#17141d',
+        //   boxShadow: '-1rem 0 3rem #000',
+        //   border: 1,
+        //   borderColor: 'black',
+        //   borderRadius: '0px',
+        // }}
+        >
+          <Grid item xs={12} md={8} lg={12}>
+            <Box
+              className="boxCenter"
+
+              sx={{ width: "100%", height: "100%" }}
+            // ml={20}
+            // mr={100}
+            // mt={10}
+            // mb={10}
+            >
+              <Box className="flex">
+                <img
+                  src="http://blog.saude.mg.gov.br/wp-content/uploads/2018/02/banner_podcast_ciencia_2018.jpg"
+
+                  alt="headphones and mic"
+                  style={styles.lowerImage}
+                />
+
+                <Box
+                  className=""
+                  pl={1}
+                  component={Link}
+                  to="/publish"
+                  pr={1}
+                  sx={{
+                    backgroundColor: "#17141d",
+                    boxShadow: "-1rem 0 3rem #000",
+                    border: 1,
+                    borderColor: "black",
+                    // borderRadius: '5px',
+                  }}
+                >
+                  <Typography color="white" fontSize="18px" fontWeight="normal">
+                    <b className="publish">PUBLISH</b>
+                    Upload your own podcast in just a few easy steps. We take
+                    care of the hard parts so you can focus on making your best
+                    podcast.
+                  </Typography>
+                </Box>
+              </Box>
+
+              <Box sx={{ width: "47px" }}></Box>
+              <Box className="flex">
+                <Box
+                  className=""
+                  component={Link}
+                  to="/discover"
+                  pl={1}
+                  pr={1}
+
+                  sx={{
+                    backgroundColor: "#17141d",
+                    boxShadow: "-1rem 0 3rem #000",
+                    borderColor: "black",
+                    // borderRadius: '5px',
+                  }}
+
+                >
+                  <Typography color="white" fontSize="18px" fontWeight="normal">
+                    <b className="discover">DISCOVER</b>
+                    Browse through our extensive library of podcasts to find
+                    something you love. We have a podcast for everyone.
+                  </Typography>
+                </Box>
+
+                <img
+
+                  src="http://blog.saude.mg.gov.br/wp-content/uploads/2018/02/banner_podcast_ciencia_2018.jpg"
+
+                  alt="headphones and mic"
+                  style={styles.lowerImage}
+                />
+              </Box>
+            </Box>
+          </Grid>
+        </Box>
         <Grid item xs={6} md={12} lg={12}>
           <Box
             className="boxColor"
@@ -188,111 +278,6 @@ export default function Home({}) {
             </Grid>
           </Box>
         </Grid>
-        <Box
-          className="boxCenter"
-          mt={10}
-          mb={10}
-          ml={20}
-          mr={20}
-          // sx={{
-          //   backgroundColor: '#17141d',
-          //   boxShadow: '-1rem 0 3rem #000',
-          //   border: 1,
-          //   borderColor: 'black',
-          //   borderRadius: '0px',
-          // }}
-        >
-          <Grid item xs={12} md={8} lg={12}>
-            <Box
-              className="boxCenter"
-
-              sx={{ width: "100%", height: "100%" }}
-            // ml={20}
-            // mr={100}
-            // mt={10}
-            // mb={10}
-            >
-              <Box className="flex">
-                <img
-                  src="http://blog.saude.mg.gov.br/wp-content/uploads/2018/02/banner_podcast_ciencia_2018.jpg"
-
-                  alt="headphones and mic"
-                  style={styles.lowerImage}
-                />
-
-                <Box
-                  className=""
-                  pl={1}
-                  component={Link}
-                  to="/publish"
-                  pr={1}
-                  sx={{
-                    backgroundColor: "#17141d",
-                    boxShadow: "-1rem 0 3rem #000",
-                    border: 1,
-                    borderColor: "black",
-                    // borderRadius: '5px',
-                  }}
-                >
-                  <Typography color="white" fontSize="18px" fontWeight="normal">
-                    <b className="publish">PUBLISH</b>
-                    Upload your own podcast in just a few easy steps. We take
-                    care of the hard parts so you can focus on making your best
-                    podcast.
-                  </Typography>
-                </Box>
-              </Box>
-
-              <Box sx={{ width: "47px" }}></Box>
-              <Box className="flex">
-                <Box
-                  className=""
-                  component={Link}
-                  to="/discover"
-                  pl={1}
-                  pr={1}
-
-                  sx={{
-                    backgroundColor: "#17141d",
-                    boxShadow: "-1rem 0 3rem #000",
-                    borderColor: "black",
-                    // borderRadius: '5px',
-                  }}
-
-                >
-                  <Typography color="white" fontSize="18px" fontWeight="normal">
-                    <b className="discover">DISCOVER</b>
-                    Browse through our extensive library of podcasts to find
-                    something you love. We have a podcast for everyone.
-                  </Typography>
-                </Box>
-
-                <img
-
-                  src="http://blog.saude.mg.gov.br/wp-content/uploads/2018/02/banner_podcast_ciencia_2018.jpg"
-
-                  alt="headphones and mic"
-                  style={styles.lowerImage}
-                />
-              </Box>
-            </Box>
-          </Grid>
-        </Box>
-        <Box
-          // ml={20}
-          // mr={20}
-          // mt={10}
-          p={1}
-          style={{
-            backgroundColor: "#17141d",
-            boxShadow: "-1rem 0 3rem #000",
-          }}
-          sx={{
-            height: "200px",
-            border: 1,
-            // borderRadius: '5px',
-          }}
-        ></Box>
       </Box>
     </Grid>
   );

@@ -60,7 +60,7 @@ export default function Cards(props) {
         image={props.image}
         alt="cover art"
       />
-      <a href={props.link}>
+      <a href={props.link} onClick={props.id}>
         <CardContent>
           <Typography
             gutterBottom
