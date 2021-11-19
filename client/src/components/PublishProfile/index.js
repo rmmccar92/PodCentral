@@ -25,7 +25,7 @@ const styles = {
 const PublishProfile = () => {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
-  const [episodes, setEpisodes] = useState(...userData.addedPodcast.episodes);
+  // const [episodes, setEpisodes] = useState(...userData.addedPodcast.episodes);
 
   const [formState, setFormState] = useState({
     title: "",
@@ -38,7 +38,6 @@ const PublishProfile = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // Works for now but should be changed to be dynamic
     const podcastImage = localStorage.getItem("podcastImage");
     // console.log(podcastImage);
     try {
