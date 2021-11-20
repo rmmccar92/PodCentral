@@ -19,7 +19,7 @@ PodCentral is a place for Podcast creators and listeners to collaborate, upload,
 ## Usage
 
 Video of Usage
-![Video of Usage]()
+![Video of Usage](https://github.com/rmmccar92/PodCentral/blob/main/assets/PC_demo.gif)
 
 ## License
 
@@ -29,6 +29,7 @@ Video of Usage
 
 - React
 - GraphQL
+- Material UI
 - JavaScript
 - CSS
 - Node.js
@@ -43,4 +44,4 @@ Video of Usage
 
 - [Ryan McCarthy](https://github.com/rmmccar92/) [:envelope:](rmmccar92@gmail.com)
 - [Brad Rollinson](https://github.com/likearollinson) [:envelope:](brad.w.rollinson@gmail.com)
-- [Joey Swafford](https://github.com/joeyswafford) [:envelope:]
+- [Joey Swafford](https://github.com/joeyswafford) [:envelope:](joey@swafford.co)
