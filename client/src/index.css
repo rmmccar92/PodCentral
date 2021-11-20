@@ -279,11 +279,16 @@ input:focus {
   justify-content: center;
 }
 
+.textShadow {
+  text-shadow: 2px 0 10px black;
+}
+
 .center1 {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
 }
+
 .wYl-font {
   font-size: 64px;
   font-weight: bold;
@@ -456,6 +461,15 @@ input:focus {
   transform: scale(1.1);
 }
 
+/* .hoverLeft {
+  transform: all 10s ease-in-out;
+}
+
+.hoverLeft:hover {
+  /* transition: all .5s ease; */
+/* transform: translateX(150px) */
+/* } */
+
 .likeButton {
   display: flex;
   justify-content: center;
@@ -474,6 +488,7 @@ input:focus {
   background-color: #17141d;
   transition: all 0.2s ease-in-out;
 }
+
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;

@@ -49,7 +49,7 @@ export default function Home({}) {
         <Grid item>
           <Box
             display="flex"
-            justifyContent="space-between"
+            // justifyContent="space-between"
             sx={{ height: 'auto' }}
           >
             <img
@@ -61,32 +61,65 @@ export default function Home({}) {
 
             <Box
               display="flex"
+              pt={3}
+              pl={3}
+              pr={3}
+              ml={24}
+              mt={10}
               justifyContent="center"
               alignItems="center"
               sx={{
-                // border: 1,
-                width: '760px',
-                height: 'auto',
+                border: 1,
+                width: '400px',
+                height: '400px',
+                border: 1,
+                borderColor: 'black',
+                backgroundColor: '#17141d',
+                boxShadow: '-1rem 0 3rem #000',
+                // borderRadius: '5px'
               }}
             >
               <Box sx={{ width: '500px' }}>
-                <Box mb={2} mt={5} display="flex" justifyContent="center">
-                  <Typography fontSize="60px" letterSpacing="2px">
+                <Box display="flex" justifyContent="center">
+                  <Typography
+                    fontSize="60px"
+                    letterSpacing="2px"
+                    color="white"
+                    color="#f5b727"
+                    fontWeight="lighter"
+                  >
                     Publish
                   </Typography>
                 </Box>
                 <Box mb={6}>
-                  <Typography fontSize="30px" fontWeight="lighter">
+                  <Typography
+                    // pt={4}
+                    className="textShadow"
+                    fontSize="28px"
+                    fontWeight="lighter"
+                    textAlign="center"
+                    color="white"
+                  >
                     Upload your own podcast in just a few easy steps. We take
                     care of the hard parts so you can focus on making your best
                     podcast.
                   </Typography>
-                  <Box mt={5} display="flex" justifyContent="center">
+                  <Box
+                    mt={4}
+                    display="flex"
+                    justifyContent="center"
+                    // sx={{ border: 1 }}
+                  >
                     <Button
+                      className="hoverLeft"
                       size="large"
                       component={Link}
                       to="/publish"
-                      sx={{ backgroundColor: '#f5b727' }}
+                      sx={{
+                        backgroundColor: '#f5b727',
+                        border: 1,
+                        borderColor: 'black',
+                      }}
                       variant="contained"
                     >
                       <Typography color="black" fontWeight="bold">
@@ -104,48 +137,89 @@ export default function Home({}) {
           <Box
             display="flex"
             justifyContent="space-between"
-            sx={{ height: 'auto' }}
+            sx={{ height: 'auto', border: 1 }}
           >
-            <Box
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              sx={{
-                // border: 1,
-                width: '760px',
-                height: 'auto',
-              }}
-            >
-              <Box sx={{ width: '500px' }}>
-                <Box mb={2} mt={5} display="flex" justifyContent="center">
-                  <Typography fontSize="50px" letterSpacing="1px">
-                    Discover
-                  </Typography>
-                </Box>
-                <Box mb={6}>
-                  <Typography fontSize="30px" fontWeight="lighter">
-                    Browse through our extensive library of podcasts to find something that you will love. We have a podcast for everybody.
-                  </Typography>
-                  <Box mt={5} display="flex" justifyContent="center">
-                    <Button
-                      size="large"
-                      component={Link}
-                      to="/discover"
-                      sx={{ backgroundColor: '#f5b727' }}
-                      variant="contained"
+            <Grid item>
+              <Box
+                // className="grow2"
+                display="flex"
+                pt={3}
+                pl={3}
+                pr={3}
+                ml={23}
+                mt={10}
+                // mb={10}
+                justifyContent="center"
+                alignItems="center"
+                sx={{
+                  border: 1,
+                  width: '400px',
+                  height: '400px',
+                  border: 1,
+                  borderColor: 'black',
+                  backgroundColor: '#17141d',
+                  boxShadow: '-1rem 0 3rem #000',
+                  // borderRadius: '5px'
+                }}
+              >
+                <Box sx={{ width: '500px' }}>
+                  <Box display="flex" justifyContent="center" mb={1}>
+                    <Typography
+                      fontSize="60px"
+                      letterSpacing="1px"
+                      color="white"
+                      fontWeight="lighter"
+                      color="#f5b727"
                     >
-                      <Typography color="black" fontWeight="bold">
-                        Discover
-                      </Typography>
-                    </Button>
+                      Discover
+                    </Typography>
+                  </Box>
+                  <Box pb={6} pt={1}>
+                    <Typography
+                      // pt={4}
+                      className="textShadow"
+                      fontSize="26px"
+                      fontWeight="lighter"
+                      textAlign="center"
+                      color="white"
+                      letterSpacing="1px"
+                    >
+                      Browse through our extensive library of podcasts to find
+                      something you love. We have a podcast for everyone.
+                    </Typography>
+                    <Box
+                      mt={3}
+                      pt={2}
+                      display="flex"
+                      justifyContent="center"
+                      // sx={{ border: 1 }}
+                    >
+                      <Button
+                        className="hoverLeft"
+                        size="large"
+                        component={Link}
+                        to="/discover"
+                        // mb={4}
+                        sx={{
+                          backgroundColor: '#f5b727',
+                          border: 1,
+                          borderColor: 'black',
+                        }}
+                        variant="contained"
+                      >
+                        <Typography color="black" fontWeight="bold">
+                          Discover
+                        </Typography>
+                      </Button>
+                    </Box>
                   </Box>
                 </Box>
               </Box>
-            </Box>
+            </Grid>
             <img
               src="https://ossacollective.com/wp-content/uploads/2019/08/Untitled-design-4-Edited.png"
               alt="podcast cover art"
-              height="100%"
+              height="565px"
               width="50%"
             ></img>
           </Box>
