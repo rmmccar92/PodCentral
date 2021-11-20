@@ -13,6 +13,14 @@ import FastRewindRounded from '@mui/icons-material/FastRewindRounded';
 import VolumeUpRounded from '@mui/icons-material/VolumeUpRounded';
 import VolumeDownRounded from '@mui/icons-material/VolumeDownRounded';
 
+const styles = {
+    alignItemsAndJustifyContent: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
+}
+
 const TogglePlay = audio => {
     const [playing, setPlaying] = useState(false);
 
@@ -138,8 +146,8 @@ const Player = (props) => {
     // console.log("audio time: ", audio.currentTime);
 
     return (
-        <Box flexGrow={1}>
-            <Widget>
+        <Box flexGrow={1} >
+            <Widget >
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <CoverImage>
                         <img

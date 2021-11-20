@@ -99,7 +99,7 @@ const PublishProfile = () => {
         </Typography>
       </Grow>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 3 }}>
-        <Grid item sm={12} md={6}>
+        <Grid item sm={12} md={6} direction="column" display="flex" justify="center">
           <Grow
             style={{ transformOrigin: "0 0 0" }}
             {...{ timeout: 2000 }}
@@ -265,7 +265,7 @@ const PublishProfile = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item sm={12} md={6}>
+        <Grid item sm={12} md={6} direction="column" display="flex" justify="center">
           <Grow
             style={{ transformOrigin: "0 0 0" }}
             {...{ timeout: 2000 }}
@@ -285,7 +285,7 @@ const PublishProfile = () => {
           </Grow>
           {episodeData.map((episode) => {
             return (
-              <Box flexGrow={1} key={episode._id} pt={3}>
+              <Box flexGrow={1} key={episode._id} pt={3} >
                 <Player
                   title={episode.title}
                   audio={episode.audio}
