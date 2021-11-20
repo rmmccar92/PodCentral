@@ -21,7 +21,9 @@ const styles = {
   },
 };
 
-export default function Home({}) {
+
+export default function Home() {
+
   return (
     <Grid container>
       <Box
@@ -56,7 +58,9 @@ export default function Home({}) {
             </Typography>
           </Box>
         </Grid>
+
         <Grid item xs={12} sm={12} md={12} lg={12}>
+
           <Box
             display="flex"
             // justifyContent="space-between"
@@ -69,6 +73,7 @@ export default function Home({}) {
               width="50%"
               sx={{ border: 1}}
             ></img>
+
             <Grid item xs={12} sm={12} md={12} lg={12}>
               <Box
                 display="flex"
@@ -120,6 +125,7 @@ export default function Home({}) {
                       display="flex"
                       justifyContent="center"
                       // sx={{ border: 1 }}
+
                     >
                       <Button
                         className="hoverLeft"
@@ -141,7 +147,9 @@ export default function Home({}) {
                   </Box>
                 </Box>
               </Box>
+
             </Grid>
+
           </Box>
         </Grid>
 

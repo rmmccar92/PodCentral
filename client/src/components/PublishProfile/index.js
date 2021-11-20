@@ -25,7 +25,7 @@ const styles = {
 const PublishProfile = () => {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
-  const [episodes, setEpisodes] = useState(...userData.addedPodcast.episodes);
+  // const [episodes, setEpisodes] = useState(...userData.addedPodcast.episodes);
 
   const [formState, setFormState] = useState({
     title: "",
@@ -38,7 +38,6 @@ const PublishProfile = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // Works for now but should be changed to be dynamic
     const podcastImage = localStorage.getItem("podcastImage");
     // console.log(podcastImage);
     try {
@@ -52,12 +51,8 @@ const PublishProfile = () => {
             audio: podcastImage,
           },
         },
-      }).then(() => setEpisodes([...episodes, data]));
-      // const episodesData = data;
-      // setEpisodes(...episodes, episodesData);
-      // console.log(episodes);
-      // console.log(data);
-      // window.location.reload();
+      });
+      window.location.reload();
     } catch (err) {
       console.log(err);
     }
@@ -73,9 +68,9 @@ const PublishProfile = () => {
 
   const podcastData = Object.values(userData.addedPodcast);
 
-  const podcastImage = podcastData[4]
-  const podcastName = podcastData[2]
-  const episodeData = userData.addedPodcast.episodes
+  const podcastImage = podcastData[4];
+  const podcastName = podcastData[2];
+  const episodeData = userData.addedPodcast.episodes;
 
   if (loading) return <p>Loading...</p>;
   return (
@@ -294,14 +289,13 @@ const PublishProfile = () => {
                   episodeNum={episode.episode}
                   image={podcastImage}
                   podcastName={podcastName}
-
                 />
               </Box>
             );
           })}
         </Grid>
-      </Grid >
-    </Box >
+      </Grid>
+    </Box>
   );
 };
 
