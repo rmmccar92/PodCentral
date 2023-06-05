@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Episode 1",
+    "description": "Episode 1 description",
+    "audio": "https://res.cloudinary.com/ryanmcc/video/upload/v1637340167/my_folder/x7cqzaqbxm50shrdgxhq.mp3",
+    "duration": 60,
+    "season": 1,
+    "episode": 1
+  },
+  {
+    "title": "Episode 2",
+    "description": "Episode 2 description",
+    "audio": "https://res.cloudinary.com/ryanmcc/video/upload/v1637340167/my_folder/x7cqzaqbxm50shrdgxhq.mp3",
+    "duration": 60,
+    "season": 1,
+    "episode": 2
+  },
+  {
+    "title": "Spooky",
+    "description": "Spooky description",
+    "audio": "https://res.cloudinary.com/ryanmcc/video/upload/v1637340167/my_folder/x7cqzaqbxm50shrdgxhq.mp3",
+    "duration": 60,
+    "season": 1,
+    "episode": 12
+  },
+  {
+    "title": "Episode Episode",
+    "description": "Episode Episode description",
+    "audio": "https://res.cloudinary.com/ryanmcc/video/upload/v1637340167/my_folder/x7cqzaqbxm50shrdgxhq.mp3",
+    "duration": 60,
+    "season": 1,
+    "episode": 4
+  },
+  {
+    "title": "Horse",
+    "description": "Horse description",
+    "audio": "https://res.cloudinary.com/ryanmcc/video/upload/v1637340167/my_folder/x7cqzaqbxm50shrdgxhq.mp3",
+    "duration": 60,
+    "season": 5,
+    "episode": 11
+  }
+]
