@@ -2,7 +2,7 @@
 
 [Repository Link](https://github.com/rmmccar92/PodCentral)
 
-[Deployment Link](https://pod-central.herokuapp.com/)
+[Deployment Link](https://pod-central.onrender.com/)
 
 ## Table of Contents
 
