@@ -32,6 +32,7 @@ const PublishNewPodcast = () => {
           input: { ...formState, image: podcastImage },
         },
       });
+      console.log(data);
       window.location.reload();
     } catch (err) {
       console.log(err);

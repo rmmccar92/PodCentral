@@ -6,19 +6,6 @@ import Button from "@mui/material/Button";
 
 import podcastLogo from "../assets/Neon-podcast-logo.jpg";
 
-const styles = {
-  podcastLogo: {
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: "150px",
-  },
-  lowerImage: {
-    display: "block",
-    width: "150px",
-  },
-};
-
 export default function Home() {
   return (
     <Grid container>
@@ -83,7 +70,6 @@ export default function Home() {
                   border: 1,
                   width: "400px",
                   height: "400px",
-                  border: 1,
                   borderColor: "black",
                   backgroundColor: "#17141d",
                   boxShadow: "-1rem 0 3rem #000",

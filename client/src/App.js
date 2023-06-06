@@ -96,7 +96,6 @@ function App() {
             <Route exact path="/allCategories" element={<AllCategories />} />
             <Route element={NoMatch} />
           </Routes>
-          {/* <cloudinaryWidget /> */}
         </PodCentralProvider>
       </ApolloProvider>
     </ThemeProvider>

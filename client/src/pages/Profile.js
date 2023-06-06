@@ -16,21 +16,7 @@ import PropTypes from "prop-types";
 import { useTheme } from "@mui/material/styles";
 // import SwipeableViews from "react-swipeable-views";
 
-const styles = {
-  logo: {
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: "125px",
-  },
-  spaceLogo: {
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: "190px",
-  },
-};
-function TabPanel(props) {
+const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
 
   return (
@@ -48,7 +34,7 @@ function TabPanel(props) {
       )}
     </div>
   );
-}
+};
 
 TabPanel.propTypes = {
   children: PropTypes.node,
@@ -71,9 +57,9 @@ const Profile = () => {
     setValue(newValue);
   };
 
-  const handleChangeIndex = (index) => {
-    setValue(index);
-  };
+  // const handleChangeIndex = (index) => {
+  //   setValue(index);
+  // };
   const { loading, data } = useQuery(GET_ME);
   const me = data?.me || [];
   // const [userData, setUserData] = useState(

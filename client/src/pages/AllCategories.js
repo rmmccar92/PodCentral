@@ -1,7 +1,6 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import CategoryCard from '../components/CategoryCard';
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import CategoryCard from "../components/CategoryCard";
 
 export default function AllCategories({
   categoryName,
@@ -29,10 +28,10 @@ export default function AllCategories({
       <Box
         className="boxColor"
         sx={{
-          width: 'auto',
-          pt: '100px',
-          pl: '50px',
-          pr: '50px',
+          width: "auto",
+          pt: "100px",
+          pl: "50px",
+          pr: "50px",
         }}
       >
         <Grid
@@ -40,7 +39,7 @@ export default function AllCategories({
           direction="row"
           justifyContent="space-between"
           alignItems="center"
-          sx={{ ml: '35px', mb: '20px' }}
+          sx={{ ml: "35px", mb: "20px" }}
         >
           <p className="categories">All Categories</p>
         </Grid>
@@ -51,7 +50,7 @@ export default function AllCategories({
           direction="row"
           justifyContent="space-evenly"
           alignItems="center"
-          sx={{ pb: '75px', pl: '50px', pr: '50px' }}
+          sx={{ pb: "75px", pl: "50px", pr: "50px" }}
         >
           <Grid item xs={12} md={8} lg={2}>
             <CategoryCard />
@@ -76,7 +75,7 @@ export default function AllCategories({
           direction="row"
           justifyContent="space-evenly"
           alignItems="center"
-          sx={{ pb: '75px', pl: '50px', pr: '50px' }}
+          sx={{ pb: "75px", pl: "50px", pr: "50px" }}
         >
           <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />
@@ -101,7 +100,7 @@ export default function AllCategories({
           direction="row"
           justifyContent="space-evenly"
           alignItems="center"
-          sx={{ pb: '100px', pl: '50px', pr: '50px' }}
+          sx={{ pb: "100px", pl: "50px", pr: "50px" }}
         >
           <Grid item xs={12} md={6} lg={2}>
             <CategoryCard />

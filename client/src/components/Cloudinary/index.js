@@ -38,3 +38,28 @@
 // };
 
 // export default CloudinaryWidget;
+import { useEffect, useRef } from "react";
+
+const CloudinaryWidget = () => {
+  const cloudinaryRef = useRef(null);
+  const widgetRef = useRef(null);
+  useEffect(() => {
+    cloudinaryRef.current = window.cloudinary;
+    widgetRef.current = cloudinaryRef.current.createUploadWidget(
+      {
+        cloudName: "ryanmcc",
+        uploadPreset: "us_upload",
+      },
+      (error, result) => {
+        console.log(result);
+        if (error) {
+          console.log(error);
+        }
+      }
+    );
+  }, []);
+
+  return <button onClick={() => widgetRef.current.open()}>Upload</button>;
+};
+
+export default CloudinaryWidget;

@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -9,7 +8,7 @@ import { ThemeProvider } from "@emotion/react";
 import { useState, useEffect } from "react";
 import Cards from "../components/Cards";
 import CategoryCard from "../components/CategoryCard";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 // import { getPodcastIds, savePodcastIds } from "../utils/localStorage";
 // import Auth from "../utils/auth";
 // import { LIKE_PODCAST } from "../utils/mutations";
@@ -32,7 +31,7 @@ const theme = createTheme({
 });
 
 const Discover = () => {
-  const { loading2, data } = useQuery(QUERY_ALL_PODCASTS);
+  const { data } = useQuery(QUERY_ALL_PODCASTS);
   const podcastsData = data?.podcasts || [];
 
   const [popularPodcastData, setPodcastData] = useState("");
