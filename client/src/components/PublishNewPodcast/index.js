@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import Grid from "@mui/material/Grid";
@@ -21,11 +20,11 @@ const PublishNewPodcast = () => {
     image: "",
   });
   const [addPodcast] = useMutation(ADD_PODCAST);
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     const podcastImage = localStorage.getItem("podcastImage");
     // console.log(podcastImage);
+
     try {
       const { data } = await addPodcast({
         variables: {

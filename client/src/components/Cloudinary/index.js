@@ -49,9 +49,13 @@ const CloudinaryWidget = () => {
       {
         cloudName: "ryanmcc",
         uploadPreset: "us_upload",
+        sources: ["local", "url", "camera", "image_search"],
       },
       (error, result) => {
-        console.log(result);
+        console.log("RESULT", result);
+        if (result.event === "success") {
+          localStorage.setItem("podcastImage", result.info.secure_url);
+        }
         if (error) {
           console.log(error);
         }

@@ -15,5 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "concurrently": "^8.1.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.0-placeholder-for-preset-env.1"
   }
 }
